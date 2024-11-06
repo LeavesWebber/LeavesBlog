@@ -11,13 +11,13 @@
 # Docs: https://redefine-docs.ohevan.com/basic/info
 info:
   # Site title
-  title: Theme Redefine
+  title: 叶子的blog
   # Site subtitle
-  subtitle: Redefine Your Hexo Journey.
+  subtitle: 无限进步
   # Author name
-  author: The Redefine Team
+  author: LeavesWebber
   # Site URL
-  url: https://redefine.ohevan.com
+  url: https://leavesblog.netlify.app/
 # BASIC INFORMATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
@@ -25,11 +25,11 @@ info:
 # Docs: https://redefine-docs.ohevan.com/basic/defaults
 defaults:
   # Favicon
-  favicon: /images/redefine-favicon.svg
+  favicon: https://www.emojiall.com/en/header-svg/%F0%9F%8D%83.svg
   # Site logo
-  logo:
+  logo: https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&h=202&c=7&r=0&o=5&pid=1.7
   # Site avatar
-  avatar: /images/redefine-avatar.svg
+  avatar: https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B5%8B%E8%AF%95%E5%9B%BE1.png
 # IMAGE CONFIGURATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
@@ -72,10 +72,10 @@ global:
   # Effects on mouse hover
   hover:
     shadow: true # shadow effect
-    scale: false # scale effect
+    scale: true # scale effect
   # Scroll progress
   scroll_progress:
-    bar: false # progress bar
+    bar: true # progress bar
     percentage: true # percentage
   # Website counter
   website_counter:
@@ -88,9 +88,8 @@ global:
   single_page: true
   # Whether to enable Preloader.
   preloader:
-    enable: false
-    custom_message: # Custom message. If empty, the site title will be displayed
-  # Whether to enable open graph
+    enable: true
+    custom_message: “不如意事常八九，能与人言无二三”
   open_graph: true
   # Google Analytics
   google_analytics:
@@ -105,7 +104,7 @@ fontawesome: # Pro v6.2.1
   # Thin version
   thin: false
   # Light version
-  light: false
+  light: true
   # Duotone version
   duotone: false
   # Sharp Solid version
@@ -122,13 +121,13 @@ home_banner:
   style: fixed # static or fixed
   # Home banner image
   image:
-    light: /images/wallhaven-wqery6-light.webp # light mode
-    dark: /images/wallhaven-wqery6-dark.webp # dark mode
+    light: https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/DSC00798%20(%E8%87%AA%E5%AE%9A%E4%B9%89).JPG # light mode
+    dark: https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/DSC00798%20(%E8%87%AA%E5%AE%9A%E4%B9%89).JPG # dark mode
   # Home banner title
-  title: Theme Redefine
+  title: 叶子のblog
   # Home banner subtitle
   subtitle:
-    text: [] # subtitle text, array
+    text: ["黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。"] # subtitle text, array
     hitokoto:  # 一言配置
       enable: false # Whether to enable hitokoto
       show_author: false # Whether to show author
@@ -162,16 +161,13 @@ home_banner:
   # Home banner social links
   social_links:
     # Whether to enable
-    enable: false
+    enable: true
     # Social links style
     style: default # default, reverse, center
     # Social links
     links:
-      github:  # your GitHub URL
-      instagram: # your Instagram URL
-      zhihu:  # your ZhiHu URL
-      twitter:  # your twitter URL
-      email:  # your email
+      github: https://github.com/LeavesWebber
+      fa-regular fa-envelope: leaveswebber@outlook.com
       # ...... # you can add more
     # Social links with QRcode drawers
     qrs:
