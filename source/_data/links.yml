@@ -1,0 +1,22 @@
+- links_category: 过路侠客
+  has_thumbnail: true
+  list:
+    - name: ZJHCOFI
+      link: https://zjhcofi.com/
+      description: ZJHCOFI's SPACE
+      avatar: https://zjhcofi.com/img/avatar.png
+      thumbnail: https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20241106141315.png
+
+- links_category: 友商
+  has_thumbnail: false
+  list:
+    - name: 锦辉智能科技
+      link: http://www.jh90.com/
+      description: 以务实为本，提供现代化安防解决方案
+      avatar: https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20241106140732.png
+      thumbnail: http://www.jh90.com/images/logo.png
+    - name: 星云数据
+      link: https://www.starvps.cn/?ib20186
+      description: 诚信的00后老板，实惠的vps服务
+      avatar: https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/favicon.ico
+      thumbnail: https://www.starvps.cn/skin/skyblue/images/logo.png
