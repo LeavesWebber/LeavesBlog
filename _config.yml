@@ -102,6 +102,6 @@ theme: landscape
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: <repository url> # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
-  branch: [branch]
+  repo: https://github.com/LeavesWebber/LeavesBlog.git # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  branch: main
   message: [message]
