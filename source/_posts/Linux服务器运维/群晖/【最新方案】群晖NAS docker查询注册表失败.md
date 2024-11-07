@@ -2,13 +2,16 @@
 categories:
   - Linux服务器运维
   - 群晖
-title: 【最新方案】群晖NAS docker查询注册表失败
+title: 【最新方案】群晖NAS Docker查询注册表失败
 tags:
   - 运维
   - 群晖
   - docker
-date:
-updated:
+date: 
+updated: 
+sticky: 8
+excerpt: Docker源的问题对于运维人员不值一提，但对于只会用群晖NAS而不懂太多shell指令的人就会显得十分头疼
+thumbnail: "https://pic1.zhimg.com/v2-936539708648e6021a687c2f897896f4_r.jpg"
 ---
 这个问题是由于docker hub在大陆因为某些政治原因被墙了，导致官方镜像源失效。然而虽然这个可视化界面用不了，你仍然可以通过PuTTY 远程ssh连接服务器，然后用命令行拉取镜像，这是一种平替办法。操作步骤如下
 # 1.在控制中心打开群晖SSH服务

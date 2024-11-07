@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Leaves&#39; Blog">
+    
+    <meta name="author" content="LeavesWebber">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://leavesblog.netlify.app/2024/11/07/我的世界/服务器备忘日志/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="我在运维MC服务器时做的一些记录，具有一定参考价值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MC服务器运维日志">
+<meta property="og:url" content="https://leavesblog.netlify.app/2024/11/07/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%87%E5%BF%98%E6%97%A5%E5%BF%97/index.html">
+<meta property="og:site_name" content="欢迎来到叶子的博客">
+<meta property="og:description" content="我在运维MC服务器时做的一些记录，具有一定参考价值">
+<meta property="og:locale">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/2024-08-07_12.01.40.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/2024-08-07_12.02.18.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240807121700.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240827223002.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240827223015.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240827223033.png">
+<meta property="article:published_time" content="2024-11-07T06:40:48.258Z">
+<meta property="article:modified_time" content="2024-11-07T10:42:07.702Z">
+<meta property="article:author" content="Leaves Webber">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="Minecraft">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/2024-08-07_12.01.40.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7">
+    <meta name="theme-color" content="#1DE9B6">
+    <link rel="shortcut icon" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&h=202&c=7&r=0&o=5&pid=1.7">
+    <!--- Page Info-->
+    
+    <title>
+        
+            MC服务器运维日志 | 叶子的Blog
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"leavesblog.netlify.app","root":"/","language":"zh","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#1DE9B6","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"“Leaves' Blog”"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/192110-1568028070e1cc.jpg","dark":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106201246.jpg"},"title":"叶子のBlog","subtitle":{"text":["黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#2C3E50","dark":"#003366"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/LeavesWebber","instagram":null,"zhihu":null,"twitter":null,"email":null,"fa-solid fa-envelope":"mailto:leaveswebber@outlook.com","bilibili":"https://space.bilibili.com/515054976"},"qrs":{"weixin":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106122958.jpg"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.3","navbar":{"auto_hide":false,"color":{"left":"#B0E0E6","right":"#F4A460","transparency":7},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"分类":{"icon":"fa-solid fa-folder-tree","path":"/categories/"},"标签":{"icon":"fa-solid fa-tags","path":"/tags/"},"记忆":{"icon":"fa-solid fa-camera","path":"/masonry/"},"相遇":{"icon":"fa-solid fa-link","path":"/links/"},"关于我":{"icon":"fa-solid fa-address-card","path":"/me/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"用更多的了解跨越隔阂与偏见","show_on_mobile":true,"links":{"进一步了解我？":{"icon":"fa-solid fa-address-card","path":"/me/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":true};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+        
+<link rel="stylesheet" href="/fontawesome/duotone.min.css">
+
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+
+    <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        “Leaves&#39; Blog”
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container flex flex-col justify-between min-h-dvh">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="https://www.emojiall.com/en/header-svg/%F0%9F%8D%83.svg" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                叶子的Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder-tree fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/masonry/"
+                                        >
+                                    <i class="fa-solid fa-camera fa-fw"></i>
+                                    记忆
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/links/"
+                                        >
+                                    <i class="fa-solid fa-link fa-fw"></i>
+                                    相遇
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/me/"
+                                        >
+                                    <i class="fa-solid fa-address-card fa-fw"></i>
+                                    关于我
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-solid fa-folder-tree fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/masonry/"
+                        >
+                            <span>
+                                记忆
+                            </span>
+                            
+                                <i class="fa-solid fa-camera fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/links/"
+                        >
+                            <span>
+                                相遇
+                            </span>
+                            
+                                <i class="fa-solid fa-link fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/me/"
+                        >
+                            <span>
+                                关于我
+                            </span>
+                            
+                                <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/me/"
+                        >
+                            <span>进一步了解我？</span>
+                            <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">53</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">38</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">140</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                
+                
+                <img src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/2024-08-07_12.01.40.png" alt="MC服务器运维日志" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                
+                <div class="w-full flex items-center absolute bottom-0 justify-start">
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">MC服务器运维日志</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B5%8B%E8%AF%95%E5%9B%BE1.png">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">LeavesWebber</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-11-07 14:40:48</span>
+        <span class="mobile">2024-11-07 14:40:48</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-11-07 18:42:07</span>
+            <span class="mobile">2024-11-07 18:42:07</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/">我的世界</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Minecraft/">Minecraft</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h1 id="Mods-Wishlist"><a href="#Mods-Wishlist" class="headerlink" title="Mods Wishlist"></a>Mods Wishlist</h1><blockquote>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Farmer’s delight（农夫乐事）</li>
+<li><input checked="" disabled="" type="checkbox"> what are they up to</li>
+<li><input disabled="" type="checkbox"> lootr</li>
+<li><input disabled="" type="checkbox"> The Aether</li>
+<li><input disabled="" type="checkbox"> The Twilight Forest</li>
+<li><input disabled="" type="checkbox"> YUNG’s Better</li>
+<li><input disabled="" type="checkbox"> Straw Golem Rebaled</li>
+<li><input disabled="" type="checkbox"> Immersive Aircraft</li>
+<li><input checked="" disabled="" type="checkbox"> Night Lights <a class="link"   target="_blank" rel="noopener" href="https://legacy.curseforge.com/minecraft/mc-mods/nightlights" >Night Lights - Mods - Minecraft - CurseForge <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><input disabled="" type="checkbox"> Winter Overhaul <a class="link"   target="_blank" rel="noopener" href="https://www.curseforge.com/minecraft/mc-mods/winter-overhaul" >Winter Overhaul - Minecraft Mods - CurseForge <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>#</li>
+<li><input checked="" disabled="" type="checkbox"> Lookin’ Sharp <a class="link"   target="_blank" rel="noopener" href="https://legacy.curseforge.com/minecraft/mc-mods/lookin-sharp" >Lookin’ Sharp - Mods - Minecraft - CurseForge <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><input disabled="" type="checkbox"> Critters and Companions <a class="link"   target="_blank" rel="noopener" href="https://www.curseforge.com/minecraft/mc-mods/critters-and-companions" >Critters and Companions - Minecraft Mods - CurseForge <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><input checked="" disabled="" type="checkbox"> Creeper Overhaul <a class="link"   target="_blank" rel="noopener" href="https://www.curseforge.com/minecraft/mc-mods/creeper-overhaul" >Creeper Overhaul - Minecraft Mods - CurseForge <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><input disabled="" type="checkbox"> Weather, Storms &amp; Tornadoes <a class="link"   target="_blank" rel="noopener" href="https://www.curseforge.com/minecraft/mc-mods/weather-storms-tornadoes" >Weather, Storms &amp; Tornadoes - Minecraft Mods - CurseForge <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+</ul>
+</blockquote>
+<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><h2 id="2024年8月7日"><a href="#2024年8月7日" class="headerlink" title="2024年8月7日"></a>2024年8月7日</h2><h3 id="一、新增mods"><a href="#一、新增mods" class="headerlink" title="一、新增mods"></a>一、新增mods</h3><ol>
+<li><p>BiomesOPlenty<br>这是个大型mods，引入了新的BGM原声合集。它为 主世界、末地、下界 添加了一系列新的、独特的生物群落！为了配合新的生物群落，它引入了新的植物、花卉、树木、方块。<br>&#x3D;&#x3D;前置模组&#x3D;&#x3D;：<code>glitchcore</code>，<code>TerraBlender</code></p>
+</li>
+<li><p>villagernames<br>每个村民都有属于自己的，独一无二的名字。从今天开始，每一个NPC都是独特的<br>&#x3D;&#x3D;前置模组&#x3D;&#x3D;：<code>collective</code></p>
+</li>
+<li><p>connectivity<br>提升了连接稳定性，尤其是数据包过大时，减少连接失败的情况<br>&#x3D;&#x3D;前置模组&#x3D;&#x3D;：<code>cupboard</code></p>
+</li>
+<li><p>What Are They Up To<br>你能看到其他玩家挂机的时候在干嘛，如下图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/2024-08-07_12.01.40.png"
+                      alt="2024-08-07_12.01.40.png"
+                >该玩家在用物品栏<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/2024-08-07_12.02.18.png"
+                      alt="2024-08-07_12.02.18.png"
+                ><br>该玩家在打字<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240807121700.png"
+                      alt="image.png"
+                ><br>该玩家已经挂机超过5分钟<br> &#x3D;&#x3D;前置模组&#x3D;&#x3D;：<code>coroutil</code></p>
+</li>
+<li><p>FallingTree<br>有了刷树机后，大部分玩家已经不再砍树。为了优化探索玩家的交互体验，引入了一键砍树，但是已经在内部被改为（仅掉落方块模式），在砍树体验和动画被优化的同时，并不会改变获得相同木材需要的时间</p>
+</li>
+<li><p>Clumps<br>优化了经验球的堆积逻辑，减少生电玩家刷出大量堆积物时，对服务器性能的影响</p>
+</li>
+<li><p>smoothchunk<br>玩家已经探索过的世界会被即时转存到硬盘，减少了约11%的RAM占用<br>&#x3D;&#x3D;前置模组&#x3D;&#x3D;：<code>cupboard</code></p>
+</li>
+<li><p>spark<br>提供一系列分析工具，服主能更好的掌握每个玩家对性能的影响情况，并评估玩家行为对性能的影响</p>
+</li>
+</ol>
+<h3 id="二、权限变更"><a href="#二、权限变更" class="headerlink" title="二、权限变更"></a>二、权限变更</h3><ol>
+<li>最大同时在线玩家数限制在12人，超过则无法进入服务器</li>
+<li>玩家进入世界时默认游戏难度将变更为困难</li>
+</ol>
+<h2 id="2024年8月21日"><a href="#2024年8月21日" class="headerlink" title="2024年8月21日"></a>2024年8月21日</h2><h3 id="一、新增mods-1"><a href="#一、新增mods-1" class="headerlink" title="一、新增mods"></a>一、新增mods</h3><ol>
+<li>wthit<br>玩家光标对着生物或方块时，能显示其基本信息<br>&#x3D;&#x3D;前置模组&#x3D;&#x3D;：<code>（fa&amp;&amp;fo通讯）badpackets</code></li>
+</ol>
+<h3 id="二、回档"><a href="#二、回档" class="headerlink" title="二、回档"></a>二、回档</h3><p>由于服务器内玩家的物品丢失，经讨论决定回档至8月16日</p>
+<h2 id="2024年8月21日-1"><a href="#2024年8月21日-1" class="headerlink" title="2024年8月21日"></a>2024年8月21日</h2><blockquote>
+<p>参考大多数玩家建议，降低了游戏版本，开了新档</p>
+</blockquote>
+<h3 id="一、主要的服务端mod"><a href="#一、主要的服务端mod" class="headerlink" title="一、主要的服务端mod"></a>一、主要的服务端mod</h3><ol>
+<li><p>carryon<br>把各种东西抱来抱去</p>
+</li>
+<li><p>comforts<br>各种新的吊床</p>
+</li>
+<li><p>FallingTree<br>砍树优化，我已经修改了配置文件让树以方块掉落，不会让你们显得太过于作弊</p>
+</li>
+<li><p>farmers-delight<br>农夫乐事模组，能炒菜，各种厨具，还有各种烹饪配方</p>
+</li>
+<li><p>refurbished_furniture<br>最受欢迎的家具模组。建筑党狂喜</p>
+</li>
+<li><p>smallships<br>参考DdDmowang的建议加的玩意，能造出各种船，还能给船加主炮</p>
+</li>
+<li><p>Structory<br>各种新的结构，比如墓地，优化后的丛林遗迹等等，里面藏着各种宝箱。这种体验的快乐是原版跟着藏宝图找宝箱的百倍</p>
+</li>
+<li><p>tabtps<br>在服务器里使用<code>/mspt</code>命令可以看看服务器性能和延迟，这样你就知道是你卡还是服务器卡</p>
+</li>
+<li><p>Towns-and-Towers<br>掠夺者前哨塔史诗级优化，村民也有了自己的塔楼</p>
+</li>
+<li><p>villagernames<br>每个村民都有了独属于自己的名字</p>
+</li>
+<li><p>watut<br>别的玩家定着不动的时候你能看到他在干嘛。如果其挂机超过五分钟，你能在tab面板看到Zzz的瞌睡图标</p>
+</li>
+<li><p>Xaeros_Minimap<br>小地图，但是却装在了服务器上。旨在让你们把你们发现的好地方的坐标快捷的分享给其他玩家，游戏内按U键使用</p>
+</li>
+</ol>
+<h3 id="二、权限公示"><a href="#二、权限公示" class="headerlink" title="二、权限公示"></a>二、权限公示</h3><p>赞助过的玩家（获得满员进服权）列表如下：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">yftxzyxbb</span><br><span class="line"></span><br><span class="line">mllimao</span><br><span class="line"></span><br><span class="line">FishMaster0CN</span><br><span class="line"></span><br><span class="line">DdDmowang</span><br><span class="line"></span><br><span class="line">Q114514Y</span><br><span class="line"></span><br><span class="line">1Nightmare11</span><br><span class="line"></span><br><span class="line">QAQstone</span><br><span class="line"></span><br><span class="line">wead1314</span><br><span class="line"></span><br><span class="line">checheuuuu121</span><br><span class="line"></span><br><span class="line">Azure_87</span><br><span class="line"></span><br><span class="line">SuanMeiTTZ</span><br><span class="line"></span><br><span class="line">mobaiormoran</span><br><span class="line"></span><br><span class="line">LNCY10086</span><br><span class="line"></span><br><span class="line">hhpqh</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="2024年8月23日"><a href="#2024年8月23日" class="headerlink" title="2024年8月23日"></a>2024年8月23日</h2><h3 id="一、新增mods-2"><a href="#一、新增mods-2" class="headerlink" title="一、新增mods"></a>一、新增mods</h3><ol>
+<li><p>DungeonsArise<br>模组名中文可译为万龙崛起，模组引入了超过30种新的结构可供探索<br>前置Mod: <code>cloth config</code></p>
+</li>
+<li><p>endermanoverhaul<br>新加了20多种不同的末影人和末影珍珠，尝试击杀稀有末影人获得强力的末影珍珠吧！<br><em>一些稀有的珍珠：</em><br>远古珍珠 - 从末日群岛掉落的末影人，并召唤宠物末影人，这将为玩家而战，右键单击时可以召回。<br>绯红珍珠 - 从深红色末影人身上掉落，落地时以力量影响玩家。<br>冰冷的珍珠 - 从冰刺中掉落的末影人，并在着陆时冻结附近的敌人。<br>此外，还增加了一些<em>风格迥异的兜帽</em><br>前置mod: <code>geckolib</code>，<code>resourcefulconfig</code>，<code>resourcefullib</code></p>
+</li>
+<li><p>Explorify<br>极大丰富了地牢结构</p>
+</li>
+</ol>
+<h3 id="二、BUG修复"><a href="#二、BUG修复" class="headerlink" title="二、BUG修复"></a>二、BUG修复</h3><p>通过使用indium，恢复falling tree（一键砍树），解决了客户端频繁崩溃的问题</p>
+<h2 id="2024年8月24日"><a href="#2024年8月24日" class="headerlink" title="2024年8月24日"></a>2024年8月24日</h2><h3 id="新增mods"><a href="#新增mods" class="headerlink" title="新增mods"></a>新增mods</h3><ol>
+<li><p>xercamusic<br>给mc添加了一系列乐器，还能从外部导入自己编写好的乐谱和大家一起演奏。这个模组的音轨专业程度较高，值得探索很久</p>
+</li>
+<li><p>automobility<br>加了一系列载具，合成办法可以在JEI面板看见</p>
+</li>
+<li><p>ServerRepaly<br>能以任意视角重放所有玩家的行为，更新这个mod致力于打击客户端外挂</p>
+</li>
+</ol>
+<h2 id="2024年8月27日"><a href="#2024年8月27日" class="headerlink" title="2024年8月27日"></a>2024年8月27日</h2><h3 id="新增mods-1"><a href="#新增mods-1" class="headerlink" title="新增mods"></a>新增mods</h3><ol>
+<li><p>creeperoverhaul<br>各群系的苦力怕长得会各不相同，有的会比之前更友好一点，此mod的作者和末影人革新mod作者为同一人</p>
+</li>
+<li><p>lookinsharp<br>添加了 60 种新的近战武器<br>锻造玩法：这些武器都可以通过新的锻造站块获得。制作新武器后，它们将获得一个随机的稀有度等级。<br>神器探索：探索过程中击杀各种生物有概率掉落神器，能应用于现有武器</p>
+</li>
+<li><p>nightlights<br>添加了特别多的各种装饰光源，从仙女灯到夜灯</p>
+</li>
+<li><p>Chimes<br>加了各种风铃，除了装饰，这玩意能防治幻翼（虽然我觉得比较影响平衡，但是鉴于幻翼本身就是个毫无交互体验的粪怪，所以加之）</p>
+</li>
+<li><p>Ribbits<br>新增小青蛙村民和小青蛙村庄（可爱诺），但是这玩意估测对服务端性能影响极大，还请不要大肆繁殖或者搞一堆带回家<br>前置模组：<code>YungsApi</code>,<code>geckolib</code>,<code>cloth-config</code></p>
+</li>
+<li><p>friendsandfoes<br>把历代MC投票中被落选的生物带回来了，这些生物都有极高的原版风格，这个和服主对于原版体验的追求相吻合。<br>一些生物列举如下：<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240827223002.png"
+                      alt="image.png"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240827223015.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240827223033.png"
+                      alt="image.png"
+                ></p>
+</li>
+</ol>
+<p>这些生物感觉都挺不错的，铜傀儡能让玩家一直不要的铜变废为宝，恶棍（可爱捏）也让挖矿变得除了阴暗以外还妙趣横生</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> MC服务器运维日志</li>
+        <li><strong>作者:</strong> LeavesWebber</li>
+        <li><strong>创建于
+                :</strong> 2024-11-07 14:40:48</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-11-07 18:42:07
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://leavesblog.netlify.app/2024/11/07/我的世界/服务器备忘日志/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E8%BF%90%E7%BB%B4/">#运维</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Minecraft/">#Minecraft</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/11/07/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/%E6%B8%B8%E6%88%8F%E7%8E%A9%E6%B3%95/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">MC食谱和玩法备忘</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/11/07/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E5%90%88%E9%9B%86/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">MC安装报错问题合集</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">目录</div>
+        <div class="page-title">MC服务器运维日志</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mods-Wishlist"><span class="nav-text">Mods Wishlist</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="nav-text">更新日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2024%E5%B9%B48%E6%9C%887%E6%97%A5"><span class="nav-text">2024年8月7日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%96%B0%E5%A2%9Emods"><span class="nav-text">一、新增mods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4"><span class="nav-text">二、权限变更</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2024%E5%B9%B48%E6%9C%8821%E6%97%A5"><span class="nav-text">2024年8月21日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%96%B0%E5%A2%9Emods-1"><span class="nav-text">一、新增mods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9B%9E%E6%A1%A3"><span class="nav-text">二、回档</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2024%E5%B9%B48%E6%9C%8821%E6%97%A5-1"><span class="nav-text">2024年8月21日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%B8%BB%E8%A6%81%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%AB%AFmod"><span class="nav-text">一、主要的服务端mod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%9D%83%E9%99%90%E5%85%AC%E7%A4%BA"><span class="nav-text">二、权限公示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2024%E5%B9%B48%E6%9C%8823%E6%97%A5"><span class="nav-text">2024年8月23日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%96%B0%E5%A2%9Emods-2"><span class="nav-text">一、新增mods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81BUG%E4%BF%AE%E5%A4%8D"><span class="nav-text">二、BUG修复</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2024%E5%B9%B48%E6%9C%8824%E6%97%A5"><span class="nav-text">2024年8月24日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%A2%9Emods"><span class="nav-text">新增mods</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2024%E5%B9%B48%E6%9C%8827%E6%97%A5"><span class="nav-text">2024年8月27日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%A2%9Emods-1"><span class="nav-text">新增mods</span></a></li></ol></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">LeavesWebber</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 140 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.7.3</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+                
+
+                    
+                        <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                    
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="站内搜索您需要的内容..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+    
+<script src="/js/libs/minimasonry.min.js"></script>
+
+    
+<script src="/js/plugins/masonry.js" type="module"></script>
+
+
+
+
+
+
+
+    
+<script src="/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+</body>
+</html>

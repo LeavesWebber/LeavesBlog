@@ -1,3 +1,16 @@
+---
+tags:
+  - 运维
+  - linux
+categories:
+  - Linux服务器运维
+title: sftp&&ssh服务配置一站式指南
+date: 
+updated: 
+sticky: 3
+thumbnail: '"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913170311.png"'
+excerpt: SSH和SFTP服务对于运维人员来说必不可少，网上的教程不是太深就是太浅，我撰写该文章，旨在为广大入门运维的朋友提供一些干货
+---
 ![image.png](https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913170311.png)
 
 ---

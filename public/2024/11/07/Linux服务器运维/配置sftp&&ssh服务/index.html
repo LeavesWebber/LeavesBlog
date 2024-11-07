@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Leaves&#39; Blog">
+    
+    <meta name="author" content="LeavesWebber">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://leavesblog.netlify.app/2024/11/07/linux服务器运维/配置sftp&&ssh服务/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="SSH和SFTP服务对于运维人员来说必不可少，网上的教程不是太深就是太浅，我撰写该文章，旨在为广大入门运维的朋友提供一些干货">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sftp&amp;&amp;ssh服务配置一站式指南">
+<meta property="og:url" content="https://leavesblog.netlify.app/2024/11/07/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/%E9%85%8D%E7%BD%AEsftp&&ssh%E6%9C%8D%E5%8A%A1/index.html">
+<meta property="og:site_name" content="欢迎来到叶子的博客">
+<meta property="og:description" content="SSH和SFTP服务对于运维人员来说必不可少，网上的教程不是太深就是太浅，我撰写该文章，旨在为广大入门运维的朋友提供一些干货">
+<meta property="og:locale">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913170311.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913162124.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913162329.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913162757.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913163715.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913165020.png">
+<meta property="article:published_time" content="2024-11-07T06:40:47.508Z">
+<meta property="article:modified_time" content="2024-11-07T10:18:22.219Z">
+<meta property="article:author" content="Leaves Webber">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913170311.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7">
+    <meta name="theme-color" content="#1DE9B6">
+    <link rel="shortcut icon" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&h=202&c=7&r=0&o=5&pid=1.7">
+    <!--- Page Info-->
+    
+    <title>
+        
+            sftp&amp;&amp;ssh服务配置一站式指南 | 叶子的Blog
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"leavesblog.netlify.app","root":"/","language":"zh","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#1DE9B6","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"“Leaves' Blog”"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/192110-1568028070e1cc.jpg","dark":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106201246.jpg"},"title":"叶子のBlog","subtitle":{"text":["黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#2C3E50","dark":"#003366"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/LeavesWebber","instagram":null,"zhihu":null,"twitter":null,"email":null,"fa-solid fa-envelope":"mailto:leaveswebber@outlook.com","bilibili":"https://space.bilibili.com/515054976"},"qrs":{"weixin":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106122958.jpg"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.3","navbar":{"auto_hide":false,"color":{"left":"#B0E0E6","right":"#F4A460","transparency":7},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"分类":{"icon":"fa-solid fa-folder-tree","path":"/categories/"},"标签":{"icon":"fa-solid fa-tags","path":"/tags/"},"记忆":{"icon":"fa-solid fa-camera","path":"/masonry/"},"相遇":{"icon":"fa-solid fa-link","path":"/links/"},"关于我":{"icon":"fa-solid fa-address-card","path":"/me/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"用更多的了解跨越隔阂与偏见","show_on_mobile":true,"links":{"进一步了解我？":{"icon":"fa-solid fa-address-card","path":"/me/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":true};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+        
+<link rel="stylesheet" href="/fontawesome/duotone.min.css">
+
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+
+    <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        “Leaves&#39; Blog”
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container flex flex-col justify-between min-h-dvh">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="https://www.emojiall.com/en/header-svg/%F0%9F%8D%83.svg" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                叶子的Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder-tree fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/masonry/"
+                                        >
+                                    <i class="fa-solid fa-camera fa-fw"></i>
+                                    记忆
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/links/"
+                                        >
+                                    <i class="fa-solid fa-link fa-fw"></i>
+                                    相遇
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/me/"
+                                        >
+                                    <i class="fa-solid fa-address-card fa-fw"></i>
+                                    关于我
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-solid fa-folder-tree fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/masonry/"
+                        >
+                            <span>
+                                记忆
+                            </span>
+                            
+                                <i class="fa-solid fa-camera fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/links/"
+                        >
+                            <span>
+                                相遇
+                            </span>
+                            
+                                <i class="fa-solid fa-link fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/me/"
+                        >
+                            <span>
+                                关于我
+                            </span>
+                            
+                                <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/me/"
+                        >
+                            <span>进一步了解我？</span>
+                            <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">53</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">38</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">140</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                
+                
+                <img src="/%22https:/leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913170311.png%22" alt="sftp&amp;&amp;ssh服务配置一站式指南" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                
+                <div class="w-full flex items-center absolute bottom-0 justify-start">
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">sftp&amp;&amp;ssh服务配置一站式指南</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B5%8B%E8%AF%95%E5%9B%BE1.png">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">LeavesWebber</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-11-07 14:40:47</span>
+        <span class="mobile">2024-11-07 14:40:47</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-11-07 18:18:22</span>
+            <span class="mobile">2024-11-07 18:18:22</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/">Linux服务器运维</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/linux/">linux</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913170311.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h1 id="用Ubuntu配置sftp-ssh服务"><a href="#用Ubuntu配置sftp-ssh服务" class="headerlink" title="用Ubuntu配置sftp&#x2F;ssh服务"></a>用Ubuntu配置sftp&#x2F;ssh服务</h1><p>参考了这两篇教程：<br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35623011/article/details/85003109" >SFTP服务器的搭建与使用_sftp服务器搭建-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44846324/article/details/122029609" >Ubuntu 配置 SFTP 服务器_ubuntu sftp-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>其中</p>
+<ul>
+<li>涉及一些权限修改内容</li>
+<li>教程1有java的代码实现</li>
+</ul>
+<p>&#x3D;&#x3D;root用户（不在意权限分发）可以直接用下面的步骤快速使用&#x3D;&#x3D;</p>
+<hr>
+<h2 id="1-安装sftp服务"><a href="#1-安装sftp服务" class="headerlink" title="1.安装sftp服务"></a>1.安装sftp服务</h2><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install openssh-server openssh-client -y</span><br></pre></td></tr></table></figure></div>
+
+<p>  sftp是openssh里面的一个子协议</p>
+<hr>
+<h2 id="2-编辑配置文件-etc-ssh-sshd-config"><a href="#2-编辑配置文件-etc-ssh-sshd-config" class="headerlink" title="2.编辑配置文件&#x2F;etc&#x2F;ssh&#x2F;sshd_config"></a>2.编辑配置文件&#x2F;etc&#x2F;ssh&#x2F;sshd_config</h2><p>如果没有UI界面，可以使用vim编辑器<br>这里要注意是<strong>sshd</strong>而不是<strong>ssh</strong>，前者对应的是服务端后者是客户端</p>
+<h3 id="2-1-将如下这行用-符号注释掉"><a href="#2-1-将如下这行用-符号注释掉" class="headerlink" title="2.1 将如下这行用#符号注释掉"></a>2.1 将如下这行用<code>#</code>符号注释掉</h3><p>（为什么要注释掉可以看这篇文章<a class="link"   target="_blank" rel="noopener" href="https://www.jianshu.com/p/f24d8ca565d7" >【OpenSSH】internal-sftp和sftp-server之间的区别和联系什么？ - 简书 (jianshu.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>）</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># Subsystem      sftp    /usr/libexec/openssh/sftp-server</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2-2-在文件最后面添加如下几行内容然后保存（最好放在文件末尾）"><a href="#2-2-在文件最后面添加如下几行内容然后保存（最好放在文件末尾）" class="headerlink" title="2.2 在文件最后面添加如下几行内容然后保存（最好放在文件末尾）"></a>2.2 在文件最后面添加如下几行内容然后保存（最好放在文件末尾）</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Subsystem       sftp    internal-sftp   </span><br><span class="line">Match Group sftp  </span><br><span class="line">ChrootDirectory /sftp/%u    </span><br><span class="line">ForceCommand    internal-sftp    </span><br><span class="line">AllowTcpForwarding no   </span><br><span class="line">X11Forwarding no  </span><br><span class="line">PermitRootLogin yes</span><br><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure></div>
+
+<p>大模型Copilot对此的解释如下：</p>
+<ol>
+<li><strong>Subsystem sftp internal-sftp</strong><ul>
+<li>这行定义了一个 SFTP 子系统，使用 <code>internal-sftp</code> 作为 SFTP 服务器。</li>
+</ul>
+</li>
+<li><strong>Match Group sftp</strong><ul>
+<li>这行表示接下来的配置只适用于属于 <code>sftp</code> 组的用户。</li>
+</ul>
+</li>
+<li><strong>ChrootDirectory &#x2F;sftp&#x2F;%u</strong><ul>
+<li>这行将用户的根目录（chroot）设置为 <code>/sftp/%u</code>，其中 <code>%u</code> 会被替换为用户的用户名。这意味着用户只能访问他们自己的目录，增强了安全性。</li>
+</ul>
+</li>
+<li><strong>ForceCommand internal-sftp</strong><ul>
+<li>这行强制用户只能使用 <code>internal-sftp</code> 命令，限制他们只能进行 SFTP 操作，不能执行其他命令。</li>
+</ul>
+</li>
+<li><strong>AllowTcpForwarding no</strong><ul>
+<li>这行禁用了 TCP 转发，进一步限制了用户的操作权限，防止他们通过 SSH 隧道进行端口转发。</li>
+</ul>
+</li>
+<li><strong>X11Forwarding no</strong><ul>
+<li>这行禁用了 X11 转发，防止用户通过 SSH 隧道转发 X11 图形界面</li>
+</ul>
+</li>
+<li><strong>PermitRootLogin yes</strong><ul>
+<li>允许用户通过root登录。在终端里使用命令<code>echo &quot;PermitRootLogin yes&quot; &gt;&gt; /etc/ssh/sshd_config</code>能达到同样效果(需要service ssh restart)</li>
+</ul>
+</li>
+</ol>
+<p>如遇到只读文件不可编辑的情况，可使用以下命令赋权</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> a+w 文件名</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h2 id="3-修改ssh所用端口号（可选）"><a href="#3-修改ssh所用端口号（可选）" class="headerlink" title="3.修改ssh所用端口号（可选）"></a>3.修改ssh所用端口号（可选）</h2><p>由于ipv4地址稀缺之类的原因，大概率vps提供商或者你自己用了<em>NAT技术</em>，那么也许sftp的默认22端口就无法使用<br>这时候你需要修改sftp的默认端口号为目前可用的端口（比如我的vps提供商给我开了十个端口，你自己的NAS也可以在你家路由器里添加端口映射）<br>在sshd_config文件里，将</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># port 22</span><br></pre></td></tr></table></figure></div>
+
+<p>改为</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">port &lt;可用的端口，不含括号&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>完成后别忘了保存<br>改完之后，貌似ssh远控的端口也会随之修改了</p>
+<hr>
+<h2 id="4-重启sshd服务"><a href="#4-重启sshd服务" class="headerlink" title="4. 重启sshd服务"></a>4. 重启sshd服务</h2><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ssh restart</span><br></pre></td></tr></table></figure></div>
+
+<p>这边可能遇到如下图一样的报错<br><code>Failed to restart sshd.service: Unit sshd.service not found.</code><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913162124.png"
+                      alt="image.png"
+                ><br>此时就需要进一步排查了，</p>
+<ol>
+<li><p>先测试能不能ping通主机</p>
+</li>
+<li><p>检查sshd的安装情况</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -e | grep ssh</span><br></pre></td></tr></table></figure></div>
+
+<p>成功安装会如下图所示<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913162329.png"
+                      alt="image.png"
+                ></p>
+</li>
+<li><p>测试端口是否开启（ssh服务默认用22端口）</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss -ntl</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<blockquote>
+<p><code>ss</code>类似于<code>netstat</code>命令，直接使用貌似会列出所有进程端口。<br><code>-n</code> 选项表示以数字形式显示地址和端口，而不是尝试将其解析为主机名和服务名。<br><code>-t</code> 选项表示仅显示 TCP 套接字。<br><code>-l</code> 选项表示仅显示监听套接字。</p>
+</blockquote>
+<p>也许你的终端会提示<code>bash: ss: command not found</code>，ss命令依赖于iproute2，那么我们就先安装即可，命令如下</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y iproute2</span><br></pre></td></tr></table></figure></div>
+
+<p>完成后再使用刚才的命令。我这里就是只显示了表头，下面并没有任何信息（尤其是与sshd有关端口的）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913162757.png"
+                      alt="image.png"
+                ><br>看来是sshd服务并未启动，那就使其重启，命令如下</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> ssh.service</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>查了一下资料，systemd是Linux的一种服务管理器，这让我想起了Windows里也有类似的GUI工具</p>
+</blockquote>
+<p>命令进行后，竟然提示我<code>permission denied</code>，吓得我赶紧用<code>sudo -i</code>提权了一下，再次用一遍命令即可，此时<code>service sshd restart</code>已经可用。<br>再用一遍进程显示的命令，可以看到22端口已经乖乖运行<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913163715.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h2 id="5-验证服务"><a href="#5-验证服务" class="headerlink" title="5.验证服务"></a>5.验证服务</h2><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sftp -P 11165 root@127.0.0.1 </span><br></pre></td></tr></table></figure></div>
+
+<p>中间的<em>11165</em>是前面设置的可用的端口号<br>服务正常的话，日志应该如下</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@hbcm-7k62-nat1-202409041216467fca88:~# sftp -P 11165 mysftp@127.0.0.1</span><br><span class="line">The authenticity of host <span class="string">&#x27;[127.0.0.1]:11165 ([127.0.0.1]:11165)&#x27;</span> can<span class="string">&#x27;t be established.</span></span><br><span class="line"><span class="string">ECDSA key fingerprint is SHA256:F5M7HVRlp/0SmsEC0J6ivw/RmRHDBEw.</span></span><br><span class="line"><span class="string">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span></span><br><span class="line"><span class="string">Warning: Permanently added &#x27;</span>[127.0.0.1]:11165<span class="string">&#x27; (ECDSA) to the list of known hosts.</span></span><br><span class="line"><span class="string">mysftp@127.0.0.1&#x27;</span>s password: </span><br></pre></td></tr></table></figure></div>
+
+<p>会要求你输密码，输入后就能进入sftp命令层了<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913165020.png"
+                      alt="image.png"
+                ></p>
+<p>如果登录失败，可能是遭遇了一个权限问题，在上文提到的sshd.config的设置项里，有一个参数<code>PermitRootLogin</code>限定root用户通过ssh的登录方式，如禁止登陆、禁止密码登录、仅允许密钥登陆和开放登陆。需要设置成yes获取所有权限：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure></div>
+
+<p>更多细节可以参考这篇文章：<br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/huigher/article/details/52972013" >sshd_config 中 PermitRootLogin 的探讨-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>不过我这里默认的是Fobidden开头的，文章里并未提到，但是有了这个思路以后自己搜一下也很方便了。</p>
+<h2 id="6-windows为例使用sftp"><a href="#6-windows为例使用sftp" class="headerlink" title="6.windows为例使用sftp"></a>6.windows为例使用sftp</h2><p>为了让事情变得更简单，还要批量传文件，我选择用一个sftp客户端，例如&#x3D;&#x3D;WinSCP&#x3D;&#x3D;，会要求输入主机（即为公网ip）和端口号（默认为22，你需要修改为前面你设置的），用户名和密码就是Linux的登入账户信息</p>
+<p>我听说过还可以把sftp挂载到资源管理器(Exploer)里使用，这就变成了一个文件夹一样交互。但是看来看去，因为Windows本身没有sftp的内部支持，还要做协议接口转换，太复杂。实在想搞的话我贴个教程在这<br><a class="link"   target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000023726408" >[小技巧]在Windows下使用sshfs-win挂载sftp磁盘到本地，便捷管理Linux中的文件 - 个人文章 - SegmentFault 思否 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="其他实现文件传输的方式"><a href="#其他实现文件传输的方式" class="headerlink" title="其他实现文件传输的方式"></a>其他实现文件传输的方式</h2><p>&#x3D;&#x3D;WinSCP&#x3D;&#x3D;其实支持多种文件传输协议，各种协议的区别可见这里<br>[[SFTP,SMB,FTP,SCP选哪种？]]</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> sftp&amp;&amp;ssh服务配置一站式指南</li>
+        <li><strong>作者:</strong> LeavesWebber</li>
+        <li><strong>创建于
+                :</strong> 2024-11-07 14:40:47</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-11-07 18:18:22
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://leavesblog.netlify.app/2024/11/07/Linux服务器运维/配置sftp&amp;&amp;ssh服务/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E8%BF%90%E7%BB%B4/">#运维</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/linux/">#linux</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/11/07/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/docker/Docker%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Docker一文速成【上手干货版】</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/11/07/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9SSL%E8%AF%81%E4%B9%A6/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">轻松申请免费SSL证书！</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">目录</div>
+        <div class="page-title">sftp&amp;&amp;ssh服务配置一站式指南</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8Ubuntu%E9%85%8D%E7%BD%AEsftp-ssh%E6%9C%8D%E5%8A%A1"><span class="nav-text">用Ubuntu配置sftp&#x2F;ssh服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85sftp%E6%9C%8D%E5%8A%A1"><span class="nav-text">1.安装sftp服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%BC%96%E8%BE%91%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-etc-ssh-sshd-config"><span class="nav-text">2.编辑配置文件&#x2F;etc&#x2F;ssh&#x2F;sshd_config</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B0%86%E5%A6%82%E4%B8%8B%E8%BF%99%E8%A1%8C%E7%94%A8-%E7%AC%A6%E5%8F%B7%E6%B3%A8%E9%87%8A%E6%8E%89"><span class="nav-text">2.1 将如下这行用#符号注释掉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%9C%A8%E6%96%87%E4%BB%B6%E6%9C%80%E5%90%8E%E9%9D%A2%E6%B7%BB%E5%8A%A0%E5%A6%82%E4%B8%8B%E5%87%A0%E8%A1%8C%E5%86%85%E5%AE%B9%E7%84%B6%E5%90%8E%E4%BF%9D%E5%AD%98%EF%BC%88%E6%9C%80%E5%A5%BD%E6%94%BE%E5%9C%A8%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%EF%BC%89"><span class="nav-text">2.2 在文件最后面添加如下几行内容然后保存（最好放在文件末尾）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BF%AE%E6%94%B9ssh%E6%89%80%E7%94%A8%E7%AB%AF%E5%8F%A3%E5%8F%B7%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-text">3.修改ssh所用端口号（可选）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E9%87%8D%E5%90%AFsshd%E6%9C%8D%E5%8A%A1"><span class="nav-text">4. 重启sshd服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E9%AA%8C%E8%AF%81%E6%9C%8D%E5%8A%A1"><span class="nav-text">5.验证服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-windows%E4%B8%BA%E4%BE%8B%E4%BD%BF%E7%94%A8sftp"><span class="nav-text">6.windows为例使用sftp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-text">其他实现文件传输的方式</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">LeavesWebber</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 140 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.7.3</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+                
+
+                    
+                        <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                    
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="站内搜索您需要的内容..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+    
+<script src="/js/libs/minimasonry.min.js"></script>
+
+    
+<script src="/js/plugins/masonry.js" type="module"></script>
+
+
+
+
+
+
+
+    
+<script src="/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+</body>
+</html>

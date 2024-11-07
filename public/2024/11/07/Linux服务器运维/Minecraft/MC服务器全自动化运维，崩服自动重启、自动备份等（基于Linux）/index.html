@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Leaves&#39; Blog">
+    
+    <meta name="author" content="LeavesWebber">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://leavesblog.netlify.app/2024/11/07/linux服务器运维/minecraft/mc服务器全自动化运维，崩服自动重启、自动备份等（基于linux）/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="我自己写的一些bash脚本，能实现我的世界服务器的一些常用自动化逻辑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MC服务器全自动化运维，崩服自动重启、自动备份等（基于Linux）">
+<meta property="og:url" content="https://leavesblog.netlify.app/2024/11/07/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/Minecraft/MC%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%90%E7%BB%B4%EF%BC%8C%E5%B4%A9%E6%9C%8D%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E3%80%81%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD%E7%AD%89%EF%BC%88%E5%9F%BA%E4%BA%8ELinux%EF%BC%89/index.html">
+<meta property="og:site_name" content="欢迎来到叶子的博客">
+<meta property="og:description" content="我自己写的一些bash脚本，能实现我的世界服务器的一些常用自动化逻辑">
+<meta property="og:locale">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240925224107.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240929110626.png">
+<meta property="article:published_time" content="2024-11-07T06:40:47.520Z">
+<meta property="article:modified_time" content="2024-11-07T10:48:11.147Z">
+<meta property="article:author" content="Leaves Webber">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="minecraft">
+<meta property="article:tag" content="bash">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240925224107.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7">
+    <meta name="theme-color" content="#1DE9B6">
+    <link rel="shortcut icon" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&h=202&c=7&r=0&o=5&pid=1.7">
+    <!--- Page Info-->
+    
+    <title>
+        
+            MC服务器全自动化运维，崩服自动重启、自动备份等（基于Linux） | 叶子的Blog
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"leavesblog.netlify.app","root":"/","language":"zh","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#1DE9B6","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"“Leaves' Blog”"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/192110-1568028070e1cc.jpg","dark":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106201246.jpg"},"title":"叶子のBlog","subtitle":{"text":["黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#2C3E50","dark":"#003366"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/LeavesWebber","instagram":null,"zhihu":null,"twitter":null,"email":null,"fa-solid fa-envelope":"mailto:leaveswebber@outlook.com","bilibili":"https://space.bilibili.com/515054976"},"qrs":{"weixin":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106122958.jpg"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.3","navbar":{"auto_hide":false,"color":{"left":"#B0E0E6","right":"#F4A460","transparency":7},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"分类":{"icon":"fa-solid fa-folder-tree","path":"/categories/"},"标签":{"icon":"fa-solid fa-tags","path":"/tags/"},"记忆":{"icon":"fa-solid fa-camera","path":"/masonry/"},"相遇":{"icon":"fa-solid fa-link","path":"/links/"},"关于我":{"icon":"fa-solid fa-address-card","path":"/me/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"用更多的了解跨越隔阂与偏见","show_on_mobile":true,"links":{"进一步了解我？":{"icon":"fa-solid fa-address-card","path":"/me/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":true};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+        
+<link rel="stylesheet" href="/fontawesome/duotone.min.css">
+
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+
+    <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        “Leaves&#39; Blog”
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container flex flex-col justify-between min-h-dvh">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="https://www.emojiall.com/en/header-svg/%F0%9F%8D%83.svg" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                叶子的Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder-tree fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/masonry/"
+                                        >
+                                    <i class="fa-solid fa-camera fa-fw"></i>
+                                    记忆
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/links/"
+                                        >
+                                    <i class="fa-solid fa-link fa-fw"></i>
+                                    相遇
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/me/"
+                                        >
+                                    <i class="fa-solid fa-address-card fa-fw"></i>
+                                    关于我
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-solid fa-folder-tree fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/masonry/"
+                        >
+                            <span>
+                                记忆
+                            </span>
+                            
+                                <i class="fa-solid fa-camera fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/links/"
+                        >
+                            <span>
+                                相遇
+                            </span>
+                            
+                                <i class="fa-solid fa-link fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/me/"
+                        >
+                            <span>
+                                关于我
+                            </span>
+                            
+                                <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/me/"
+                        >
+                            <span>进一步了解我？</span>
+                            <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">53</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">38</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">140</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                
+                
+                <img src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240925224107.png" alt="MC服务器全自动化运维，崩服自动重启、自动备份等（基于Linux）" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                
+                <div class="w-full flex items-center absolute bottom-0 justify-start">
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">MC服务器全自动化运维，崩服自动重启、自动备份等（基于Linux）</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B5%8B%E8%AF%95%E5%9B%BE1.png">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">LeavesWebber</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-11-07 14:40:47</span>
+        <span class="mobile">2024-11-07 14:40:47</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-11-07 18:48:11</span>
+            <span class="mobile">2024-11-07 18:48:11</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/">Linux服务器运维</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/Minecraft/">Minecraft</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/linux/">linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/minecraft/">minecraft</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/bash/">bash</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240925224107.png"
+                      alt="image.png"
+                ></p>
+<blockquote>
+<p>本篇教程由浅入深，基于Linux实现Java版MC服务器的各种自动化任务。Linux是绝大多数服务器的操作系统，无论你是用电商平台很火的有图形化界面的<strong>面板服</strong>，还是租的只带一个Linux os的<strong>VPS</strong>，亦或者是基于Linux内核的<strong>个人NAS</strong>以及<strong>旧电脑</strong>都适用</p>
+</blockquote>
+<blockquote>
+<p>本文属于小白保姆级教程，写作风格力求细致，如您觉得冗长还请见谅</p>
+</blockquote>
+<blockquote>
+<p>文章代码中出现的所有路径，都请根据你的实际情况，换成对应的路径，我下面将不再提醒</p>
+</blockquote>
+<blockquote>
+<p>教程&amp;&amp;代码作者：Bilibili up ©️三葉Leaves</p>
+</blockquote>
+<h1 id="开篇–需求分析-前置环境"><a href="#开篇–需求分析-前置环境" class="headerlink" title="开篇–需求分析&amp;&amp;前置环境"></a>开篇–需求分析&amp;&amp;前置环境</h1><h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><h3 id="情形1：崩服重开"><a href="#情形1：崩服重开" class="headerlink" title="情形1：崩服重开"></a>情形1：<strong>崩服重开</strong></h3><p> 我的MC服务器会因为各种原因崩溃。最常见的就是一些玩家行为导致tick值越过设定的预警（这个值在服务器的<code>server.properties</code>文件里可以设置），然后watchdog自动关闭了服务器。每到此时，粉丝群便炸开了锅，需要我重新开服，而我的电脑不会总是在身边。</p>
+<h3 id="情形2：自动备份"><a href="#情形2：自动备份" class="headerlink" title="情形2：自动备份"></a>情形2：<strong>自动备份</strong></h3><p>一些玩家的误操作或者恶意为之，摧毁了大家心爱的小镇。此时需要回档，然而每天备份十几个G的存档是件麻烦事</p>
+<h3 id="情形3：自动游戏公屏推送消息"><a href="#情形3：自动游戏公屏推送消息" class="headerlink" title="情形3：自动游戏公屏推送消息"></a>情形3：<strong>自动游戏公屏推送消息</strong></h3><p>大家已经建立了聚居的小城镇的位置，亦或者是老玩家已经熟知的地狱交通位置，而刚入服的新玩家不知道，尽管自主探索找到大家是个很惊喜的事情，但是若能给每个刚入服的玩家自动公屏推送一下常用坐标和欢迎消息，也是件美事</p>
+<p>上述三种情形都是我开服过程中遇到的问题，事实上这并不难实现。</p>
+<h2 id="前置环境"><a href="#前置环境" class="headerlink" title="前置环境"></a>前置环境</h2><h3 id="作者的环境："><a href="#作者的环境：" class="headerlink" title="作者的环境："></a>作者的环境：</h3><ol>
+<li>Linux(<strong>Ubuntu</strong>) os（部署在<strong>docker</strong>容器内）。docker集成在群晖（synology)<strong>NAS</strong>的DSM os里</li>
+<li>已经部署好MC服务端并成功开服</li>
+</ol>
+<h3 id="关于终端命令远控"><a href="#关于终端命令远控" class="headerlink" title="关于终端命令远控"></a>关于终端命令远控</h3><p>也许你用的是图形化界面的<strong>面板服</strong>，此时我下文说的这些命令会让你无从下手。这里我必须先说明，Linux是一个以终端命令为主的系统，大多数操作依赖于在终端(Terminal)中打命令实现<br>连接到终端的方式有很多，最常见的就是用<strong>ssh</strong>工具。你可以这样问你租的面板服客服：<br><strong>“你们的服务器ssh怎么用？请给我ssh地址和sftp地址”</strong><br>然后让他教你怎么用。最终的结果就是获得一个能打命令的界面，就像这样：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240929110626.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h1 id="功能1：崩服自动重开"><a href="#功能1：崩服自动重开" class="headerlink" title="功能1：崩服自动重开"></a>功能1：崩服自动重开</h1><h2 id="1-设定系统时区"><a href="#1-设定系统时区" class="headerlink" title="1.设定系统时区"></a>1.设定系统时区</h2><p>计划任务和备份文件名都需要用到时间，所以有必要先同步一下<br>先查看自己的时间日期对不对</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">date</span></span><br></pre></td></tr></table></figure></div>
+<p>如果正确，那就可以跳过直接下一步了，否则可以参考下面的步骤<br>使用如下命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tzselect</span><br></pre></td></tr></table></figure></div>
+<p>按照系统的提示逐一选择地区（这里假定你的时区为上海），完成后输入</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure></div>
+<p>再次使用<code>date</code>检查时间，理应已经自动同步完成</p>
+<h2 id="2-编写崩服自动重启脚本"><a href="#2-编写崩服自动重启脚本" class="headerlink" title="2.编写崩服自动重启脚本"></a>2.编写崩服自动重启脚本</h2><h3 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h3><p>在<strong>MC服务端文件目录下</strong>新建一个名为<code>startMC.sh</code>的脚本文件：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim startMC.sh</span><br></pre></td></tr></table></figure></div>
+<p>在里面编写命令如下（不会用vim编辑器的自行搜索）</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#Copyright ©️LeavesWebber</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  java -Xmx7G -Xms4G -jar /root/fabric-server-launch.jar nogui</span><br><span class="line">  <span class="built_in">sleep</span> 10</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></div>
+<p>给脚本赋权：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 startMC.sh</span><br></pre></td></tr></table></figure></div>
+<p>中间的开服命令<strong>需要根据自己情况替换实际路径</strong>，不懂该替换什么的可以看我的这篇教程[[使用Linux开模组服]]<br>这个<code>While true</code>循环会永不停歇的执行内部的开服指令。当一次崩服（Java -jar任务结束）后，等待十秒，又会重新执行开服指令，以此达到崩服自动重开的目的<br>再次新建一个名为<code>BootScript.sh</code>的脚本文件：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim BootScript.sh</span><br></pre></td></tr></table></figure></div>
+<p>在里面编写命令如下</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#Copyright ©️LeavesWebber</span></span><br><span class="line">screen -S mc bash -c <span class="string">&quot;bash /root/startMC.sh; exec bash&quot;</span></span><br></pre></td></tr></table></figure></div>
+<p>这段命令会新建一个名为<code>mc</code>的screen，同时在这个screen里运行刚才编写的开服脚本</p>
+<hr>
+<h2 id="使用screen的意义：1-mc开服后终端将只能打mc里的命令（如gamemode，op等），而我们需要继续用Linux的命令就用不了，所以需要把它放在screen里后台运行2-ssh终端被关闭后有时会导致mc服务进程也被关闭，用screen可以解决这个问题（也可以用nohup）"><a href="#使用screen的意义：1-mc开服后终端将只能打mc里的命令（如gamemode，op等），而我们需要继续用Linux的命令就用不了，所以需要把它放在screen里后台运行2-ssh终端被关闭后有时会导致mc服务进程也被关闭，用screen可以解决这个问题（也可以用nohup）" class="headerlink" title="使用screen的意义：1. mc开服后终端将只能打mc里的命令（如gamemode，op等），而我们需要继续用Linux的命令就用不了，所以需要把它放在screen里后台运行2. ssh终端被关闭后有时会导致mc服务进程也被关闭，用screen可以解决这个问题（也可以用nohup）"></a>使用screen的意义：<br>1. mc开服后终端将只能打mc里的命令（如gamemode，op等），而我们需要继续用Linux的命令就用不了，所以需要把它放在screen里后台运行<br>2. ssh终端被关闭后有时会导致mc服务进程也被关闭，用screen可以解决这个问题（也可以用nohup）</h2><h3 id="开服命令并自动开服"><a href="#开服命令并自动开服" class="headerlink" title="开服命令并自动开服"></a>开服命令并自动开服</h3><p>以后想开服时，使用如下命令启动刚才编写的脚本即可：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash BootScript.sh</span><br></pre></td></tr></table></figure></div>
+<p>也可以设置开机启动开服，先给脚本赋权</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 BootScript.sh</span><br></pre></td></tr></table></figure></div>
+<p>接着，在crontab里设置一个特殊的条件任务。进入crontab</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure></div>
+<p>在里面添加内容如下</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@reboot bash /root/BootScript.sh</span><br></pre></td></tr></table></figure></div>
+<p>这样做，以后每次Linux系统开机时就会自动开服，崩服也会自动重启了</p>
+<p>值得一提的是，有时你会发现开机自动开服会失效，这是因为这边存在一个悖论：</p>
+<blockquote>
+<p>我们使用了cron来开机自启动开服脚本，但cron服务本身开机就没有被启动，那么自然开服脚本也不会被启动了</p>
+</blockquote>
+<p>此时可以自行搜索如何设置你的系统开机自启动cron service，或者参考其他开机启动脚本的方式，这里推荐一篇教程：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/jinking01/article/details/126878417" >linux设置开机启动脚本的3种方法_linux开机启动脚本-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>部分情况，你会遇到如下的报错</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System has not been booted with systemd as init system (PID 1). Can<span class="string">&#x27;t operate.</span></span><br><span class="line"><span class="string">Failed to connect to bus: Host is down</span></span><br></pre></td></tr></table></figure></div>
+<p>你会发现你的系统的systemd似乎有问题，这种多半发生在你使用了Docker或者WSL时出现，因为出于各种原因，你用的是阉割版的Linux。我尝试过很多种方法，至今未解决Docker中systemd的问题，如果你知道欢迎评论区指正。此时很遗憾，这种情况下没法做到开机自动开服</p>
+<h3 id="关服命令"><a href="#关服命令" class="headerlink" title="关服命令"></a>关服命令</h3><p>值得一提的是，由于开服指令不间断执行，在你真正想要关服时，常规的游戏里使用<code>/stop</code>命令是没用的，我们只能关闭screen来彻底关服</p>
+<h4 id="当你在MC的命令界面时，使用快捷键可以彻底关服"><a href="#当你在MC的命令界面时，使用快捷键可以彻底关服" class="headerlink" title="当你在MC的命令界面时，使用快捷键可以彻底关服"></a>当你在<strong>MC的命令界面</strong>时，使用快捷键可以彻底关服</h4><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+A,K</span><br><span class="line"><span class="comment">#先按住ctrl和A，再按下K键</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="或者当你在终端界面时，"><a href="#或者当你在终端界面时，" class="headerlink" title="或者当你在终端界面时，"></a>或者当你在终端界面时，</h4><p>先获取已经运行的screen</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -<span class="built_in">ls</span></span><br></pre></td></tr></table></figure></div>
+<p>如果你使用了我刚才编写的脚本，那么你会看到一个名为mc的screen，记住前面的数字id，使用命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -X -S 刚才记下的<span class="built_in">id</span> quit</span><br></pre></td></tr></table></figure></div>
+<p>同样也能关服</p>
+<h1 id="功能2：自动备份"><a href="#功能2：自动备份" class="headerlink" title="功能2：自动备份"></a>功能2：自动备份</h1><h2 id="先说我的备份需求："><a href="#先说我的备份需求：" class="headerlink" title="先说我的备份需求："></a>先说我的备份需求：</h2><ol>
+<li>每天的早上6点备份一次，这是为了在发生意外时（比如某位玩家的家不小心炸了）能及时回档到一天前的状态</li>
+<li>每天备份的同时删除昨天的备份。这是为了节省磁盘空间，因为玩到后期存档动辄就是几十个G</li>
+<li>每两周的周一保留一次备份而不删除。这是因为每隔两周存档都已经经过了比较大的变化和发展，这样做可以保留一些关键节点的回忆</li>
+<li>扩展功能：远程备份。将存档备份到另一台机子上，这样即便本机出问题了另一台机子也有存档</li>
+</ol>
+<h2 id="功能实现（每天的备份与清理）："><a href="#功能实现（每天的备份与清理）：" class="headerlink" title="功能实现（每天的备份与清理）："></a>功能实现（每天的备份与清理）：</h2><p>为了解决硬编码问题，我们在Minecraft游戏目录自带的config里创建一个.conf配置文件，用于存放我们备份存档的目录</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim config/backup.conf</span><br></pre></td></tr></table></figure></div>
+<p>在其中编写你希望存放存档备份文件的位置、备份日志的位置以及游戏存档目录（<strong>根据实际情况修改里面的路径</strong>）。这里我多设置了几个远程主机的配置，因为有可能你希望把存档备份到别的机子上（似乎这样才更合理一点）。如果你只需要备份到本机，那么可以忽视</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># 备份文件名，如（三葉的服务器存档#1.20.1-fabric）</span><br><span class="line">export backupNameTemplate=&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 本机备份位置</span><br><span class="line">export backupDir=&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 存档源文件位置</span><br><span class="line">export sourceDir=&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 日志文件位置</span><br><span class="line">export logFile=&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 远程备份位置</span><br><span class="line">export DESTINATION_DIR=&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 远程备份用户</span><br><span class="line">export DESTINATION_USER=&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 远程备份主机</span><br><span class="line">export DESTINATION_HOST=&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 远程备份的ssh端口（默认22）</span><br><span class="line">export DESTINATION_PORT=&quot;&quot;</span><br></pre></td></tr></table></figure></div>
+<p>给配置文件赋权</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 backup.conf</span><br></pre></td></tr></table></figure></div>
+<p>接着开始编写我们的备份脚本吧！<br>创建backup.sh</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim backup.sh</span><br></pre></td></tr></table></figure></div>
+<p>脚本内容如下</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Copyright ©️LeavesWebber</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 从备份配置文件里读取备份目录</span></span><br><span class="line"><span class="built_in">source</span> config/backup.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建备份目录（如果不存在）</span></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$backupDir</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义备份文件名</span></span><br><span class="line">backupName=<span class="string">&quot;<span class="variable">$&#123;backupNameTemplate&#125;</span>(<span class="subst">$(date &#x27;+%m-%d-%Y&#x27;)</span>)&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建备份文件并检查备份是否成功</span></span><br><span class="line"><span class="keyword">if</span> zip -r <span class="string">&quot;<span class="variable">$&#123;backupDir&#125;</span>/<span class="variable">$&#123;backupName&#125;</span>.zip&quot;</span> <span class="string">&quot;<span class="variable">$&#123;sourceDir&#125;</span>&quot;</span> &amp;&gt; <span class="string">&quot;<span class="variable">$&#123;logFile&#125;</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;备份成功: <span class="variable">$&#123;backupName&#125;</span>.zip&quot;</span> | <span class="built_in">tee</span> -a <span class="string">&quot;<span class="variable">$&#123;logFile&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取昨天的日期</span></span><br><span class="line">    yesterday=$(<span class="built_in">date</span> -d <span class="string">&quot;yesterday&quot;</span> <span class="string">&#x27;+%m-%d-%Y&#x27;</span> 2&gt;/dev/null || <span class="built_in">date</span> -v -1d <span class="string">&#x27;+%m-%d-%Y&#x27;</span> 2&gt;/dev/null)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果获取昨天的日期失败，则跳过删除操作</span></span><br><span class="line">    <span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$yesterday</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;获取昨天的日期失败，跳过删除操作&quot;</span> | <span class="built_in">tee</span> -a <span class="string">&quot;<span class="variable">$&#123;logFile&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="comment"># 构建昨天的备份文件名</span></span><br><span class="line">        oldBackupName=<span class="string">&quot;<span class="variable">$&#123;backupNameTemplate&#125;</span>(<span class="variable">$&#123;yesterday&#125;</span>)&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 删除昨天的备份文件</span></span><br><span class="line">        <span class="keyword">if</span> [ -f <span class="string">&quot;<span class="variable">$&#123;backupDir&#125;</span>/<span class="variable">$&#123;oldBackupName&#125;</span>.zip&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">rm</span> -f <span class="string">&quot;<span class="variable">$&#123;backupDir&#125;</span>/<span class="variable">$&#123;oldBackupName&#125;</span>.zip&quot;</span></span><br><span class="line">            <span class="built_in">echo</span> -e <span class="string">&quot;删除昨天的备份成功: <span class="variable">$&#123;oldBackupName&#125;</span>.zip \n&quot;</span> | <span class="built_in">tee</span> -a <span class="string">&quot;<span class="variable">$&#123;logFile&#125;</span>&quot;</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> -e <span class="string">&quot;删除昨天的备份失败: <span class="variable">$&#123;oldBackupName&#125;</span>.zip，文件不存在 \n&quot;</span> | <span class="built_in">tee</span> -a <span class="string">&quot;<span class="variable">$&#123;logFile&#125;</span>&quot;</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;备份失败&quot;</span> | <span class="built_in">tee</span> -a <span class="string">&quot;<span class="variable">$&#123;logFile&#125;</span>&quot;</span></span><br><span class="line">    <span class="comment"># 如果备份失败，则不执行删除昨天备份的操作</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></div>
+<p>运行这个脚本时会：</p>
+<ol>
+<li>压缩游戏的存档为.zip并且命名为当天的日期，然后放到你刚才设置的存放位置</li>
+<li>删除昨天备份的存档</li>
+<li>无论备份成功与否，都输出日志信息到刚才你设置的日志位置</li>
+</ol>
+<p>给脚本赋权</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 backup.sh</span><br></pre></td></tr></table></figure></div>
+<p>将这个脚本添加入计划任务，每天早上六点执行一次即可：<br>进入计划任务文件</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure></div>
+<p>添加如下内容</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 6 * * * /path/to/your/backup.sh</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="功能实现（每两周保留一次存档）："><a href="#功能实现（每两周保留一次存档）：" class="headerlink" title="功能实现（每两周保留一次存档）："></a>功能实现（每两周保留一次存档）：</h2><p>刚才的步骤中已经实现了每日的备份和清理已备份的存档，但是我们还需要每两周的周一保留一次备份而不删除。</p>
+<blockquote>
+<p>说实话，“每两周的周一”这个逻辑还真不太好编程，作者苦思冥想了几天始终没有很满意的方案，偶然之间意识到奇偶之间不是正好错位相隔吗，很吻合每两周这个逻辑！！这样编程真是十分讨巧，那么代码就来了</p>
+</blockquote>
+<p>创建每两周备份一次的脚本</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim longTermBackup.sh</span><br></pre></td></tr></table></figure></div>
+<p>脚本内容如下：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span></span><br><span class="line"><span class="comment"># 从备份配置文件里读取备份目录</span></span><br><span class="line"><span class="built_in">source</span> config/backup.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取当前的周数</span></span><br><span class="line">week_number=$(<span class="built_in">date</span> +%V)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果周数是偶数，则执行任务</span></span><br><span class="line"><span class="keyword">if</span> (( week_number % <span class="number">2</span> == <span class="number">0</span> )); <span class="keyword">then</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 创建备份目录（如果不存在）</span></span><br><span class="line">  <span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$backupDir</span>&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 定义备份文件名</span></span><br><span class="line">  backupName=<span class="string">&quot;三葉的服务器周期存档#1.20.1-fabric(<span class="subst">$(date &#x27;+%m-%d-%Y&#x27;)</span>)&quot;</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 创建周期备份文件并检查备份是否成功</span></span><br><span class="line">  <span class="keyword">if</span> zip -r <span class="string">&quot;<span class="variable">$&#123;backupDir&#125;</span>/<span class="variable">$&#123;backupName&#125;</span>.zip&quot;</span> <span class="string">&quot;<span class="variable">$&#123;sourceDir&#125;</span>&quot;</span> &amp;&gt; <span class="string">&quot;<span class="variable">$&#123;logFile&#125;</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;周期性备份成功: <span class="variable">$&#123;backupName&#125;</span>.zip&quot;</span> | <span class="built_in">tee</span> -a <span class="string">&quot;<span class="variable">$&#123;logFile&#125;</span>&quot;</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;周期性备份失败&quot;</span> | <span class="built_in">tee</span> -a <span class="string">&quot;<span class="variable">$&#123;logFile&#125;</span>&quot;</span></span><br><span class="line">      <span class="built_in">exit</span> 1</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></div>
+<p>接下来就只需要设置<strong>每周一运行一次</strong>这个脚本即可，如果脚本检测到当前不是偶数周，则不会触发备份<br>给脚本赋权</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 longTermBackup.sh</span><br></pre></td></tr></table></figure></div>
+<p>进入计划任务文件</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure></div>
+<p>添加如下内容</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 4 * * 1 /path/to/your/longTermBackup.sh</span><br></pre></td></tr></table></figure></div>
+
+<p>到这里，已经完美实现了预期的所有备份要求</p>
+<h2 id="功能实现（远端备份）"><a href="#功能实现（远端备份）" class="headerlink" title="功能实现（远端备份）"></a>功能实现（远端备份）</h2><h3 id="配置ssh密钥对"><a href="#配置ssh密钥对" class="headerlink" title="配置ssh密钥对"></a>配置ssh密钥对</h3><p>我使用<code>rsync</code>实现远端备份的需求，因为这个技术支持增量同步，很符合MC存档大但是每天的数据变化不太大这种场景。<br><code>rsync</code>使用了ssh的端口，每次使用时都需认证，因此为了实现自动化脚本，最佳实践是配置ssh的密钥对而不是使用密码进行ssh连接。</p>
+<h4 id="1-生成SSH密钥对"><a href="#1-生成SSH密钥对" class="headerlink" title="1.生成SSH密钥对"></a>1.生成SSH密钥对</h4><p>这些操作都在MC的服务器上进行。我们先提权</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> -i</span><br></pre></td></tr></table></figure></div>
+<p>生成密钥对</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure></div>
+
+
+
+
+<h1 id="功能3：欢迎消息"><a href="#功能3：欢迎消息" class="headerlink" title="功能3：欢迎消息"></a>功能3：欢迎消息</h1><blockquote>
+<p>“如果我看得更远，那是因为我站在巨人的肩膀上”    –艾萨克·牛顿</p>
+</blockquote>
+<p>欢迎消息的代码大概包括以下逻辑：<br>抓取screen里的MC控制台消息，然后用正则表达式匹配内容，最后推送需要的欢迎消息到控制台公屏</p>
+<p>然而一个合格的程序员不应该只是埋头苦干，还应该懂得借鉴（真不是因为我懒&#x3D;v&#x3D;），这种常用的功能前辈们肯定已经把项目封装好了，果然，网上找到了个名为<strong>Welcome Message</strong>的模组，恰好满足我的简单的欢迎消息需求，既然如此，以逸待劳</p>
+<p>模组下载地址：<a class="link"   target="_blank" rel="noopener" href="https://modrinth.com/mod/welcome-message" >Welcome Message - Minecraft Mod (modrinth.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>使用方法也很简单，模组装载到服务端后重启游戏，然后在服务端游戏目录的config里找到welcomemessage.json5，编辑即可</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim welcomemessage.json5</span><br></pre></td></tr></table></figure></div>
+<p>配置字段作者注释也写的很清楚了，这里不赘述。编辑好以后重启游戏即可</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> MC服务器全自动化运维，崩服自动重启、自动备份等（基于Linux）</li>
+        <li><strong>作者:</strong> LeavesWebber</li>
+        <li><strong>创建于
+                :</strong> 2024-11-07 14:40:47</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-11-07 18:48:11
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://leavesblog.netlify.app/2024/11/07/Linux服务器运维/Minecraft/MC服务器全自动化运维，崩服自动重启、自动备份等（基于Linux）/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E8%BF%90%E7%BB%B4/">#运维</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/linux/">#linux</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/minecraft/">#minecraft</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/bash/">#bash</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/11/07/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/Minecraft/%E4%BD%BF%E7%94%A8Linux%E5%BC%80%E6%A8%A1%E7%BB%84%E6%9C%8D/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">使用Linux 开MC fabric模组服</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/11/07/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/Minecraft/Docker%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E6%9C%8D%E5%8A%A1%E5%99%A8/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">使用Docker快速搭建MC服务器</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">目录</div>
+        <div class="page-title">MC服务器全自动化运维，崩服自动重启、自动备份等（基于Linux）</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E7%AF%87%E2%80%93%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-%E5%89%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="nav-text">开篇–需求分析&amp;&amp;前置环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-text">需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%83%85%E5%BD%A21%EF%BC%9A%E5%B4%A9%E6%9C%8D%E9%87%8D%E5%BC%80"><span class="nav-text">情形1：崩服重开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%83%85%E5%BD%A22%EF%BC%9A%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD"><span class="nav-text">情形2：自动备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%83%85%E5%BD%A23%EF%BC%9A%E8%87%AA%E5%8A%A8%E6%B8%B8%E6%88%8F%E5%85%AC%E5%B1%8F%E6%8E%A8%E9%80%81%E6%B6%88%E6%81%AF"><span class="nav-text">情形3：自动游戏公屏推送消息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="nav-text">前置环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E8%80%85%E7%9A%84%E7%8E%AF%E5%A2%83%EF%BC%9A"><span class="nav-text">作者的环境：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%BF%9C%E6%8E%A7"><span class="nav-text">关于终端命令远控</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD1%EF%BC%9A%E5%B4%A9%E6%9C%8D%E8%87%AA%E5%8A%A8%E9%87%8D%E5%BC%80"><span class="nav-text">功能1：崩服自动重开</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%AE%BE%E5%AE%9A%E7%B3%BB%E7%BB%9F%E6%97%B6%E5%8C%BA"><span class="nav-text">1.设定系统时区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%BC%96%E5%86%99%E5%B4%A9%E6%9C%8D%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E8%84%9A%E6%9C%AC"><span class="nav-text">2.编写崩服自动重启脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC"><span class="nav-text">编写脚本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8screen%E7%9A%84%E6%84%8F%E4%B9%89%EF%BC%9A1-mc%E5%BC%80%E6%9C%8D%E5%90%8E%E7%BB%88%E7%AB%AF%E5%B0%86%E5%8F%AA%E8%83%BD%E6%89%93mc%E9%87%8C%E7%9A%84%E5%91%BD%E4%BB%A4%EF%BC%88%E5%A6%82gamemode%EF%BC%8Cop%E7%AD%89%EF%BC%89%EF%BC%8C%E8%80%8C%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E7%BB%A7%E7%BB%AD%E7%94%A8Linux%E7%9A%84%E5%91%BD%E4%BB%A4%E5%B0%B1%E7%94%A8%E4%B8%8D%E4%BA%86%EF%BC%8C%E6%89%80%E4%BB%A5%E9%9C%80%E8%A6%81%E6%8A%8A%E5%AE%83%E6%94%BE%E5%9C%A8screen%E9%87%8C%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C2-ssh%E7%BB%88%E7%AB%AF%E8%A2%AB%E5%85%B3%E9%97%AD%E5%90%8E%E6%9C%89%E6%97%B6%E4%BC%9A%E5%AF%BC%E8%87%B4mc%E6%9C%8D%E5%8A%A1%E8%BF%9B%E7%A8%8B%E4%B9%9F%E8%A2%AB%E5%85%B3%E9%97%AD%EF%BC%8C%E7%94%A8screen%E5%8F%AF%E4%BB%A5%E8%A7%A3%E5%86%B3%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%EF%BC%88%E4%B9%9F%E5%8F%AF%E4%BB%A5%E7%94%A8nohup%EF%BC%89"><span class="nav-text">使用screen的意义：1. mc开服后终端将只能打mc里的命令（如gamemode，op等），而我们需要继续用Linux的命令就用不了，所以需要把它放在screen里后台运行2. ssh终端被关闭后有时会导致mc服务进程也被关闭，用screen可以解决这个问题（也可以用nohup）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E6%9C%8D%E5%91%BD%E4%BB%A4%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%BC%80%E6%9C%8D"><span class="nav-text">开服命令并自动开服</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E6%9C%8D%E5%91%BD%E4%BB%A4"><span class="nav-text">关服命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD2%EF%BC%9A%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD"><span class="nav-text">功能2：自动备份</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E8%AF%B4%E6%88%91%E7%9A%84%E5%A4%87%E4%BB%BD%E9%9C%80%E6%B1%82%EF%BC%9A"><span class="nav-text">先说我的备份需求：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%EF%BC%88%E6%AF%8F%E5%A4%A9%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%B8%85%E7%90%86%EF%BC%89%EF%BC%9A"><span class="nav-text">功能实现（每天的备份与清理）：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%EF%BC%88%E6%AF%8F%E4%B8%A4%E5%91%A8%E4%BF%9D%E7%95%99%E4%B8%80%E6%AC%A1%E5%AD%98%E6%A1%A3%EF%BC%89%EF%BC%9A"><span class="nav-text">功能实现（每两周保留一次存档）：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%EF%BC%88%E8%BF%9C%E7%AB%AF%E5%A4%87%E4%BB%BD%EF%BC%89"><span class="nav-text">功能实现（远端备份）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEssh%E5%AF%86%E9%92%A5%E5%AF%B9"><span class="nav-text">配置ssh密钥对</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD3%EF%BC%9A%E6%AC%A2%E8%BF%8E%E6%B6%88%E6%81%AF"><span class="nav-text">功能3：欢迎消息</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">LeavesWebber</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 140 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.7.3</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+                
+
+                    
+                        <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                    
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="站内搜索您需要的内容..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+    
+<script src="/js/libs/minimasonry.min.js"></script>
+
+    
+<script src="/js/plugins/masonry.js" type="module"></script>
+
+
+
+
+
+
+
+    
+<script src="/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+</body>
+</html>

@@ -1,3 +1,17 @@
+---
+title: iptables
+tags:
+  - 运维
+  - linux
+  - 网络安全
+categories:
+  - Linux基础
+  - 命令详细用法
+  - 网络测试
+date:
+updated:
+---
+
 > *iptables*是一个与系统本身ip数据包出入规则有关的命令，用于配置Linux的**防火墙规则**。第一次接触这个命令感觉很像是ACL（Access Control List）那一套。
 > 下面我将用一个简单的实验实践iptables，以演示其基本功能
 

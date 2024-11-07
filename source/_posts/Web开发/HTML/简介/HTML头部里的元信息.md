@@ -3,7 +3,14 @@ categories:
   - Web开发
   - HTML
   - 简介
+title: HTML头部里的元信息
+tags:
+  - html
+  - 前端
+date:
+updated:
 ---
+
 # 元数据：`<meta>` 元素
 ## 1.指定字符编码
 ``` HTML

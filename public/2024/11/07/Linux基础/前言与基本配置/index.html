@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Leaves&#39; Blog">
+    
+    <meta name="author" content="LeavesWebber">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://leavesblog.netlify.app/2024/11/07/linux基础/前言与基本配置/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="当你决定做一回黑客并自信满满地下载了Kali Linux，这篇教程将成为你的最佳上手指南。包含GUI配置，面向新手。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux快速上手（以Kali为例）">
+<meta property="og:url" content="https://leavesblog.netlify.app/2024/11/07/Linux%E5%9F%BA%E7%A1%80/%E5%89%8D%E8%A8%80%E4%B8%8E%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="欢迎来到叶子的博客">
+<meta property="og:description" content="当你决定做一回黑客并自信满满地下载了Kali Linux，这篇教程将成为你的最佳上手指南。包含GUI配置，面向新手。">
+<meta property="og:locale">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911132133.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911134114.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911134130.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911134240.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911134311.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240912163243.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240912163553.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240912163746.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240912163851.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240912163935.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911214029.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911222157.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911222259.png">
+<meta property="article:published_time" content="2024-11-07T06:40:47.560Z">
+<meta property="article:modified_time" content="2024-11-07T10:47:49.183Z">
+<meta property="article:author" content="Leaves Webber">
+<meta property="article:tag" content="kali">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911132133.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7">
+    <meta name="theme-color" content="#1DE9B6">
+    <link rel="shortcut icon" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&h=202&c=7&r=0&o=5&pid=1.7">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Linux快速上手（以Kali为例） | 叶子的Blog
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"leavesblog.netlify.app","root":"/","language":"zh","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#1DE9B6","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"“Leaves' Blog”"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/192110-1568028070e1cc.jpg","dark":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106201246.jpg"},"title":"叶子のBlog","subtitle":{"text":["黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#2C3E50","dark":"#003366"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/LeavesWebber","instagram":null,"zhihu":null,"twitter":null,"email":null,"fa-solid fa-envelope":"mailto:leaveswebber@outlook.com","bilibili":"https://space.bilibili.com/515054976"},"qrs":{"weixin":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106122958.jpg"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.3","navbar":{"auto_hide":false,"color":{"left":"#B0E0E6","right":"#F4A460","transparency":7},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"分类":{"icon":"fa-solid fa-folder-tree","path":"/categories/"},"标签":{"icon":"fa-solid fa-tags","path":"/tags/"},"记忆":{"icon":"fa-solid fa-camera","path":"/masonry/"},"相遇":{"icon":"fa-solid fa-link","path":"/links/"},"关于我":{"icon":"fa-solid fa-address-card","path":"/me/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"用更多的了解跨越隔阂与偏见","show_on_mobile":true,"links":{"进一步了解我？":{"icon":"fa-solid fa-address-card","path":"/me/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":true};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+        
+<link rel="stylesheet" href="/fontawesome/duotone.min.css">
+
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+
+    <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        “Leaves&#39; Blog”
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container flex flex-col justify-between min-h-dvh">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="https://www.emojiall.com/en/header-svg/%F0%9F%8D%83.svg" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                叶子的Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder-tree fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/masonry/"
+                                        >
+                                    <i class="fa-solid fa-camera fa-fw"></i>
+                                    记忆
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/links/"
+                                        >
+                                    <i class="fa-solid fa-link fa-fw"></i>
+                                    相遇
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/me/"
+                                        >
+                                    <i class="fa-solid fa-address-card fa-fw"></i>
+                                    关于我
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-solid fa-folder-tree fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/masonry/"
+                        >
+                            <span>
+                                记忆
+                            </span>
+                            
+                                <i class="fa-solid fa-camera fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/links/"
+                        >
+                            <span>
+                                相遇
+                            </span>
+                            
+                                <i class="fa-solid fa-link fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/me/"
+                        >
+                            <span>
+                                关于我
+                            </span>
+                            
+                                <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/me/"
+                        >
+                            <span>进一步了解我？</span>
+                            <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">53</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">38</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">140</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                
+                
+                <img src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911132133.png" alt="Linux快速上手（以Kali为例）" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                
+                <div class="w-full flex items-center absolute bottom-0 justify-start">
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">Linux快速上手（以Kali为例）</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B5%8B%E8%AF%95%E5%9B%BE1.png">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">LeavesWebber</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-11-07 14:40:47</span>
+        <span class="mobile">2024-11-07 14:40:47</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-11-07 18:47:49</span>
+            <span class="mobile">2024-11-07 18:47:49</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/">Linux基础</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/kali/">kali</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/linux/">linux</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911132133.png"
+                      alt="image.png"
+                ></p>
+<blockquote>
+<p>合集使用Kali Linux进行演示，其基于Debian内核，相比众多如Ubuntu的发行版Linux os，Kali Linux集合了众多渗透和安全测试工具，比如经典的抓包工具WireShark。不过kali并不适合第一次接触Linux的初学者，尤其不适合作为日常的主系统使用。如果你是小白，建议使用Ubuntu等进行Linux学习</p>
+</blockquote>
+<blockquote>
+<p>为了方便一边查资料一边进行测试，我将差不多3G大小的Kali linux os虚拟机文件装进了VMware<br><strong>Kali</strong>和<strong>VMware WorkStation</strong>都是在官网下的,其中VMware的下载需要注册Broadcom账号，比较麻烦</p>
+</blockquote>
+<blockquote>
+<p><strong>初始账号&amp;&amp;密码</strong>：kali的VMware版本已经自带一个用户，官网下载界面应该会给出初始的账号密码，我这里的账号和密码都是默认kali</p>
+</blockquote>
+<hr>
+<h1 id="1-更改界面尺寸，壁纸和字体大小"><a href="#1-更改界面尺寸，壁纸和字体大小" class="headerlink" title="1.更改界面尺寸，壁纸和字体大小"></a>1.更改界面尺寸，壁纸和字体大小</h1><p>不知道为什么我的界面按钮以及终端的字体都异常小，起初试图设置系统分辨率但是没什么用，正确步骤如下：</p>
+<p>这个操作能改变基本的界面尺寸（图1），不过后面我把这个复原了，因为有其他的方式</p>
+<div style="text-align: center;">
+    <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911134114.png"
+                     
+         alt="网络异常，图片加载失败"
+                > 
+        打开Linux的晶须菜单(Whisker menu)
+</div><br>
+<div>
+    <center>
+    <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911134130.png"
+                     
+                > 
+    图1.    改变界面的基本尺寸
+    </center>
+</div><br>
+终端字体大小可以在终端顶部菜单设置（图2）
+<div>            <!--块级封装-->
+    <center>    <!--将图片和文字居中-->
+    <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911134240.png"
+                     
+         alt="无法显示图片时显示的文字"
+                > 
+    图2.    终端顶部菜单设置字体大小    <!--标题-->
+    </center>
+</div><br>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911134311.png"
+                      alt="myCaptionHere"
+                ></p>
+<p>桌面的壁纸和配色以及桌面图标的大小可以右键桌面-&gt;desktop setting进行设置</p>
+<p>另一种调整界面大小的办法是设置DPI ，还是在Settings-Appearance里<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240912163243.png"
+                      alt="image.png"
+                ></p>
+<p>Linux有一个类似于Windows的开始菜单（后来才知道其名为Whisker Menu，这玩意似乎还是个插件，并不是Linux自带的）。调整DPI后，他的界面变得异常奇怪，如图，字都重叠在了一起</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240912163553.png"
+                      alt="image.png"
+                ><br>也是找了很久才找到设置他的办法，依次索引Settings-Panel-items<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240912163746.png"
+                      alt="image.png"
+                ><br>在下面点击一个小小的菜单按钮（藏的是真的深）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240912163851.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240912163935.png"
+                      alt="image.png"
+                ><br>更改上图的宽度即可解决问题</p>
+<h1 id="2-基本的命令，软件包工具的更新"><a href="#2-基本的命令，软件包工具的更新" class="headerlink" title="2.基本的命令，软件包工具的更新"></a>2.基本的命令，软件包工具的更新</h1><h2 id="1-apt命令"><a href="#1-apt命令" class="headerlink" title="1.apt命令"></a>1.apt命令</h2><p>apt是大部分Liunx的包管理器，下软件需要用到这个命令。在其他的发行版中，apt或许会被<code>dnf</code>，<code>yum</code>，<code>apt-get</code>，<code>apk</code>，<code>pkg</code>等代替<br>特别的，在某些基于Linux内核的系统里（比如群晖Synology的DSM os）不提供任何的包管理器（也许是为了安全性和轻量化等诸多原因），这就导致了这些命令都用不了，这种情况下可以使用docker部署其他类似于Ubuntu的Linux发行版使用了</p>
+<h3 id="1-apt命令表格"><a href="#1-apt命令表格" class="headerlink" title="1.apt命令表格"></a>1.apt命令表格</h3><table>
+<thead>
+<tr>
+<th>apt命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>apt update</code></td>
+<td>更新软件包的包索引。这会从软件源获取最新的软件包信息，以确保能够获取到最新版本的软件包</td>
+</tr>
+<tr>
+<td><code>apt upgrade</code></td>
+<td>升级已安装软件包到最新可用版本。</td>
+</tr>
+<tr>
+<td><code>apt install &lt;package&gt;</code></td>
+<td>安装指定的软件包。可以使用这个命令来安装新的软件包，例如<code>apt install open-vm-tools-desktop</code></td>
+</tr>
+<tr>
+<td><code>apt remove &lt;package&gt;</code></td>
+<td>卸载指定的软件包。使用这个命令可以将不需要的软件包从系统中移除</td>
+</tr>
+<tr>
+<td><code>apt search &lt;keyword&gt;</code></td>
+<td>搜索与指定关键字相关的软件包。它会列出所有与关键字匹配的软件包名称和描述</td>
+</tr>
+<tr>
+<td><code>apt show &lt;package&gt;</code></td>
+<td>显示指定软件包的详细信息，包括版本号、依赖关系和描述等</td>
+</tr>
+</tbody></table>
+<p>apt命令可以理解为apt-get的升级，因为apt-get的语法已经有点老旧<br>拿到新系统后，可以先执行下面的命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt -y update</span><br><span class="line"><span class="comment">#更新索引</span></span><br><span class="line"><span class="built_in">sudo</span> apt -y full-upgrade</span><br><span class="line"><span class="comment">#先破后立，删除之前的版本再更新</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2-apt-search的使用"><a href="#2-apt-search的使用" class="headerlink" title="2.apt search的使用"></a>2.apt search的使用</h3><p>有时候得出的结果扑面而来显得太多，在搜索命令上做点手脚可以精简结果</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-cache pkgnames vim</span><br></pre></td></tr></table></figure></div>
+
+<p>如上就会只显示’vim’开头的包名称，更多规则可以参考这篇文章<br><a class="link"   target="_blank" rel="noopener" href="https://cn.linux-console.net/?p=10616" >如何使用 apt search Linux 命令 (linux-console.net) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="3-给apt命令换源"><a href="#3-给apt命令换源" class="headerlink" title="3.给apt命令换源"></a>3.给apt命令换源</h3><h4 id="换源操作"><a href="#换源操作" class="headerlink" title="换源操作"></a>换源操作</h4><p>在进行<code>apt upgrade</code>的时候，也许你会遭遇<strong>403 Forbidden</strong>的问题，这是因为官网源也许在国外，此时需要换成国内的镜像源，我参考了如下文章<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/2301_80771046/article/details/136426943" >Kali Linux 更换国内源（中科大、阿里、浙大、清华、东软大学、重庆大学）CSDN <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>其他的Linux发行版如出一辙<br>用到的一些命令：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apt update          <span class="comment">#更新索引</span></span><br><span class="line">apt upgrade         <span class="comment">#更新软件</span></span><br><span class="line">apt dist-upgrade    <span class="comment">#升级</span></span><br><span class="line">apt clean           <span class="comment">#删除缓存包</span></span><br><span class="line">apt autoclean       <span class="comment">#删除未安装的deb包</span></span><br></pre></td></tr></table></figure></div>
+<p>对于CentOS，可参考清华的换源教程<br><a class="link"   target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/centos-stream/" >centos-stream | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h4 id="特别的，对于kali-Linux，换源行为应该被谨慎考虑"><a href="#特别的，对于kali-Linux，换源行为应该被谨慎考虑" class="headerlink" title="特别的，对于kali Linux，换源行为应该被谨慎考虑"></a>特别的，对于kali Linux，换源行为应该被谨慎考虑</h4><p>Kali 使用的 Linux 内核被打了补丁，允许在各种设备上进行无线注入。这些补丁通常<strong>在普通内核中不可用</strong>。此外，Kali Linux 不依赖于 Debian 服务器和镜像，而是<strong>通过自己的服务器构建软件包</strong>。<br>所以Kali Linux 官方文档极力建议不要添加任何其他第三方软件仓库，因为 Kali Linux 是一个滚动发行版，并且依赖于 Debian 测试分支，由于依赖关系冲突和包钩子，所以你很可能只是添加一个新的仓库源就会破坏系统。更多信息可以参考如下文章：<a class="link"   target="_blank" rel="noopener" href="https://linux.cn/article-10198-1.html" >技术|在你开始使用 Kali Linux 之前必须知道的事情 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>尽管如此，我还是给kali换源，因为我在下面遇到了更棘手的问题</p>
+<h2 id="2-ifconfig"><a href="#2-ifconfig" class="headerlink" title="2.ifconfig"></a>2.ifconfig</h2><p>习惯性用<code>ipconfig</code>查看网络信息发现不行，在Linux里应该使用<code>ifconfig</code>。网上查了一下支持信息如下</p>
+<h3 id="ipconfig-和-ifconfig-之间的区别："><a href="#ipconfig-和-ifconfig-之间的区别：" class="headerlink" title="ipconfig 和 ifconfig 之间的区别："></a>ipconfig 和 ifconfig 之间的区别：</h3><ol>
+<li><strong>代表</strong>： ipconfig 代表 Internet 协议配置，而 ifconfig 代表接口配置。</li>
+<li><strong>简介</strong>： ipconfig 可用于控制台应用程序，该应用程序显示当前连接的网络设备的所有网络配置，并可修改其 DHCP 和 DNS 设置。Ifconfig 是一个系统管理员实用程序，用于配置、控制和查询系统的 TCP&#x2F;IP 网络配置。</li>
+<li><strong>支持的操作系统</strong>： ipconfig 命令受 Microsoft Windows 操作系统、React OS 和 Apple Mac OS 支持。一些最新版本的 Linux 操作系统也支持 ipconfig。基于 Unix 的操作系统支持 ifconfig 命令。</li>
+<li><strong>功能</strong>： ipconfig 命令显示所有当前连接的网络接口，无论它们是否处于活动状态。另一方面，ifconfig 命令仅显示连接到系统的已启用网络接口。</li>
+<li><strong>显示所有接口配置</strong>： ‘ipconfig&#x2F;all’ 命令用于在 Microsoft Windows 操作系统中显示系统的所有网络配置，而在基于 Unix 的操作系统中使用 ‘ifconfig -a’ 命令。</li>
+</ol>
+<h2 id="3-ping"><a href="#3-ping" class="headerlink" title="3.ping"></a>3.ping</h2><p><code>ping</code>命令在Linux里不会自动停止，需要用<code>Ctrl</code>+<code>C</code>停止</p>
+<h2 id="4-cd"><a href="#4-cd" class="headerlink" title="4.cd"></a>4.cd</h2><p>最常用的命令，用于进入某一目录，后面的路径通常可以tab补全</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 目录名</span><br></pre></td></tr></table></figure></div>
+
+<p>返回上级目录时可以用</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="5-pwd"><a href="#5-pwd" class="headerlink" title="5.pwd"></a>5.pwd</h2><p>很多时候玩着玩着就不知道自己在哪个位置了，这个命令能让你知道自己当前所处的路径</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="6-mkdir"><a href="#6-mkdir" class="headerlink" title="6.mkdir"></a>6.mkdir</h2><p>创建一个目录</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> 路径名</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="7-touch"><a href="#7-touch" class="headerlink" title="7.touch"></a>7.touch</h2><ol>
+<li><p>把已存在文件的时间标签更新为系统当前的时间，它们的数据将原封不动地保留下来；  </p>
+</li>
+<li><p>用来创建新的空文件</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> 文件名</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h2 id="7-cp"><a href="#7-cp" class="headerlink" title="7.cp"></a>7.cp</h2><p>复制某个文件或者目录</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> 源地址 目的地址</span><br></pre></td></tr></table></figure></div>
+
+<p>加上参数可以实现更多效果</p>
+<h2 id="8-mv"><a href="#8-mv" class="headerlink" title="8.mv"></a>8.mv</h2><p>剪切某个文件或者目录</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> 源地址 目的地址</span><br></pre></td></tr></table></figure></div>
+
+<p>重命名某个文件或者目录</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> 源文件名 目标文件名</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="9-rm"><a href="#9-rm" class="headerlink" title="9.rm"></a>9.rm</h2><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf 目录名字</span><br></pre></td></tr></table></figure></div>
+
+<p>删除某个文件或者目录</p>
+<h1 id="4-主机和虚拟机之间的复制、粘贴"><a href="#4-主机和虚拟机之间的复制、粘贴" class="headerlink" title="4.主机和虚拟机之间的复制、粘贴"></a>4.主机和虚拟机之间的复制、粘贴</h1><blockquote>
+<p>由于经常需要查报错或者粘贴命令等，不能在主机和虚拟机之间复制粘贴的事情让我尤为头疼</p>
+</blockquote>
+<p>起初想通过“重新安装VMware tools”解决主机和虚拟机之间不能复制粘贴的问题，但 按钮 一直是灰色，真是让人恼火，最后直接在Linux虚拟机的终端手动安装VMware tools解决问题，命令如下</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get autoremove open-vm-tools  </span><br><span class="line"><span class="built_in">sudo</span> apt-get install open-vm-tools  </span><br><span class="line"><span class="built_in">sudo</span> apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure></div>
+
+<p>Linux终端内的复制粘贴命令为<code>ctrl</code>+<code>shift</code>+<code>C/V</code></p>
+<h1 id="5-安装Vim，并解决复制粘贴到系统剪切板的问题"><a href="#5-安装Vim，并解决复制粘贴到系统剪切板的问题" class="headerlink" title="5.  安装Vim，并解决复制粘贴到系统剪切板的问题"></a>5.  安装Vim，并解决复制粘贴到系统剪切板的问题</h1><p>vim编辑器类似于windows的记事本，但还提供语法高亮等强大的功能，在Linux中极为常用，但是复制粘贴机制和Windows差别很大，在命令模式（Command Mode）下用Y键复制，默认复制到无名寄存器（unnamed register）： “”，这显然不是我们想要的。<br>我们需要将内容复制到系统剪贴板才能和粘贴到其他应用或者和Windows交互<br>运行以下命令检查你的vim<strong>是否支持复制到系统剪贴板</strong></p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim --version | grep clipboard</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911214029.png"
+                      alt="image.png"
+                ><br>黄圈中的两项如果是<code>-</code>号开头则是不支持，此时需要更新你的vim<br>网上找了很多教程，都没用，我先列出成功方案：</p>
+<h2 id="使用vim-gtk3"><a href="#使用vim-gtk3" class="headerlink" title="使用vim-gtk3"></a>使用vim-gtk3</h2><p>运行以下命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install vim-gtk3</span><br></pre></td></tr></table></figure></div>
+
+<p>再次使用<code>vim --version | grep clipboard</code>命令，前文提到的两项应该已经变成加号。vim的版本一直在更新，有可能你看到这里的时候已经出现了时效性问题，此时可以使用命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-cache pkgnames vim</span><br></pre></td></tr></table></figure></div>
+
+<p>看看所有可用的版本</p>
+<h3 id="如上步骤不能解决的话，试试如下命令"><a href="#如上步骤不能解决的话，试试如下命令" class="headerlink" title="如上步骤不能解决的话，试试如下命令"></a>如上步骤不能解决的话，试试如下命令</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install vim vim-scripts vim-gtk vim-gnome</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install vim-gtk</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install gvim</span><br></pre></td></tr></table></figure></div>
+
+<p>上述三种是目前找到的主流解决方案，我使用的时候遇到了如下报错</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">┌──(kali㉿kali)-[~]</span><br><span class="line">└─$ <span class="built_in">sudo</span> apt install gvim</span><br><span class="line"></span><br><span class="line">Package gvim is a virtual package provided by:</span><br><span class="line">  vim-motif 2:9.1.0496-1+b1 (= 2:9.1.0496-1+b1)</span><br><span class="line">  vim-gtk3 2:9.1.0496-1+b1 (= 2:9.1.0496-1+b1)</span><br><span class="line">You should explicitly <span class="keyword">select</span> one to install.</span><br><span class="line"></span><br><span class="line">Error: Package <span class="string">&#x27;gvim&#x27;</span> has no installation candidate</span><br></pre></td></tr></table></figure></div>
+
+<p>后来我还是找大模型问问才得知应该用vim-gtk3，不过现在分析报错信息发现其实报错信息已经提示去用这个了</p>
+<h2 id="vim复制到系统剪贴板的命令"><a href="#vim复制到系统剪贴板的命令" class="headerlink" title="vim复制到系统剪贴板的命令"></a>vim复制到系统剪贴板的命令</h2><p>下述命令要在命令模式使用：</p>
+<ul>
+<li><code>&quot;+y</code>复制到系统剪切板中（解释一下：这里的+号不是表示”和y同时按下，按键的顺序应该是 shift ‘、 shift &#x3D;、 y）</li>
+<li><code>&quot;+p</code>把系统粘贴板里的内容粘贴到vim（解释一下：这里的+号不是表示”和p同时按下，按键的顺序应该是 shift ‘、 shift &#x3D;、 p）</li>
+</ul>
+<p>不过其实vim-gtk3已经提供了GUI界面的复制、撤销等按钮，用<code>ctrl</code>+<code>shift</code>+<code>C/V</code>也能实现复制粘贴</p>
+<h2 id="更改vim的主题配色"><a href="#更改vim的主题配色" class="headerlink" title="更改vim的主题配色"></a>更改vim的主题配色</h2><p>不知道为什么vim-gtk3的默认配色是浅色模式（也许是为了区分于默认的vim，这和Linux默认的深色显得很冲突，我瞬间眼前一黑。好在其提供主题选项，我比较喜欢其中名为habamax主题。配置步骤和我的最终效果如下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911222157.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911222259.png"
+                      alt="image.png"
+                ><br>如果之后还默认弹出是浅色的，那可以在Settings-Appearance里把DarkMode打开</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> Linux快速上手（以Kali为例）</li>
+        <li><strong>作者:</strong> LeavesWebber</li>
+        <li><strong>创建于
+                :</strong> 2024-11-07 14:40:47</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-11-07 18:47:49
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://leavesblog.netlify.app/2024/11/07/Linux基础/前言与基本配置/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/kali/">#kali</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E8%BF%90%E7%BB%B4/">#运维</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/linux/">#linux</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/11/07/Linux%E5%9F%BA%E7%A1%80/%E5%9C%A8ubuntu%E4%B8%8A%E7%BC%96%E5%86%99C%E7%A8%8B%E5%BA%8F%E4%BB%A5%E7%86%9F%E6%82%89Linux%E7%B3%BB%E7%BB%9F/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">在ubuntu上编写C程序以熟悉Linux系统</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/11/07/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/%E7%BE%A4%E6%99%96/%E3%80%90%E6%9C%80%E6%96%B0%E6%96%B9%E6%A1%88%E3%80%91%E7%BE%A4%E6%99%96NAS%20docker%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%86%8C%E8%A1%A8%E5%A4%B1%E8%B4%A5/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">【最新方案】群晖NAS Docker查询注册表失败</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">目录</div>
+        <div class="page-title">Linux快速上手（以Kali为例）</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%9B%B4%E6%94%B9%E7%95%8C%E9%9D%A2%E5%B0%BA%E5%AF%B8%EF%BC%8C%E5%A3%81%E7%BA%B8%E5%92%8C%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F"><span class="nav-text">1.更改界面尺寸，壁纸和字体大小</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%91%BD%E4%BB%A4%EF%BC%8C%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%B7%A5%E5%85%B7%E7%9A%84%E6%9B%B4%E6%96%B0"><span class="nav-text">2.基本的命令，软件包工具的更新</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-apt%E5%91%BD%E4%BB%A4"><span class="nav-text">1.apt命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-apt%E5%91%BD%E4%BB%A4%E8%A1%A8%E6%A0%BC"><span class="nav-text">1.apt命令表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-apt-search%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">2.apt search的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%BB%99apt%E5%91%BD%E4%BB%A4%E6%8D%A2%E6%BA%90"><span class="nav-text">3.给apt命令换源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ifconfig"><span class="nav-text">2.ifconfig</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ipconfig-%E5%92%8C-ifconfig-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="nav-text">ipconfig 和 ifconfig 之间的区别：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ping"><span class="nav-text">3.ping</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-cd"><span class="nav-text">4.cd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-pwd"><span class="nav-text">5.pwd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-mkdir"><span class="nav-text">6.mkdir</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-touch"><span class="nav-text">7.touch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-cp"><span class="nav-text">7.cp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-mv"><span class="nav-text">8.mv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-rm"><span class="nav-text">9.rm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E4%B8%BB%E6%9C%BA%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%8D%E5%88%B6%E3%80%81%E7%B2%98%E8%B4%B4"><span class="nav-text">4.主机和虚拟机之间的复制、粘贴</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%AE%89%E8%A3%85Vim%EF%BC%8C%E5%B9%B6%E8%A7%A3%E5%86%B3%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E5%88%B0%E7%B3%BB%E7%BB%9F%E5%89%AA%E5%88%87%E6%9D%BF%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">5.  安装Vim，并解决复制粘贴到系统剪切板的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8vim-gtk3"><span class="nav-text">使用vim-gtk3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%B8%8A%E6%AD%A5%E9%AA%A4%E4%B8%8D%E8%83%BD%E8%A7%A3%E5%86%B3%E7%9A%84%E8%AF%9D%EF%BC%8C%E8%AF%95%E8%AF%95%E5%A6%82%E4%B8%8B%E5%91%BD%E4%BB%A4"><span class="nav-text">如上步骤不能解决的话，试试如下命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim%E5%A4%8D%E5%88%B6%E5%88%B0%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="nav-text">vim复制到系统剪贴板的命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9vim%E7%9A%84%E4%B8%BB%E9%A2%98%E9%85%8D%E8%89%B2"><span class="nav-text">更改vim的主题配色</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">LeavesWebber</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 140 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.7.3</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+                
+
+                    
+                        <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                    
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="站内搜索您需要的内容..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+    
+<script src="/js/libs/minimasonry.min.js"></script>
+
+    
+<script src="/js/plugins/masonry.js" type="module"></script>
+
+
+
+
+
+
+
+    
+<script src="/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+</body>
+</html>

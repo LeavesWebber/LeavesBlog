@@ -1,3 +1,19 @@
+---
+tags:
+  - 运维
+  - minecraft
+  - linux
+  - bash
+categories:
+  - Linux服务器运维
+  - Minecraft
+title: MC服务器全自动化运维，崩服自动重启、自动备份等（基于Linux）
+date: 
+updated: 
+sticky: 6
+excerpt: 我自己写的一些bash脚本，能实现我的世界服务器的一些常用自动化逻辑
+thumbnail: "https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240925224107.png"
+---
 ![image.png](https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240925224107.png)
 > 本篇教程由浅入深，基于Linux实现Java版MC服务器的各种自动化任务。Linux是绝大多数服务器的操作系统，无论你是用电商平台很火的有图形化界面的**面板服**，还是租的只带一个Linux os的**VPS**，亦或者是基于Linux内核的**个人NAS**以及**旧电脑**都适用
 

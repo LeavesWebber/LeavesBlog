@@ -5,8 +5,12 @@ title: 【最新保姆级教程】我的世界怎么加mod/光影/材质？一�
 tags:
   - Minecraft
   - 视频配文
-date:
-updated:
+date: 
+updated: 
+sticky: 10
+excerpt: 截止目前，该教程已于Bilibili获得超70万播放。MC是一个高度自定义的游戏，有着世界上最活跃的玩家社区。但也由于高度自定义，对一些只想玩游戏而不关注底层实现的电脑小白不太友好，该偏教程深入浅出，对windows/macos用户均受用
+thumbnail: "https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/2024-08-25_15.42.00.png"
+cover: "https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/2024-08-25_15.42.00.png"
 ---
 # 【最新保姆级教程】我的世界怎么加mod/光影/材质？一文搞懂，一步到位
 > 本文属于小白保姆级教程，写作风格力求细致，如您觉得冗长还请见谅

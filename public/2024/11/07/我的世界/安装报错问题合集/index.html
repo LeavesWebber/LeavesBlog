@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Leaves&#39; Blog">
+    
+    <meta name="author" content="LeavesWebber">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://leavesblog.netlify.app/2024/11/07/我的世界/安装报错问题合集/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="上期的保姆级教程视频受到很多刚入坑mc国际版的萌新的好评，与此同时，仍然有很多小伙伴在安装游玩的过程中出现各种各样的问题。我整理了粉丝群和评论区内所有出现过的报错以及问题，制作出这期“mc报错合集”教程，期待能帮助更多还处在困惑中的小伙伴   本专栏教程将持续更新，如你有教程中没出现的问题和报错，欢迎在评论区讨论，将持续更新此文章  1.找不到启动器配置文件profile.json&amp;&amp;a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MC安装报错问题合集">
+<meta property="og:url" content="https://leavesblog.netlify.app/2024/11/07/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E5%90%88%E9%9B%86/index.html">
+<meta property="og:site_name" content="欢迎来到叶子的博客">
+<meta property="og:description" content="上期的保姆级教程视频受到很多刚入坑mc国际版的萌新的好评，与此同时，仍然有很多小伙伴在安装游玩的过程中出现各种各样的问题。我整理了粉丝群和评论区内所有出现过的报错以及问题，制作出这期“mc报错合集”教程，期待能帮助更多还处在困惑中的小伙伴   本专栏教程将持续更新，如你有教程中没出现的问题和报错，欢迎在评论区讨论，将持续更新此文章  1.找不到启动器配置文件profile.json&amp;&amp;a">
+<meta property="og:locale">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A34%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A37%20_0.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A54%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A32%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A57%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240809162833.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A34%20_0.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E3%80%90%E6%9C%80%E6%96%B0%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%E3%80%91%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%EF%BC%8C%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%8A%A0%E6%A8%A1%E7%BB%84%E5%85%89%E5%BD%B1%E6%9D%90%E8%B4%A8%EF%BC%9F%E4%B8%80%E6%AD%A5%E5%88%B0%E4%BD%8D%EF%BC%8C%E9%87%8D%E5%9B%9E%E5%A4%9A%E7%8E%A9%E7%9B%92%E5%AD%90%E8%88%AC%E4%BD%93%E9%AA%8C_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E7%83%AD%E9%97%A8%E8%A7%86%E9%A2%91%20%2008-09-2024%2015%EF%BC%9A52%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A32%20_0.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A35%20_0.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A36%20_0.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A47%20_0.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A52%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A48%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E3%80%90%E6%9C%80%E6%96%B0%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%E3%80%91%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%EF%BC%8C%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%8A%A0%E6%A8%A1%E7%BB%84%E5%85%89%E5%BD%B1%E6%9D%90%E8%B4%A8%EF%BC%9F%E4%B8%80%E6%AD%A5%E5%88%B0%E4%BD%8D%EF%BC%8C%E9%87%8D%E5%9B%9E%E5%A4%9A%E7%8E%A9%E7%9B%92%E5%AD%90%E8%88%AC%E4%BD%93%E9%AA%8C_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E7%83%AD%E9%97%A8%E8%A7%86%E9%A2%91%20%2008-09-2024%2015%EF%BC%9A52%20_0.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E3%80%90%E6%9C%80%E6%96%B0%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%E3%80%91%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%EF%BC%8C%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%8A%A0%E6%A8%A1%E7%BB%84%E5%85%89%E5%BD%B1%E6%9D%90%E8%B4%A8%EF%BC%9F%E4%B8%80%E6%AD%A5%E5%88%B0%E4%BD%8D%EF%BC%8C%E9%87%8D%E5%9B%9E%E5%A4%9A%E7%8E%A9%E7%9B%92%E5%AD%90%E8%88%AC%E4%BD%93%E9%AA%8C_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E7%83%AD%E9%97%A8%E8%A7%86%E9%A2%91%20%2008-09-2024%2017%EF%BC%9A20%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/Snipper%20-%20Snipaste%2008-09-2024%2012%EF%BC%9A00%20_0.png%2008-09-2024%2017%EF%BC%9A31%EF%BC%9A36%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/Minecraft%20Launcher%2008-09-2024%2017%EF%BC%9A32%EF%BC%9A18%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/IMG_8071.PNG">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240809184806.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240809172636.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B6%88%E6%81%AF%E4%B8%AD%E5%BF%83%20-%20%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%BC%B9%E5%B9%95%E8%A7%86%E9%A2%91%E7%BD%91%20-%20(%20%E3%82%9C-%20%E3%82%9C)%E3%81%A4%E3%83%AD%20%E4%B9%BE%E6%9D%AF~%20-%20bilibili%20%E5%92%8C%E5%8F%A6%E5%A4%96%202%20%2008-09-2024%2018%EF%BC%9A26%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A51%20_2.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A51%20_0.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A51%20_1.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/Download%20Now%20-%20IrisShaders%20%E5%92%8C%E5%8F%A6%E5%A4%96%203%20%E4%B8%AA%E9%A1%B5%E9%9D%A2%20-%20%E4%B8%AA%E4%BA%BA%20-%20Micros%2008-09-2024%2017%EF%BC%9A37%EF%BC%9A16%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/CUsers26646AppDataRoaming.minecraftmods%2008-09-2024%2019%EF%BC%9A12%EF%BC%9A33%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%96%87%E4%BB%B6%E5%A4%B9%E9%80%89%E9%A1%B9%2008-09-2024%2019%EF%BC%9A14%EF%BC%9A47%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2019%EF%BC%9A23%EF%BC%9A16%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B6%88%E6%81%AF%E4%B8%AD%E5%BF%83%20-%20%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%BC%B9%E5%B9%95%E8%A7%86%E9%A2%91%E7%BD%91%20-%20(%20%E3%82%9C-%20%E3%82%9C)%E3%81%A4%E3%83%AD%20%E4%B9%BE%E6%9D%AF~%20-%20bilibili%20%E5%92%8C%E5%8F%A6%E5%A4%96%201%20%2008-09-2024%2015%EF%BC%9A45%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E3%80%90mc%E5%BF%85%E5%A4%87%E6%A8%A1%E7%BB%84%E3%80%91%E9%A2%A0%E8%A6%86%E6%80%A7%E4%BC%98%E5%8C%96%E5%8E%9F%E7%89%88%E4%BD%93%E9%AA%8C%EF%BC%8C%E8%A7%A3%E9%94%81%E7%9C%9F%E6%AD%A3%E7%9A%84MC_%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9bilibili_%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%20%E5%92%8C%E5%8F%A6%E5%A4%96%203%20%2008-09-2024%2019%EF%BC%9A27%EF%BC%9A29%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8%2008-09-2024%2012%EF%BC%9A45%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A47%20_1.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240809193231.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A53%20_1.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A54%20_0.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A39%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A53%20_0.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A37%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A42%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A58%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A58%20_0.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A36%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A43%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B6%88%E6%81%AF%E4%B8%AD%E5%BF%83%20-%20%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%BC%B9%E5%B9%95%E8%A7%86%E9%A2%91%E7%BD%91%20-%20(%20%E3%82%9C-%20%E3%82%9C)%E3%81%A4%E3%83%AD%20%E4%B9%BE%E6%9D%AF~%20-%20bilibili%20%E5%92%8C%E5%8F%A6%E5%A4%96%201%20%2008-09-2024%2015%EF%BC%9A44%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A47%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A51%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A53%20_2.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A55%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2018%EF%BC%9A36%20.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A58%20_1.png">
+<meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/Snipper%20-%20Snipaste%2008-09-2024%2017%EF%BC%9A48%20.png">
+<meta property="article:published_time" content="2024-11-07T06:40:48.257Z">
+<meta property="article:modified_time" content="2024-11-07T06:57:36.796Z">
+<meta property="article:author" content="Leaves Webber">
+<meta property="article:tag" content="报错">
+<meta property="article:tag" content="Minecraft">
+<meta property="article:tag" content="视频配文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A34%20.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7">
+    <meta name="theme-color" content="#1DE9B6">
+    <link rel="shortcut icon" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&h=202&c=7&r=0&o=5&pid=1.7">
+    <!--- Page Info-->
+    
+    <title>
+        
+            MC安装报错问题合集 | 叶子的Blog
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"leavesblog.netlify.app","root":"/","language":"zh","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#1DE9B6","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"“Leaves' Blog”"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/192110-1568028070e1cc.jpg","dark":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106201246.jpg"},"title":"叶子のBlog","subtitle":{"text":["黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#2C3E50","dark":"#003366"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/LeavesWebber","instagram":null,"zhihu":null,"twitter":null,"email":null,"fa-solid fa-envelope":"mailto:leaveswebber@outlook.com","bilibili":"https://space.bilibili.com/515054976"},"qrs":{"weixin":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106122958.jpg"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.3","navbar":{"auto_hide":false,"color":{"left":"#B0E0E6","right":"#F4A460","transparency":7},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"分类":{"icon":"fa-solid fa-folder-tree","path":"/categories/"},"标签":{"icon":"fa-solid fa-tags","path":"/tags/"},"记忆":{"icon":"fa-solid fa-camera","path":"/masonry/"},"相遇":{"icon":"fa-solid fa-link","path":"/links/"},"关于我":{"icon":"fa-solid fa-address-card","path":"/me/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"用更多的了解跨越隔阂与偏见","show_on_mobile":true,"links":{"进一步了解我？":{"icon":"fa-solid fa-address-card","path":"/me/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":true};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+        
+<link rel="stylesheet" href="/fontawesome/duotone.min.css">
+
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+
+    <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        “Leaves&#39; Blog”
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container flex flex-col justify-between min-h-dvh">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="https://www.emojiall.com/en/header-svg/%F0%9F%8D%83.svg" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                叶子的Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder-tree fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/masonry/"
+                                        >
+                                    <i class="fa-solid fa-camera fa-fw"></i>
+                                    记忆
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/links/"
+                                        >
+                                    <i class="fa-solid fa-link fa-fw"></i>
+                                    相遇
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/me/"
+                                        >
+                                    <i class="fa-solid fa-address-card fa-fw"></i>
+                                    关于我
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-solid fa-folder-tree fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/masonry/"
+                        >
+                            <span>
+                                记忆
+                            </span>
+                            
+                                <i class="fa-solid fa-camera fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/links/"
+                        >
+                            <span>
+                                相遇
+                            </span>
+                            
+                                <i class="fa-solid fa-link fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/me/"
+                        >
+                            <span>
+                                关于我
+                            </span>
+                            
+                                <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/me/"
+                        >
+                            <span>进一步了解我？</span>
+                            <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">53</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">38</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">140</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">MC安装报错问题合集</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B5%8B%E8%AF%95%E5%9B%BE1.png">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">LeavesWebber</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-11-07 14:40:48</span>
+        <span class="mobile">2024-11-07 14:40:48</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-11-07 14:57:36</span>
+            <span class="mobile">2024-11-07 14:57:36</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/">我的世界</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%8A%A5%E9%94%99/">报错</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Minecraft/">Minecraft</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E8%A7%86%E9%A2%91%E9%85%8D%E6%96%87/">视频配文</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <blockquote>
+<p>上期的保姆级教程视频受到很多刚入坑mc国际版的萌新的好评，与此同时，仍然有很多小伙伴在安装游玩的过程中出现各种各样的问题。我整理了粉丝群和评论区内所有出现过的报错以及问题，制作出这期“mc报错合集”教程，期待能帮助更多还处在困惑中的小伙伴</p>
+</blockquote>
+<blockquote>
+<p>本专栏教程将持续更新，如你有教程中没出现的问题和报错，欢迎在评论区讨论，将持续更新此文章</p>
+</blockquote>
+<h1 id="1-找不到启动器配置文件profile-json-找不到启动器目录"><a href="#1-找不到启动器配置文件profile-json-找不到启动器目录" class="headerlink" title="1.找不到启动器配置文件profile.json&amp;&amp;找不到启动器目录"></a>1.找不到启动器配置文件profile.json&amp;&amp;找不到启动器目录</h1><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A34%20.png"
+                      alt="图片查看器 08-09-2024 12：34 .png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A37%20_0.png"
+                      alt="图片查看器 08-09-2024 12：34 .png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A54%20.png"
+                      alt="图片查看器 08-09-2024 12：34 .png"
+                ></p>
+<h2 id="可能性1"><a href="#可能性1" class="headerlink" title="可能性1"></a>可能性1</h2><p>这种问题大多出在使用fabric installer安装器时，游戏安装位置选择错误。，重新选择正确的路径即可<br>（正确的路径很可能为<code>C:\Users\你的用户名\AppData\Roaming\.minecraft</code>）<br>找路径的演示可见合集第三个版本隔离的视频</p>
+<h2 id="可能性2"><a href="#可能性2" class="headerlink" title="可能性2"></a>可能性2</h2><p>你也许试图用视频里的方法到官网下载fabric installer来安装fabric，但你却用的是pcl2&amp;&amp;HMCL等第三方启动器。<br>使用第三方启动器，需要使用其内置的fabric下载器下载，而不是用fabric installer<br>（up个人不主张使用第三方启动器）</p>
+<h2 id="可能性3"><a href="#可能性3" class="headerlink" title="可能性3"></a>可能性3</h2><p>你也许试图做版本隔离时，在老游戏目录之外的地方新建了一个新版本游戏的目录。<br>官方启动器的启动器文件和游戏文件混在了一起，如果你试图做版本隔离，请看合集的第三个视频，而不是这样做。链接如下：<br><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GqY4euEij/" >https://www.bilibili.com/video/BV1GqY4euEij/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h1 id="2-含有NVIDIA字样的弹窗报错"><a href="#2-含有NVIDIA字样的弹窗报错" class="headerlink" title="2.含有NVIDIA字样的弹窗报错"></a>2.含有NVIDIA字样的弹窗报错</h1><p>报错信息可能是：</p>
+<p>Sodium Renderer - Unsupported Driver<br>The game failed to start because the currently installed <strong>NVIDIA</strong> Graphics Driver is not compatible.</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A32%20.png"
+                      alt="图片查看器 08-09-2024 12：32 .png"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A57%20.png"
+                      alt="图片查看器 08-09-2024 12：32 .png"
+                ></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>使用<code>win</code>+<code>Q</code>快捷键启动系统自带的搜索，然后在搜索框内输入:<code>Geforce Experience</code>并打开，启动后使用任意方式登录，然后菜单栏选择“驱动程序”，选择第一个点更新即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240809162833.png"
+                      alt="image.png"
+                ></p>
+<h1 id="3-未配置java造成的问题"><a href="#3-未配置java造成的问题" class="headerlink" title="3.未配置java造成的问题"></a>3.未配置java造成的问题</h1><p>你的报错信息可能是：<br>The fabric Installer could not find a valid Java installation.<br>或者<br>启动失败，在创建新进程时发生错误，可能是Java路径错误<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A34%20_0.png"
+                      alt="图片查看器 08-09-2024 12：34 _0.png"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E3%80%90%E6%9C%80%E6%96%B0%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%E3%80%91%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%EF%BC%8C%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%8A%A0%E6%A8%A1%E7%BB%84%E5%85%89%E5%BD%B1%E6%9D%90%E8%B4%A8%EF%BC%9F%E4%B8%80%E6%AD%A5%E5%88%B0%E4%BD%8D%EF%BC%8C%E9%87%8D%E5%9B%9E%E5%A4%9A%E7%8E%A9%E7%9B%92%E5%AD%90%E8%88%AC%E4%BD%93%E9%AA%8C_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E7%83%AD%E9%97%A8%E8%A7%86%E9%A2%91%20%2008-09-2024%2015%EF%BC%9A52%20.png"
+                      alt="图片查看器 08-09-2024 12：34 _0.png"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A32%20_0.png"
+                      alt="图片查看器 08-09-2024 12：34 _0.png"
+                ></p>
+<h2 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h2><p>直接使用如下链接下载<code>jdk22 installer</code>（这是我扒出来的官网下载链接，请放心使用。浏览器里使用该链接后，会直接开始下载）<br><a class="link"   target="_blank" rel="noopener" href="https://download.oracle.com/java/22/latest/jdk-22_windows-x64_bin.exe" >https://download.oracle.com/java/22/latest/jdk-22_windows-x64_bin.exe <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>下载完以后直接无脑下一步安装就可以了，更详细的教程可以看这个朋友的分享：<br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/xhmico/article/details/122390181" >java 环境配置(详细教程)_java环境配置-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h1 id="4-游戏无法购买"><a href="#4-游戏无法购买" class="headerlink" title="4.游戏无法购买"></a>4.游戏无法购买</h1><p>你的报错信息可能是：</p>
+<p>此产品目前无法在该地区购买。通过“选择地区”菜单更改您的地区。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A35%20_0.png"
+                      alt="图片查看器 08-09-2024 12：35 _0.png"
+                ></p>
+<p>这个是由于众所周知的某易的原因</p>
+<h2 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h2><p>使用<code>win</code>+<code>Q</code>快捷键启动系统自带的搜索，然后在搜索框内输入:<code>Microsoft store</code>开启微软商店，在里面搜索<code>Minecraft</code>即可购买游戏，和官网直售购买没有任何区别，仅可使用支付宝或银行卡支付。<br>购买后，来到如下地址<br><a class="link"   target="_blank" rel="noopener" href="https://www.minecraft.net/zh-hans/store/minecraft-deluxe-collection-pc" >Minecraft：Java 版和 Bedrock 版（PC 豪华版） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>右上角登录您的微软账户（须与微软商店所登账户一致）后，即可下载官方启动器。接下来的步骤和合集第一个保姆级视频一致</p>
+<h1 id="5-前置组件和版本问题"><a href="#5-前置组件和版本问题" class="headerlink" title="5.前置组件和版本问题"></a>5.前置组件和版本问题</h1><p>你的报错信息可能是：</p>
+<p>有不兼容的模组！（Incompatible mods found!）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A36%20_0.png"
+                      alt="图片查看器 08-09-2024 12：36 _0.png"
+                ></p>
+<p>这个报错较为复杂，通常是mods的版本和MC的版本不一致导致的。调整MC的游戏版本或者重新选择正确的MODS版本都能解决问题<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A47%20_0.png"
+                      alt="图片查看器 08-09-2024 12：47 _0.png"
+                ></p>
+<p>也是缺少前置Mod。把上图中红圈圈起来的mod装一下就行<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A52%20.png"
+                      alt="图片查看器 08-09-2024 12：52 .png"
+                ><br>解决这种报错其实很简单，按照报错信息把缺少的mods装一下就行了，如上图就是需要下载<code>fabric-language-kotlin</code>和<code>silk-all</code>。找mods和装mods的方法见第一个合集视频<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A48%20.png"
+                      alt="图片查看器 08-09-2024 12：48 .png"
+                ></p>
+<p>这个报错和上面的如出一辙，只是界面是英文容易让人害怕。单引号内的内容就是需要下载的前置mods，可以对比上面几张有中文的图看</p>
+<h1 id="6-我按照视频做，没有出现本应出现的shaderpacks文件夹"><a href="#6-我按照视频做，没有出现本应出现的shaderpacks文件夹" class="headerlink" title="6.我按照视频做，没有出现本应出现的shaderpacks文件夹"></a>6.我按照视频做，没有出现本应出现的shaderpacks文件夹</h1><h2 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E3%80%90%E6%9C%80%E6%96%B0%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%E3%80%91%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%EF%BC%8C%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%8A%A0%E6%A8%A1%E7%BB%84%E5%85%89%E5%BD%B1%E6%9D%90%E8%B4%A8%EF%BC%9F%E4%B8%80%E6%AD%A5%E5%88%B0%E4%BD%8D%EF%BC%8C%E9%87%8D%E5%9B%9E%E5%A4%9A%E7%8E%A9%E7%9B%92%E5%AD%90%E8%88%AC%E4%BD%93%E9%AA%8C_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E7%83%AD%E9%97%A8%E8%A7%86%E9%A2%91%20%2008-09-2024%2015%EF%BC%9A52%20_0.png"
+                      alt="【最新保姆级教程】从零开始，我的世界加模组光影材质？一步到位，重回多玩盒子般体验_单机游戏热门视频  08-09-2024 15：52 _0.png"
+                ></p>
+<p>这个问题无非两种可能</p>
+<ol>
+<li>你在安装好iris和sodium后，没有按照我说的先把游戏启动一遍（游戏，而不只是启动器），启动游戏后系统会自动生成shaderpacks。</li>
+<li>你的fabric，iris，sodium和MC游戏的版本都应该一一对应，请你再次复查</li>
+</ol>
+<h2 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h2><p>不过最近，很多小伙伴说全都复查过，也没有出现应有的shaderpacks，如图：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E3%80%90%E6%9C%80%E6%96%B0%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%E3%80%91%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%EF%BC%8C%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%8A%A0%E6%A8%A1%E7%BB%84%E5%85%89%E5%BD%B1%E6%9D%90%E8%B4%A8%EF%BC%9F%E4%B8%80%E6%AD%A5%E5%88%B0%E4%BD%8D%EF%BC%8C%E9%87%8D%E5%9B%9E%E5%A4%9A%E7%8E%A9%E7%9B%92%E5%AD%90%E8%88%AC%E4%BD%93%E9%AA%8C_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E7%83%AD%E9%97%A8%E8%A7%86%E9%A2%91%20%2008-09-2024%2017%EF%BC%9A20%20.png"
+                      alt="【最新保姆级教程】从零开始，我的世界加模组光影材质？一步到位，重回多玩盒子般体验_单机游戏热门视频  08-09-2024 17：20 .png"
+                ></p>
+<p>而且这个问题是最近才开始陆续出现的。难道是啥新bug？如果你也这样，请继续往下看：<br>在我和一个小伙伴连线远程后发现，原来是因为就在昨天，mc正好更新了1.21.1版本，而小伙伴们把它和1.21搞混了（也是很难绷）。这两个不是同一个版本，尽管看着像。你可以看看你的启动器是不是长下图这样，如果是，那你就和这位朋友出错原因一样<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/Snipper%20-%20Snipaste%2008-09-2024%2012%EF%BC%9A00%20_0.png%2008-09-2024%2017%EF%BC%9A31%EF%BC%9A36%20.png"
+                      alt="Snipper - Snipaste 08-09-2024 12：00 _0.png 08-09-2024 17：31：36 .png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/Minecraft%20Launcher%2008-09-2024%2017%EF%BC%9A32%EF%BC%9A18%20.png"
+                      alt="Minecraft Launcher 08-09-2024 17：32：18 .png"
+                ></p>
+<p>解决方案：重新使用fabric installer安装fabric，选择版本时注意选择正确的版本即可。但是，由于你之前已经安装了错的版本，所以你现在的游戏文件夹其实对应的是那个错误的版本（如1.21.1），然后你重新使用fabric installer后，安装上了正确的版本，但是它的游戏目录藏在一个叫 <code>versions</code>的文件夹里。这时请你看我的版本隔离的视频，去给正确的版本重新配置mods，材质和光影文件夹。视频链接如下：<br><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GqY4euEij/" >https://www.bilibili.com/video/BV1GqY4euEij/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h1 id="7-我按照视频做，却出现和up不一样的情况"><a href="#7-我按照视频做，却出现和up不一样的情况" class="headerlink" title="7.我按照视频做，却出现和up不一样的情况"></a>7.我按照视频做，却出现和up不一样的情况</h1><h2 id="情况1：我的启动器选项里和up不一样"><a href="#情况1：我的启动器选项里和up不一样" class="headerlink" title="情况1：我的启动器选项里和up不一样"></a>情况1：我的启动器选项里和up不一样</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/IMG_8071.PNG"
+                      alt="IMG_8071.PNG"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240809184806.png"
+                      alt="image.png"
+                ><br>启动器的版本选择那边，这位朋友并没有出现<code>fabric loader</code>的选项。这是因为你在使用fabric installer的时候，没有勾选“添加新启动器配置”，如图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240809172636.png"
+                      alt="image.png"
+                ><br>勾选一下，重新安装即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B6%88%E6%81%AF%E4%B8%AD%E5%BF%83%20-%20%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%BC%B9%E5%B9%95%E8%A7%86%E9%A2%91%E7%BD%91%20-%20(%20%E3%82%9C-%20%E3%82%9C)%E3%81%A4%E3%83%AD%20%E4%B9%BE%E6%9D%AF~%20-%20bilibili%20%E5%92%8C%E5%8F%A6%E5%A4%96%202%20%2008-09-2024%2018%EF%BC%9A26%20.png"
+                      alt="消息中心 - 哔哩哔哩弹幕视频网 - ( ゜- ゜)つロ 乾杯~ - bilibili 和另外 2  08-09-2024 18：26 .png"
+                ><br>这位朋友勾选了添加新启动器配置，还是没有出现<code>fabric loader</code>，这个问题，和上面那个光影的案例2差不多，你很可能装fabric的时候把1.21.1和1.21搞混了</p>
+<h2 id="情况2：为啥我的长这样？"><a href="#情况2：为啥我的长这样？" class="headerlink" title="情况2：为啥我的长这样？"></a>情况2：为啥我的长这样？</h2><p>你的启动器版本选择位置可能出现下图的样子<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A51%20_2.png"
+                      alt="图片查看器 08-09-2024 12：51 _2.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A51%20_0.png"
+                      alt="图片查看器 08-09-2024 12：51 _2.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A51%20_1.png"
+                      alt="图片查看器 08-09-2024 12：51 _2.png"
+                ></p>
+<p>出现这个的原因在于你下载iris时候，下错东西了，如图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/Download%20Now%20-%20IrisShaders%20%E5%92%8C%E5%8F%A6%E5%A4%96%203%20%E4%B8%AA%E9%A1%B5%E9%9D%A2%20-%20%E4%B8%AA%E4%BA%BA%20-%20Micros%2008-09-2024%2017%EF%BC%9A37%EF%BC%9A16%20.png"
+                      alt="Download Now - IrisShaders 和另外 3 个页面 - 个人 - Micros 08-09-2024 17：37：16 .png"
+                ></p>
+<h2 id="情况3：我装fabric-api或者模组的时候，为啥本应该是-jar文件，我却看起来像个压缩包？？"><a href="#情况3：我装fabric-api或者模组的时候，为啥本应该是-jar文件，我却看起来像个压缩包？？" class="headerlink" title="情况3：我装fabric api或者模组的时候，为啥本应该是.jar文件，我却看起来像个压缩包？？"></a>情况3：我装fabric api或者模组的时候，为啥本应该是.jar文件，我却看起来像个压缩包？？</h2><p>和上面情况2原因差不多，你下错东西了。请使用下面的链接去官方下载<br><a class="link"   target="_blank" rel="noopener" href="https://www.curseforge.com/minecraft/mc-mods/fabric-api" >Fabric API - Minecraft Mods - CurseForge <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>还有些朋友，已经下载到了正确的.jar文件，但是电脑却显示是压缩包。这个问题，可以按照我下面的操作解决<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/CUsers26646AppDataRoaming.minecraftmods%2008-09-2024%2019%EF%BC%9A12%EF%BC%9A33%20.png"
+                      alt="CUsers26646AppDataRoaming.minecraftmods 08-09-2024 19：12：33 .png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%96%87%E4%BB%B6%E5%A4%B9%E9%80%89%E9%A1%B9%2008-09-2024%2019%EF%BC%9A14%EF%BC%9A47%20.png"
+                      alt="文件夹选项 08-09-2024 19：14：47 .png"
+                ><br>这样操作以后，你文件的扩展名就能显示出来。请核实：<br>只要你mods文件夹里的全是.jar结尾的文件就没事，&#x3D;&#x3D;图标长什么样无所谓&#x3D;&#x3D;</p>
+<h1 id="8-我下好了模组-光影，为什么游戏里不显示"><a href="#8-我下好了模组-光影，为什么游戏里不显示" class="headerlink" title="8.我下好了模组&amp;&amp;光影，为什么游戏里不显示"></a>8.我下好了模组&amp;&amp;光影，为什么游戏里不显示</h1><p>有个朋友截了张游戏资源包设置的图给我<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2019%EF%BC%9A23%EF%BC%9A16%20.png"
+                      alt="图片查看器 08-09-2024 19：23：16 .png"
+                ><br>问我为啥mod没有mod。这个地方显示的是你装的材质和资源包，当然不会出现mods了<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B6%88%E6%81%AF%E4%B8%AD%E5%BF%83%20-%20%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%BC%B9%E5%B9%95%E8%A7%86%E9%A2%91%E7%BD%91%20-%20(%20%E3%82%9C-%20%E3%82%9C)%E3%81%A4%E3%83%AD%20%E4%B9%BE%E6%9D%AF~%20-%20bilibili%20%E5%92%8C%E5%8F%A6%E5%A4%96%201%20%2008-09-2024%2015%EF%BC%9A45%20.png"
+                      alt="消息中心 - 哔哩哔哩弹幕视频网 - ( ゜- ゜)つロ 乾杯~ - bilibili 和另外 1  08-09-2024 15：45 .png"
+                ><br>这个朋友很困惑为啥自己没有mods选单，看网上别人有。这是因为你没有安装一个叫mod menu的模组，更多这个模组的介绍请看我合集第二个视频，视频链接如下：<br><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1UfvfecE44/" >https://www.bilibili.com/video/BV1UfvfecE44/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>装完之后，你就会和我一样，有模组选单了<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E3%80%90mc%E5%BF%85%E5%A4%87%E6%A8%A1%E7%BB%84%E3%80%91%E9%A2%A0%E8%A6%86%E6%80%A7%E4%BC%98%E5%8C%96%E5%8E%9F%E7%89%88%E4%BD%93%E9%AA%8C%EF%BC%8C%E8%A7%A3%E9%94%81%E7%9C%9F%E6%AD%A3%E7%9A%84MC_%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9bilibili_%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%20%E5%92%8C%E5%8F%A6%E5%A4%96%203%20%2008-09-2024%2019%EF%BC%9A27%EF%BC%9A29%20.png"
+                      alt="【mc必备模组】颠覆性优化原版体验，解锁真正的MC_哔哩哔哩bilibili_我的世界 和另外 3  08-09-2024 19：27：29 .png"
+                ><br>在这个里面能设置模组<br>至于光影为啥不显示，很明显你没有看过我图文教程。文章链接如下：<br><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv36363091/" >https://www.bilibili.com/read/cv36363091/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>会告诉你怎么应用光影</p>
+<h1 id="9-我在up推荐的资源网站下载模组，为什么下不了"><a href="#9-我在up推荐的资源网站下载模组，为什么下不了" class="headerlink" title="9.我在up推荐的资源网站下载模组，为什么下不了"></a>9.我在up推荐的资源网站下载模组，为什么下不了</h1><p>首先，你不要用某Q和某微的内置浏览器去打开别人分享的网站，这是个基本常识<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8%2008-09-2024%2012%EF%BC%9A45%20.png"
+                      alt="视频播放器 08-09-2024 12：45 .png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A47%20_1.png"
+                      alt="视频播放器 08-09-2024 12：45 .png"
+                ><br>你应当把网址复制进浏览器（推荐用Edge和Safari）的地址栏，然后访问下载</p>
+<p>其次，CurseForge的下载需要等几秒才能触发，如下图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240809193231.png"
+                      alt="image.png"
+                ><br>请你耐心把这个时间等完，不要离开标签页（我这里是等4秒）</p>
+<h1 id="10-多人游戏和联机有关问题"><a href="#10-多人游戏和联机有关问题" class="headerlink" title="10.多人游戏和联机有关问题"></a>10.多人游戏和联机有关问题</h1><h2 id="案例1-1"><a href="#案例1-1" class="headerlink" title="案例1"></a>案例1</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A53%20_1.png"
+                      alt="图片查看器 08-09-2024 12：53 _1.png"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A54%20_0.png"
+                      alt="图片查看器 08-09-2024 12：54 _0.png"
+                ></p>
+<p>上图的几种问题，可能是因为你之前玩服务器的时候被人举报了，试试去微软官网看看自己账户问题，这里不细说</p>
+<h2 id="案例2-1"><a href="#案例2-1" class="headerlink" title="案例2"></a>案例2</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A39%20.png"
+                      alt="图片查看器 08-09-2024 12：39 .png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A53%20_0.png"
+                      alt="图片查看器 08-09-2024 12：39 .png"
+                ><br>这两种问题，很可能是因为你使用了pcl2等玩盗版MC，而别人的服务器开了正版验证，导致你进不去。解决办法是买正版游戏（而不是要求服主关掉正版验证，这样做影响其他玩家正常游戏。况且，盗版也不提倡），并且使用官方启动器</p>
+<h2 id="案例3"><a href="#案例3" class="headerlink" title="案例3"></a>案例3</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A37%20.png"
+                      alt="图片查看器 08-09-2024 12：37 .png"
+                ><br>这个是因为你的客户端文件和服务端文件不同步，说人话就是服主安装的mods你没装。解决办法就是安装所有服务器里安装过的mods(我服务器里的mods都已经放在群文件)</p>
+<h2 id="案例4"><a href="#案例4" class="headerlink" title="案例4"></a>案例4</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A42%20.png"
+                      alt="图片查看器 08-09-2024 12：42 .png"
+                ><br>这种情况通常不是你的问题，而是服主那边服务器还没开，或者他那边的端口没设置好<br>不过有时候，你的ip被服主标记拉黑了，也会这样</p>
+<h1 id="11-XBOX登录失败，官方启动器网络问题多次用不了"><a href="#11-XBOX登录失败，官方启动器网络问题多次用不了" class="headerlink" title="11.XBOX登录失败，官方启动器网络问题多次用不了"></a>11.XBOX登录失败，官方启动器网络问题多次用不了</h1><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A58%20.png"
+                      alt="图片查看器 08-09-2024 12：58 .png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A58%20_0.png"
+                      alt="图片查看器 08-09-2024 12：58 .png"
+                ><br>这个很可能是你之前频繁使用VPN和代理之类的网络工具导致的，目前没有很好的解决办法（因为导致问题的原因可能很多）<br>尽管我不想，但或许这时只能推荐你去用PCL2启动器代替官方启动器运行MC了。下载好PCL2以后，也可以在里面登录你的正版账号（官方启动器能用的情况下还是推荐用官方）</p>
+<h1 id="12-使用了UP推荐的Essential-mod，却遭遇网络问题"><a href="#12-使用了UP推荐的Essential-mod，却遭遇网络问题" class="headerlink" title="12.使用了UP推荐的Essential mod，却遭遇网络问题"></a>12.使用了UP推荐的Essential mod，却遭遇网络问题</h1><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A36%20.png"
+                      alt="图片查看器 08-09-2024 12：36 .png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A43%20.png"
+                      alt="图片查看器 08-09-2024 12：36 .png"
+                ><br>这时你可能需要使用加速器或者代理（也就是<a class="link"   target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%AA%81%E7%A0%B4%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5" >科学上网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>）。换个时间再试试也许也能解决问题<br>另外说一句，你们装完Essential以后，游戏里会出现皮肤选项，up<strong>不建议</strong>你们去买这个里面的皮肤，首先他不是官方皮肤，如果对方没装Essential，那么他看不到你买的皮肤或者披风。而且即便你俩都有Essential，因为网络的原因很多时候买完的皮肤也可能用不了。之前给你们推荐的nameMC（见第一个视频）里面有各种各样的免费皮肤，相信完全够你们用了，还能传到官方网站永久稳定使用。实在想氪，给up充充电也好哇&#x3D;v&#x3D;（误，就没必要这里氪啦</p>
+<h1 id="13-我想玩其他版本的MC？版本隔离？"><a href="#13-我想玩其他版本的MC？版本隔离？" class="headerlink" title="13.我想玩其他版本的MC？版本隔离？"></a>13.我想玩其他版本的MC？版本隔离？</h1><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B6%88%E6%81%AF%E4%B8%AD%E5%BF%83%20-%20%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%BC%B9%E5%B9%95%E8%A7%86%E9%A2%91%E7%BD%91%20-%20(%20%E3%82%9C-%20%E3%82%9C)%E3%81%A4%E3%83%AD%20%E4%B9%BE%E6%9D%AF~%20-%20bilibili%20%E5%92%8C%E5%8F%A6%E5%A4%96%201%20%2008-09-2024%2015%EF%BC%9A44%20.png"
+                      alt="消息中心 - 哔哩哔哩弹幕视频网 - ( ゜- ゜)つロ 乾杯~ - bilibili 和另外 1  08-09-2024 15：44 .png"
+                ></p>
+<p>这个我的视频说的很清楚，视频链接<br><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GqY4euEij/" >https://www.bilibili.com/video/BV1GqY4euEij/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h1 id="14-其他杂七杂八的问题"><a href="#14-其他杂七杂八的问题" class="headerlink" title="14.其他杂七杂八的问题"></a>14.其他杂七杂八的问题</h1><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A47%20.png"
+                      alt="图片查看器 08-09-2024 12：47 .png"
+                ><br>有的朋友问我出现这个界面怎么办？<br>其实这说明你mc已经装成功了，选择第三个选项进去往下滑找到中文，设置一下语言，即可</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A51%20.png"
+                      alt="图片查看器 08-09-2024 12：51 .png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A53%20_2.png"
+                      alt="图片查看器 08-09-2024 12：51 .png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A55%20.png"
+                      alt="图片查看器 08-09-2024 12：51 .png"
+                ><br>这些杂七杂八的报错，原因各不相同<br>排查的办法是把mods全去掉，看看还会不会报错？还会的话就重装游戏（进入控制面板，卸载MC和MC的启动器，然后按照视频方法重下游戏）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2018%EF%BC%9A36%20.png"
+                      alt="图片查看器 08-09-2024 18：36 .png"
+                ></p>
+<p>很可能是你往mods文件夹里装了非.jar文件，或是装错了mod的版本，或是重复装了同一个mod。mods文件夹里只能塞.jar结尾的东西，如果你看不到文件扩展名，文章前面第7点情况3有教你设置的办法</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8%2008-09-2024%2012%EF%BC%9A58%20_1.png"
+                      alt="图片查看器 08-09-2024 12：58 _1.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/Snipper%20-%20Snipaste%2008-09-2024%2017%EF%BC%9A48%20.png"
+                      alt="Snipper - Snipaste 08-09-2024 17：48 .png"
+                ></p>
+<p>反复卡在这个界面，甚至还报错。很可能是因为你装了暮色森林等模组导致的。目前还没想到好的解决办法，尤其是这个暮色森林。你只能选择去掉该模组游玩游戏，要不就是换个低版本游戏，或者从fabric换到forge重试</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> MC安装报错问题合集</li>
+        <li><strong>作者:</strong> LeavesWebber</li>
+        <li><strong>创建于
+                :</strong> 2024-11-07 14:40:48</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-11-07 14:57:36
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://leavesblog.netlify.app/2024/11/07/我的世界/安装报错问题合集/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E6%8A%A5%E9%94%99/">#报错</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Minecraft/">#Minecraft</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E8%A7%86%E9%A2%91%E9%85%8D%E6%96%87/">#视频配文</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/11/07/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%87%E5%BF%98%E6%97%A5%E5%BF%97/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">MC服务器运维日志</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/11/07/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/%E5%85%B3%E4%BA%8E%E8%81%94%E6%9C%BA%E6%B8%B8%E7%8E%A9/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">关于MC联机游玩</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">目录</div>
+        <div class="page-title">MC安装报错问题合集</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%89%BE%E4%B8%8D%E5%88%B0%E5%90%AF%E5%8A%A8%E5%99%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6profile-json-%E6%89%BE%E4%B8%8D%E5%88%B0%E5%90%AF%E5%8A%A8%E5%99%A8%E7%9B%AE%E5%BD%95"><span class="nav-text">1.找不到启动器配置文件profile.json&amp;&amp;找不到启动器目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E6%80%A71"><span class="nav-text">可能性1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E6%80%A72"><span class="nav-text">可能性2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E6%80%A73"><span class="nav-text">可能性3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%90%AB%E6%9C%89NVIDIA%E5%AD%97%E6%A0%B7%E7%9A%84%E5%BC%B9%E7%AA%97%E6%8A%A5%E9%94%99"><span class="nav-text">2.含有NVIDIA字样的弹窗报错</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%9C%AA%E9%85%8D%E7%BD%AEjava%E9%80%A0%E6%88%90%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">3.未配置java造成的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-1"><span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%B8%B8%E6%88%8F%E6%97%A0%E6%B3%95%E8%B4%AD%E4%B9%B0"><span class="nav-text">4.游戏无法购买</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-2"><span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%89%8D%E7%BD%AE%E7%BB%84%E4%BB%B6%E5%92%8C%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="nav-text">5.前置组件和版本问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E6%88%91%E6%8C%89%E7%85%A7%E8%A7%86%E9%A2%91%E5%81%9A%EF%BC%8C%E6%B2%A1%E6%9C%89%E5%87%BA%E7%8E%B0%E6%9C%AC%E5%BA%94%E5%87%BA%E7%8E%B0%E7%9A%84shaderpacks%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">6.我按照视频做，没有出现本应出现的shaderpacks文件夹</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B1"><span class="nav-text">案例1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B2"><span class="nav-text">案例2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E6%88%91%E6%8C%89%E7%85%A7%E8%A7%86%E9%A2%91%E5%81%9A%EF%BC%8C%E5%8D%B4%E5%87%BA%E7%8E%B0%E5%92%8Cup%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-text">7.我按照视频做，却出现和up不一样的情况</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%85%E5%86%B51%EF%BC%9A%E6%88%91%E7%9A%84%E5%90%AF%E5%8A%A8%E5%99%A8%E9%80%89%E9%A1%B9%E9%87%8C%E5%92%8Cup%E4%B8%8D%E4%B8%80%E6%A0%B7"><span class="nav-text">情况1：我的启动器选项里和up不一样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%85%E5%86%B52%EF%BC%9A%E4%B8%BA%E5%95%A5%E6%88%91%E7%9A%84%E9%95%BF%E8%BF%99%E6%A0%B7%EF%BC%9F"><span class="nav-text">情况2：为啥我的长这样？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%85%E5%86%B53%EF%BC%9A%E6%88%91%E8%A3%85fabric-api%E6%88%96%E8%80%85%E6%A8%A1%E7%BB%84%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E4%B8%BA%E5%95%A5%E6%9C%AC%E5%BA%94%E8%AF%A5%E6%98%AF-jar%E6%96%87%E4%BB%B6%EF%BC%8C%E6%88%91%E5%8D%B4%E7%9C%8B%E8%B5%B7%E6%9D%A5%E5%83%8F%E4%B8%AA%E5%8E%8B%E7%BC%A9%E5%8C%85%EF%BC%9F%EF%BC%9F"><span class="nav-text">情况3：我装fabric api或者模组的时候，为啥本应该是.jar文件，我却看起来像个压缩包？？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-%E6%88%91%E4%B8%8B%E5%A5%BD%E4%BA%86%E6%A8%A1%E7%BB%84-%E5%85%89%E5%BD%B1%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B8%B8%E6%88%8F%E9%87%8C%E4%B8%8D%E6%98%BE%E7%A4%BA"><span class="nav-text">8.我下好了模组&amp;&amp;光影，为什么游戏里不显示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-%E6%88%91%E5%9C%A8up%E6%8E%A8%E8%8D%90%E7%9A%84%E8%B5%84%E6%BA%90%E7%BD%91%E7%AB%99%E4%B8%8B%E8%BD%BD%E6%A8%A1%E7%BB%84%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8B%E4%B8%8D%E4%BA%86"><span class="nav-text">9.我在up推荐的资源网站下载模组，为什么下不了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E5%92%8C%E8%81%94%E6%9C%BA%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-text">10.多人游戏和联机有关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B1-1"><span class="nav-text">案例1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B2-1"><span class="nav-text">案例2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B3"><span class="nav-text">案例3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B4"><span class="nav-text">案例4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-XBOX%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5%EF%BC%8C%E5%AE%98%E6%96%B9%E5%90%AF%E5%8A%A8%E5%99%A8%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98%E5%A4%9A%E6%AC%A1%E7%94%A8%E4%B8%8D%E4%BA%86"><span class="nav-text">11.XBOX登录失败，官方启动器网络问题多次用不了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-%E4%BD%BF%E7%94%A8%E4%BA%86UP%E6%8E%A8%E8%8D%90%E7%9A%84Essential-mod%EF%BC%8C%E5%8D%B4%E9%81%AD%E9%81%87%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98"><span class="nav-text">12.使用了UP推荐的Essential mod，却遭遇网络问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-%E6%88%91%E6%83%B3%E7%8E%A9%E5%85%B6%E4%BB%96%E7%89%88%E6%9C%AC%E7%9A%84MC%EF%BC%9F%E7%89%88%E6%9C%AC%E9%9A%94%E7%A6%BB%EF%BC%9F"><span class="nav-text">13.我想玩其他版本的MC？版本隔离？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-%E5%85%B6%E4%BB%96%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">14.其他杂七杂八的问题</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">LeavesWebber</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 140 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.7.3</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+                
+
+                    
+                        <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                    
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="站内搜索您需要的内容..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+    
+<script src="/js/libs/minimasonry.min.js"></script>
+
+    
+<script src="/js/plugins/masonry.js" type="module"></script>
+
+
+
+
+
+
+
+    
+<script src="/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+</body>
+</html>

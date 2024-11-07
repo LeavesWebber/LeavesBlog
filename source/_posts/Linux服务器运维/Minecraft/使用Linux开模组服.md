@@ -1,3 +1,15 @@
+---
+title: 使用Linux 开MC fabric模组服
+tags:
+  - linux
+  - 运维
+  - Minecraft
+categories:
+  - Linux服务器运维
+  - Minecraft
+date:
+updated:
+---
 # 使用Linux 开MC fabric模组服
 > 我的Linux是Ubuntu版本
 

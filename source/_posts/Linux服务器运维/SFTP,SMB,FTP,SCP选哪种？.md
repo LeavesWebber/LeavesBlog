@@ -1,12 +1,11 @@
 ---
-updated: 2024年10月23日
-aliases:
-
-- 任务分工
-  tags:
-- 应用密码学
-- 团队合作
-
+tags:
+  - 运维
+categories:
+  - Linux服务器运维
+title: SFTP,SMB,FTP,SCP选哪种？
+date:
+updated:
 ---
 
 # 服务器支持的远程传文件协议很多，我应该用哪种？

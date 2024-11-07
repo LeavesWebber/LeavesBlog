@@ -2,6 +2,13 @@
 categories:
   - Linux服务器运维
   - Minecraft
+title: 使用Docker快速搭建MC服务器
+tags:
+  - Minecraft
+  - docker
+  - 运维
+date:
+updated:
 ---
 # 在自己的[群晖NAS]上部署[Minecraft]服务器
 我之前租过一阵子第三方服务器，和五六个朋友在同一个世界里游玩，他们想上线玩的时候就玩，而我每次上线都能发现他们留下的惊喜，真的很欢乐，只是一直苦于每个月要交钱续费。偶然发现Minecraft服务器可以部署在NAS上，自家又正好有台群晖的，这让本就爱折腾的我一阵狂喜，下面进入正文。

@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Leaves&#39; Blog">
+    
+    <meta name="author" content="LeavesWebber">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://leavesblog.netlify.app/2024/11/07/tips for blue topaz/example/ob提示框(callout)样式展示/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="Obaidian 0.14.2 版本后增加了Callout功能，这个功能就是之前 admonition(简称ad插件) 插件收编的，目前语法跟Microsoft Docs 一致。之前用ad插件设置的提示框可以一键转换成最新的语法样式。  调用办法 ctrl+p 输入 callout 即可自动输入模板 如果先有内容 后加callout 就先选择内容 然后 ctrl+p  callout  就搞定了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="欢迎来到叶子的博客">
+<meta property="og:url" content="https://leavesblog.netlify.app/2024/11/07/TIPS%20for%20Blue%20Topaz/Example/ob%E6%8F%90%E7%A4%BA%E6%A1%86(callout)%E6%A0%B7%E5%BC%8F%E5%B1%95%E7%A4%BA/index.html">
+<meta property="og:site_name" content="欢迎来到叶子的博客">
+<meta property="og:description" content="Obaidian 0.14.2 版本后增加了Callout功能，这个功能就是之前 admonition(简称ad插件) 插件收编的，目前语法跟Microsoft Docs 一致。之前用ad插件设置的提示框可以一键转换成最新的语法样式。  调用办法 ctrl+p 输入 callout 即可自动输入模板 如果先有内容 后加callout 就先选择内容 然后 ctrl+p  callout  就搞定了">
+<meta property="og:locale">
+<meta property="og:image" content="https://img2.doubanio.com/view/subject/l/public/s33984963.jpg">
+<meta property="og:image" content="https://i.pinimg.com/564x/13/1f/e4/131fe4d97e3be0a49a5d07431a917d31.jpg">
+<meta property="og:image" content="https://i.pinimg.com/564x/84/6c/1c/846c1cab0d47dd7970f9a008eeebd68f.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2022/05/18/OI7Io9.png">
+<meta property="og:image" content="https://i.pinimg.com/564x/84/6c/1c/846c1cab0d47dd7970f9a008eeebd68f.jpg">
+<meta property="og:image" content="https://i.pinimg.com/564x/c5/0f/09/c50f09d991dfcfdbea600ff139739fd8.jpg">
+<meta property="og:image" content="https://i.pinimg.com/564x/a4/94/01/a494019c68ed85630de16cf8f32523f0.jpg">
+<meta property="og:image" content="https://i.pinimg.com/564x/13/1f/e4/131fe4d97e3be0a49a5d07431a917d31.jpg">
+<meta property="og:image" content="https://i.pinimg.com/564x/84/6c/1c/846c1cab0d47dd7970f9a008eeebd68f.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2022/05/18/OI7Io9.png">
+<meta property="og:image" content="https://i.pinimg.com/564x/84/6c/1c/846c1cab0d47dd7970f9a008eeebd68f.jpg">
+<meta property="og:image" content="https://i.pinimg.com/564x/c5/0f/09/c50f09d991dfcfdbea600ff139739fd8.jpg">
+<meta property="og:image" content="https://i.pinimg.com/564x/a4/94/01/a494019c68ed85630de16cf8f32523f0.jpg">
+<meta property="article:published_time" content="2024-11-07T06:40:47.996Z">
+<meta property="article:modified_time" content="2022-10-17T01:58:32.000Z">
+<meta property="article:author" content="Leaves Webber">
+<meta property="article:tag" content="Leaves&#39; Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2.doubanio.com/view/subject/l/public/s33984963.jpg">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7">
+    <meta name="theme-color" content="#1DE9B6">
+    <link rel="shortcut icon" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&h=202&c=7&r=0&o=5&pid=1.7">
+    <!--- Page Info-->
+    
+    <title>
+        
+            叶子的Blog - 无限进步
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"leavesblog.netlify.app","root":"/","language":"zh","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#1DE9B6","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"“Leaves' Blog”"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/192110-1568028070e1cc.jpg","dark":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106201246.jpg"},"title":"叶子のBlog","subtitle":{"text":["黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#2C3E50","dark":"#003366"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/LeavesWebber","instagram":null,"zhihu":null,"twitter":null,"email":null,"fa-solid fa-envelope":"mailto:leaveswebber@outlook.com","bilibili":"https://space.bilibili.com/515054976"},"qrs":{"weixin":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106122958.jpg"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.3","navbar":{"auto_hide":false,"color":{"left":"#B0E0E6","right":"#F4A460","transparency":7},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"分类":{"icon":"fa-solid fa-folder-tree","path":"/categories/"},"标签":{"icon":"fa-solid fa-tags","path":"/tags/"},"记忆":{"icon":"fa-solid fa-camera","path":"/masonry/"},"相遇":{"icon":"fa-solid fa-link","path":"/links/"},"关于我":{"icon":"fa-solid fa-address-card","path":"/me/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"用更多的了解跨越隔阂与偏见","show_on_mobile":true,"links":{"进一步了解我？":{"icon":"fa-solid fa-address-card","path":"/me/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":true};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+        
+<link rel="stylesheet" href="/fontawesome/duotone.min.css">
+
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+
+    <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        “Leaves&#39; Blog”
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container flex flex-col justify-between min-h-dvh">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="https://www.emojiall.com/en/header-svg/%F0%9F%8D%83.svg" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                叶子的Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder-tree fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/masonry/"
+                                        >
+                                    <i class="fa-solid fa-camera fa-fw"></i>
+                                    记忆
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/links/"
+                                        >
+                                    <i class="fa-solid fa-link fa-fw"></i>
+                                    相遇
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/me/"
+                                        >
+                                    <i class="fa-solid fa-address-card fa-fw"></i>
+                                    关于我
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-solid fa-folder-tree fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/masonry/"
+                        >
+                            <span>
+                                记忆
+                            </span>
+                            
+                                <i class="fa-solid fa-camera fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/links/"
+                        >
+                            <span>
+                                相遇
+                            </span>
+                            
+                                <i class="fa-solid fa-link fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/me/"
+                        >
+                            <span>
+                                关于我
+                            </span>
+                            
+                                <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/me/"
+                        >
+                            <span>进一步了解我？</span>
+                            <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">53</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">38</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">140</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3"></h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B5%8B%E8%AF%95%E5%9B%BE1.png">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">LeavesWebber</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-11-07 14:40:47</span>
+        <span class="mobile">2024-11-07 14:40:47</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2022-10-17 09:58:32</span>
+            <span class="mobile">2022-10-17 09:58:32</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/TIPS-for-Blue-Topaz/">TIPS for Blue Topaz</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/TIPS-for-Blue-Topaz/Example/">Example</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <blockquote>
+<p>Obaidian 0.14.2 版本后增加了Callout功能，这个功能就是之前 admonition(简称ad插件) 插件收编的，目前语法跟Microsoft Docs 一致。之前用ad插件设置的提示框可以一键转换成最新的语法样式。</p>
+</blockquote>
+<h2 id="调用办法"><a href="#调用办法" class="headerlink" title="调用办法"></a>调用办法</h2><ul>
+<li><code>ctrl+p</code> 输入 callout 即可自动输入模板</li>
+<li>如果先有内容 后加callout 就先选择内容 然后 <code>ctrl+p</code>  callout  就搞定了</li>
+</ul>
+<h2 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h2><p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1G5411U7m8/" >告别单调的Obsidian，Ob的版面也可以丰富起来！ (bilibili.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="目前支持的样式列表"><a href="#目前支持的样式列表" class="headerlink" title="目前支持的样式列表"></a>目前支持的样式列表</h2><h2 id="官方示例"><a href="#官方示例" class="headerlink" title="官方示例"></a>官方示例</h2><h3 id="提示框类型"><a href="#提示框类型" class="headerlink" title="提示框类型"></a>提示框类型</h3><blockquote>
+<p>[!note]<br>Here’s a callout block.<br>It supports <strong>markdown</strong> and [[Internal link|wikilinks]].</p>
+</blockquote>
+<blockquote>
+<p>[!abstract]</p>
+</blockquote>
+<blockquote>
+<p>[!todo]</p>
+</blockquote>
+<blockquote>
+<p>[!info]</p>
+</blockquote>
+<blockquote>
+<p>[!tip]</p>
+</blockquote>
+<blockquote>
+<p>[!success]</p>
+</blockquote>
+<blockquote>
+<p>[!question]</p>
+</blockquote>
+<blockquote>
+<p>[!warning]</p>
+</blockquote>
+<blockquote>
+<p>[!failure]</p>
+</blockquote>
+<blockquote>
+<p>[!danger]</p>
+</blockquote>
+<blockquote>
+<p>[!bug]</p>
+</blockquote>
+<blockquote>
+<p>[!example]</p>
+</blockquote>
+<blockquote>
+<p>[!quote]</p>
+</blockquote>
+<p>除了info 类型还支持以下类型</p>
+<ul>
+<li>note</li>
+<li>abstract, summary, tldr</li>
+<li>info, todo</li>
+<li>tip, hint, important</li>
+<li>success, check, done</li>
+<li>question, help, faq</li>
+<li>warning, caution, attention</li>
+<li>failure, fail, missing</li>
+<li>danger, error</li>
+<li>bug</li>
+<li>example</li>
+<li>quote, cite</li>
+</ul>
+<h3 id="提示框的各种用法"><a href="#提示框的各种用法" class="headerlink" title="提示框的各种用法"></a>提示框的各种用法</h3><ol>
+<li><p>可以没有内容直接显示标题</p>
+<blockquote>
+<p>[!TIP] Callouts can have custom titles, which also supports <strong>markdown</strong>!</p>
+</blockquote>
+</li>
+<li><p>折叠提示框</p>
+<blockquote>
+<p>[!FAQ]- Are callouts foldable?<br>Yes! In a foldable callout, the contents are hidden until it is expanded.</p>
+</blockquote>
+</li>
+<li><p>自定义提示框<br>可以通过css设置my-callout-type 的样式</p>
+</li>
+</ol>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.callout</span><span class="selector-attr">[data-callout=<span class="string">&quot;my-callout-type&quot;</span>]</span> &#123;</span><br><span class="line">    <span class="attr">--callout-color</span>: <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>;</span><br><span class="line">    <span class="attr">--callout-icon</span>: icon-id;</span><br><span class="line">    <span class="attr">--callout-icon</span>: <span class="string">&#x27;&lt;svg&gt;...custom svg...&lt;/svg&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="主题自定义示例"><a href="#主题自定义示例" class="headerlink" title="主题自定义示例"></a>主题自定义示例</h2><h4 id="目前支持的callout类型"><a href="#目前支持的callout类型" class="headerlink" title="目前支持的callout类型"></a>目前支持的callout类型</h4><p>通过添加callout类型，实现各类样式控制。下面以Blue Topaz主题内置的callout样式举例说明，目前支持的callout样式有：</p>
+<table>
+<thead>
+<tr>
+<th>Callout类型</th>
+<th>解释</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cloze</td>
+<td>字体模糊效果</td>
+<td>&gt;[!cloze]</td>
+</tr>
+<tr>
+<td>kanban</td>
+<td>伪看板 无序列表并列</td>
+<td>&gt;[!kanban]</td>
+</tr>
+<tr>
+<td>hibox</td>
+<td>自动隐藏框</td>
+<td>&gt;[!hibox]</td>
+</tr>
+<tr>
+<td>bookinfo</td>
+<td>图书卡片(图片表格左右分布)</td>
+<td>&gt;[!bookinfo]</td>
+</tr>
+<tr>
+<td>xx%</td>
+<td>callout宽度xx代表10-100的数值</td>
+<td>&gt;[!30%]</td>
+</tr>
+<tr>
+<td>right|left|center</td>
+<td>callout布局位置</td>
+<td>&gt;[!right] <br>&gt;[!left]<br>&gt;[!center]</td>
+</tr>
+<tr>
+<td>indent</td>
+<td>全文自动缩进2字符</td>
+<td>&gt;[!indent]</td>
+</tr>
+<tr>
+<td>blank</td>
+<td>callout 全透明块</td>
+<td>&gt;[!blank]</td>
+</tr>
+<tr>
+<td>timeline</td>
+<td>时间线样式</td>
+<td>[[timeline callout效果]]</td>
+</tr>
+</tbody></table>
+<p><strong>注意 以上类型都可以互相组合使用，具体看下面例子</strong><br>Ob 0.14.5 以后支持 metadata写法 也就是用管道分割<br>比如<code>&gt; [!note|right]</code> 把一些属性信息用竖线分割，这样就不会影响callout类型。管道后的参数就是metadata。</p>
+<h4 id="目前支持metadata的属性"><a href="#目前支持metadata的属性" class="headerlink" title="目前支持metadata的属性"></a>目前支持metadata的属性</h4><table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>xx%</td>
+<td>callout宽度xx代表10-100的数值</td>
+</tr>
+<tr>
+<td>right|left|center</td>
+<td>callout布局位置</td>
+</tr>
+<tr>
+<td>indent</td>
+<td>全文自动缩进2字符</td>
+</tr>
+<tr>
+<td>nowrap</td>
+<td>元素不换行(包括图片横排显示)</td>
+</tr>
+<tr>
+<td>noicon</td>
+<td>隐藏callout图标</td>
+</tr>
+<tr>
+<td>banner</td>
+<td>可以用图片作为callout标题</td>
+</tr>
+<tr>
+<td>notitle</td>
+<td>隐藏callout标题栏</td>
+</tr>
+<tr>
+<td>noborder</td>
+<td>隐藏callout边框</td>
+</tr>
+<tr>
+<td>grid</td>
+<td>元素网格化布局</td>
+</tr>
+</tbody></table>
+<h3 id="模糊字体"><a href="#模糊字体" class="headerlink" title="模糊字体"></a>模糊字体</h3><blockquote>
+<p>[!cloze]<br>隐藏文本</p>
+</blockquote>
+<h3 id="伪看板-kanban"><a href="#伪看板-kanban" class="headerlink" title="伪看板 kanban"></a>伪看板 kanban</h3><blockquote>
+<p>[!kanban]+ Callout 看板测试</p>
+<ul>
+<li><input disabled="" type="checkbox"> callout 看板测试</li>
+<li><input disabled="" type="checkbox"> 3333</li>
+<li><input disabled="" type="checkbox"> 3333<ul>
+<li><input disabled="" type="checkbox"> 333</li>
+<li><input disabled="" type="checkbox"> 333</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 第二个菜单22</li>
+<li><input disabled="" type="checkbox"> 子列表</li>
+<li><input disabled="" type="checkbox"> 第三个菜单 最好在源码模式下编辑</li>
+<li><input disabled="" type="checkbox"> 测试测333</li>
+<li><input disabled="" type="checkbox"> 测试测444</li>
+<li><input disabled="" type="checkbox"> 22222</li>
+<li><input disabled="" type="checkbox"> 2234444</li>
+<li>555555</li>
+<li>777777</li>
+</ul>
+</blockquote>
+<h3 id="自动隐藏框-hibox"><a href="#自动隐藏框-hibox" class="headerlink" title="自动隐藏框 hibox"></a>自动隐藏框 hibox</h3><blockquote>
+<p>[!hibox]<br>这是可以自动隐藏的文字部分</p>
+<ul>
+<li>122333</li>
+<li><input disabled="" type="checkbox"> 3333</li>
+<li><input checked="" disabled="" type="checkbox"> 33333</li>
+<li><input disabled="" type="checkbox"> 4444</li>
+</ul>
+</blockquote>
+<h3 id="信息卡-infobox"><a href="#信息卡-infobox" class="headerlink" title="信息卡 infobox"></a>信息卡 infobox</h3><blockquote>
+<p>[!Infobox|notitle right 45%]+ ## 关羽<br>![[Pasted image 20220331161219.png|circle]]</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">本名</th>
+<th align="left">关羽</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">别名</td>
+<td align="left">关云长、关公、汉寿亭侯、武圣</td>
+</tr>
+<tr>
+<td align="left">昵称</td>
+<td align="left">二爷</td>
+</tr>
+<tr>
+<td align="left">国籍</td>
+<td align="left">中国</td>
+</tr>
+<tr>
+<td align="left">出生</td>
+<td align="left">约160年</td>
+</tr>
+<tr>
+<td align="left">逝世</td>
+<td align="left">220年（约60岁）</td>
+</tr>
+<tr>
+<td align="left">职业</td>
+<td align="left">将领</td>
+</tr>
+<tr>
+<td align="left">活跃年代</td>
+<td align="left">东汉末年</td>
+</tr>
+<tr>
+<td align="left">相关人士</td>
+<td align="left">大哥：刘备<div>三弟：张飞<br></div><div>子女：关平、关银屏<br></div></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>[!tip|indent] 三国人物–关羽<br>关羽早年因杀人逃离家乡，奔向涿郡，在此处结识刘备与张飞，三人相谈甚欢，恩若兄弟。<br>建安五年（200年）刘备投奔袁绍，关羽被曹操捉拿后担任偏将军，在万军之中斩杀颜良，立下了大功。不过之后关羽离开曹操阵营投奔刘备，曹操并未挽留，而是认为“彼各为其主”，放他离开了。<br>之后关羽跟随刘备投奔刘表，刘表去世后刘备在南逃过程中派遣关羽带领数百艘船前往江陵，并在被曹操追杀后成功与之汇合，一同前往夏口。在刘备平定益州后关羽总督荆州诸事，并在之后进行了刮骨疗毒的壮举。<br>建安二十四年（219年）刘备自封为汉中王，赐关羽前将军之职，之后在樊城之战中一举斩落庞德，威震华夏。但之后由于孙权反水偷袭以及部下倒戈东吴，关羽军队溃散，败走麦城，被孙权部将抓获，同年十二月在临沮被斩杀。<br>之后孙权将关羽的头颅送给曹操，曹操以诸侯之礼下葬于洛阳，孙权则将身躯下葬于当阳。后被蜀后主刘禅追谥为壮缪侯。<br>关羽去世后，民间尊为“关公”，历代朝廷多有褒封。清朝雍正时期，尊为“武圣”，与“文圣”孔子地位等同。在小说《三国演义》中，名列“五虎上将”之首，使用青龙偃月刀。毛宗岗称其为《演义》三绝中的“义绝”。在宗教文化方面，关羽被道教尊为关圣帝君、文衡帝君，被佛教尊为护法伽蓝菩萨（伽蓝神） 、盖天古佛，被道教尊为协天大帝、翔汉天神等。</p>
+</blockquote>
+<h3 id="图书信息卡片-bookinfo"><a href="#图书信息卡片-bookinfo" class="headerlink" title="图书信息卡片 bookinfo"></a>图书信息卡片 bookinfo</h3><blockquote>
+<p>[!bookinfo]+ 《从零开始的女性主义》<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img2.doubanio.com/view/subject/l/public/s33984963.jpg"
+                      alt="bookcover|200"
+                ></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ISBN</td>
+<td align="left">9787559652317</td>
+</tr>
+<tr>
+<td align="left">作者</td>
+<td align="left">‘[日]上野千鹤子&#x2F;[日]田房永子’</td>
+</tr>
+<tr>
+<td align="left">出版社</td>
+<td align="left">北京联合出版公司</td>
+</tr>
+<tr>
+<td align="left">来源</td>
+<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://book.douban.com/subject/35523099/" >从零开始的女性主义 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></td>
+</tr>
+<tr>
+<td align="left">评分</td>
+<td align="left">8.7</td>
+</tr>
+<tr>
+<td align="left">页码</td>
+<td align="left">192</td>
+</tr>
+</tbody></table>
+<h3 id="自定义宽度-位置"><a href="#自定义宽度-位置" class="headerlink" title="自定义宽度 位置"></a>自定义宽度 位置</h3><blockquote>
+<p>目前支持的位置属性有 right，center，left<br>支持的宽度属性 10%-100% 比如10% 15% 20% 等<br>它们可以组合使用，支持下面两种写法</p>
+</blockquote>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; [!note|30%]</span><br><span class="line">&gt; [!note 30%]</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>[!note|right 35% indent ]+ TextBox<br>With the development of Chinese economy, the world is watching us. More and more foreigners have sensed the great potential market and come to China to seek for cooperation. Chinese film market had been ignored before, but now more Hollywood directors show their willingness to work with Chinese actors, so as to catch more Chinese audiences and increase the box office.   </p>
+</blockquote>
+<blockquote>
+<p>[!tips right 35% ]+ Title<br> Indeed, Chinese box office is increasing every year, even surpasses the foreign’s, which makes the foreign directors pay so much attention to Chinese audiences. It also shows that China has influnced the world and it plays more and more important role in the world economy. There is no doubt that more cooperations will happen during foreign enterprises and Chinese business. </p>
+</blockquote>
+<p>With the development of Chinese economy, the world is watching us. More and more foreigners have sensed the great potential market and come to China to seek for cooperation. Chinese film market had been ignored before, but now more Hollywood directors show their willingness to work with Chinese actors, so as to catch more Chinese audiences and increase the box office.<br> Indeed, Chinese box office is increasing every year, even surpasses the foreign’s, which makes the foreign directors pay so much attention to Chinese audiences. It also shows that China has influnced the world and it plays more and more important role in the world economy. There is no doubt that more cooperations will happen during foreign enterprises and Chinese business.</p>
+<blockquote>
+<p>[!tips center]+ Title<br> Indeed, Chinese box office is increasing every year, even surpasses the foreign’s, which makes the foreign directors pay so much attention to Chinese audiences. It also shows that China has influnced the world and it plays more and more important role in the world economy. There is no doubt that more cooperations will happen during foreign enterprises and Chinese business.<br> With the development of Chinese economy, the world is watching us. More and more foreigners have sensed the great potential market and come to China to seek for cooperation. Chinese film market had been ignored before, but now more Hollywood directors show their willingness to work with Chinese actors, so as to catch more Chinese audiences and increase the box office.  </p>
+</blockquote>
+<h3 id="首行缩进2字符-indent"><a href="#首行缩进2字符-indent" class="headerlink" title="首行缩进2字符 indent"></a>首行缩进2字符 indent</h3><blockquote>
+<p>支持下面两种写法</p>
+</blockquote>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; [!note|indent]</span><br><span class="line">&gt; [!note indent]</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>[!NOTE|indent] Title<br>In China, millions of high school students will take part in the very important exam on June, it is the turning point of their lives, because the exam will decide what kind of university they will enter. Most people believe that it even decides their fates. While it is just the beginning of their new lives.<br>在中国,数以百万计的高中学生会在6月参加重要的考试,这是他们生活的转折点,因为考试将决定他们将进入什么样的大学。大多数人认为,这甚至决定他们的命运。然而这只是他们的新生活的开端。<br>When high school students finish their study, it is time to think about what kind of major they need to choose. This is a very important question, choosing a major needs to consider many factors. The first is about interest. Studying with passion can make a student happy and love what the major. The second is about foreground. The major always decide the future job, so students need to think about the prospect.<br>当高中学生完成他们的学业,是时候考虑需要选择什么样的专业。这是一个非常重要的问题,选择专业需要考虑很多因素。第一个是关于兴趣。有激情的学习可以让学生感受到快乐和爱。第二个是关于前景。专业总会决定未来的工作,所以学生需要思考前景。</p>
+</blockquote>
+<blockquote>
+<p>[!Example|nowrap] 表格 图片等元素单行显示 nowrap</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.pinimg.com/564x/13/1f/e4/131fe4d97e3be0a49a5d07431a917d31.jpg"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.pinimg.com/564x/84/6c/1c/846c1cab0d47dd7970f9a008eeebd68f.jpg"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.pinimg.com/564x/84/6c/1c/846c1cab0d47dd7970f9a008eeebd68f.jpg"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.pinimg.com/564x/c5/0f/09/c50f09d991dfcfdbea600ff139739fd8.jpg"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.pinimg.com/564x/a4/94/01/a494019c68ed85630de16cf8f32523f0.jpg"
+                     
+                ><br>![[obsidian_image.png]]<br>![[obsidian_image.png]]</p>
+<blockquote>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">表头1</th>
+<th align="left">表头2表头2</th>
+<th align="left">表头3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">这是很长的表格内容看 会不会自动换行</td>
+<td align="left">这是很长的表格内容看 会不会自动换行</td>
+<td align="left">这是很长的表格内容看 会不会自动换行</td>
+</tr>
+<tr>
+<td align="left">这是很长的表格内容看 会不会自动换行这是很长的表格内容看 会不会自动换行这是很长的表格内容看 会不会自动换行</td>
+<td align="left">这是很长的表格内容看 会不会自动换行这是很长的表格内容看 会不会自动换行这是很长的表格内容看 会不会自动换行</td>
+<td align="left">这是很长的表格内容看 会不会自动换行这是很长的表格内容看 会不会自动换行这是很长的表格内容看 会不会自动换行这是很长的表格内容看 会不会自动换行</td>
+</tr>
+</tbody></table>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>[!Example|noborder grid]+ 表格 图片等元素网格显示 grid</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.pinimg.com/564x/13/1f/e4/131fe4d97e3be0a49a5d07431a917d31.jpg"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.pinimg.com/564x/84/6c/1c/846c1cab0d47dd7970f9a008eeebd68f.jpg"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.pinimg.com/564x/84/6c/1c/846c1cab0d47dd7970f9a008eeebd68f.jpg"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.pinimg.com/564x/c5/0f/09/c50f09d991dfcfdbea600ff139739fd8.jpg"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.pinimg.com/564x/a4/94/01/a494019c68ed85630de16cf8f32523f0.jpg"
+                     
+                ></p>
+<h3 id="内容居中"><a href="#内容居中" class="headerlink" title="内容居中"></a>内容居中</h3><p>![[涂黑和挖空效果（三种语法）#例子2]]</p>
+<h3 id="timeline"><a href="#timeline" class="headerlink" title="timeline"></a>timeline</h3><p>![[timeline callout效果]]</p>
+<h3 id="便签效果"><a href="#便签效果" class="headerlink" title="便签效果"></a>便签效果</h3><p>![[callout 便签效果]]</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> </li>
+        <li><strong>作者:</strong> LeavesWebber</li>
+        <li><strong>创建于
+                :</strong> 2024-11-07 14:40:47</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2022-10-17 09:58:32
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://leavesblog.netlify.app/2024/11/07/TIPS for Blue Topaz/Example/ob提示框(callout)样式展示/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/11/07/TIPS%20for%20Blue%20Topaz/Example/timeline%20callout%E6%95%88%E6%9E%9C/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">timeline callout效果</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/11/07/TIPS%20for%20Blue%20Topaz/Example/obsidian%20Roundup%20Newsletter/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item"></span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">目录</div>
+        <div class="page-title"></div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%E5%8A%9E%E6%B3%95"><span class="nav-text">调用办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B"><span class="nav-text">视频教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8"><span class="nav-text">目前支持的样式列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E7%A4%BA%E4%BE%8B"><span class="nav-text">官方示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA%E6%A1%86%E7%B1%BB%E5%9E%8B"><span class="nav-text">提示框类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA%E6%A1%86%E7%9A%84%E5%90%84%E7%A7%8D%E7%94%A8%E6%B3%95"><span class="nav-text">提示框的各种用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E8%87%AA%E5%AE%9A%E4%B9%89%E7%A4%BA%E4%BE%8B"><span class="nav-text">主题自定义示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E7%B3%8A%E5%AD%97%E4%BD%93"><span class="nav-text">模糊字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E7%9C%8B%E6%9D%BF-kanban"><span class="nav-text">伪看板 kanban</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E9%9A%90%E8%97%8F%E6%A1%86-hibox"><span class="nav-text">自动隐藏框 hibox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E5%8D%A1-infobox"><span class="nav-text">信息卡 infobox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E4%B9%A6%E4%BF%A1%E6%81%AF%E5%8D%A1%E7%89%87-bookinfo"><span class="nav-text">图书信息卡片 bookinfo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%BD%E5%BA%A6-%E4%BD%8D%E7%BD%AE"><span class="nav-text">自定义宽度 位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B2%E5%AD%97%E7%AC%A6-indent"><span class="nav-text">首行缩进2字符 indent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E5%B1%85%E4%B8%AD"><span class="nav-text">内容居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#timeline"><span class="nav-text">timeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%BF%E7%AD%BE%E6%95%88%E6%9E%9C"><span class="nav-text">便签效果</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">LeavesWebber</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 140 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.7.3</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+                
+
+                    
+                        <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                    
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="站内搜索您需要的内容..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+    
+<script src="/js/libs/minimasonry.min.js"></script>
+
+    
+<script src="/js/plugins/masonry.js" type="module"></script>
+
+
+
+
+
+
+
+    
+<script src="/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+</body>
+</html>
