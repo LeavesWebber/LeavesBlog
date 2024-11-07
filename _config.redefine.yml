@@ -141,8 +141,8 @@ home_banner:
     smart_backspace: true # Whether to smart backspace
   # Color of home banner text
   text_color:
-    light: "#2C3E50" # light mode
-    dark: "#003366" # dark mode
+    light: "#003366" # light mode
+    dark: "#A8DADC" # dark mode
   # Specific style of the text
   text_style:
     # Title font size
@@ -400,7 +400,7 @@ footer:
   # Icon in footer, write fontawesome icon code here
   icon: '<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>'
   # The start time of the website, format: YYYY/MM/DD HH:mm:ss
-  start: 2024/11/17 02:00:00
+  start: 2024/11/7 02:00:00
   # Site statistics
   statistics: true # show site statistics or not (total articles, total words)
   # Footer message
