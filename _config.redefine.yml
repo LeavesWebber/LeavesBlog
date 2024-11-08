@@ -128,7 +128,7 @@ home_banner:
   title: 叶子のBlog
   # Home banner subtitle
   subtitle:
-    text: ["黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。","“ Friends Don't Lie ”","岑夫子，丹丘生，将进酒，杯莫停       ——李白","来了，爱了，给她一颗星星，走了。     ——云天明","月亮陪伴熬夜的人","人类不感谢罗辑     ——《程心·时间之外的往事》"] # subtitle text, array
+    text: ["黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。","“ Friends Don't Lie ”","岑夫子，丹丘生，将进酒，杯莫停       ——李白","来了，爱了，给她一颗星星，走了。     ——云天明","月亮陪伴熬夜的人","人类不感谢罗辑     ——《程心-时间之外的往事》"] # subtitle text, array
     hitokoto:  # 一言配置
       enable: false # Whether to enable hitokoto
       show_author: false # Whether to show author
@@ -357,7 +357,7 @@ comment:
   config:
     # Waline comment system. See https://waline.js.org/
     waline:
-      serverUrl: https://commentsyswithvercelandwaline.vercel.app/ # Waline server URL. e.g. https://example.example.com
+      serverUrl: https://comment.kiss1314.top/ # Waline server URL. e.g. https://example.example.com
       lang: zh-CN # Waline language. e.g. zh-CN, en-US. See https://waline.js.org/guide/client/i18n.html
       emoji: ['//unpkg.com/@waline/emojis@1.2.0/soul-emoji'] # Waline emojis, see https://waline.js.org/guide/features/emoji.html
       recaptchaV3Key: # Google reCAPTCHA v3 key. See https://waline.js.org/reference/client/props.html#recaptchav3key
