@@ -7,15 +7,17 @@ tags:
   - 视频配文
 date: 
 updated: 
-sticky: 10
+sticky: 999
 excerpt: 截止目前，该教程已于Bilibili获得超70万播放。MC是一个高度自定义的游戏，有着世界上最活跃的玩家社区。但也由于高度自定义，对一些只想玩游戏而不关注底层实现的电脑小白不太友好，该偏教程深入浅出，对windows/macos用户均受用
-thumbnail: "https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/2024-08-25_15.42.00.png"
-cover: "https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/2024-08-25_15.42.00.png"
+thumbnail: https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/2024-08-25_15.42.00.png
+cover: https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/2024-08-25_15.42.00.png
 ---
-# 【最新保姆级教程】我的世界怎么加mod/光影/材质？一文搞懂，一步到位
 > 本文属于小白保姆级教程，写作风格力求细致，如您觉得冗长还请见谅
 
 > 本文对macos用户也同样适用
+
+文章的配套视频：
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=112846843217013&bvid=BV1mJe8e3Ebp&cid=500001627005865&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="640" height="400"></iframe>
 
 不装mods和光影的MC就像没装修过的房子，没法把游戏体验拉满。
 想在Minecraft里使用mods，材质光影的方式有很多种，本文采用**Fabric+iris**的方式。暂时不懂没关系，整个过程并不难，跟着我一步步操作叭！
@@ -121,6 +123,10 @@ Fabric api是很多mods的**前置模组**，前置模组本身不具备游戏�
 这个Sodium在[CurseForge](https://www.curseforge.com/minecraft)里能找到，选一下游戏版本和Fabric，刚好有我们要找的0.5.11版本。下载以后装进mods文件夹里即可
 ![image.png](https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240723152217.png)
 以后你自己安装mods时候也可能遇到这样的报错，相信有了这个经验，你应该知道如何解决这种错误了吧。
+{% note danger %}
+注意：关于因Nvida显卡引起的报错。
+部分情况你会收到由于没更新显卡驱动引起的报错弹窗，此时可以看一下我这篇文章：[安装报错问题合集](安装报错问题合集)
+{% endnote %}
 另外说一句，很多mods开发者喜欢用化学元素去命名一些前置模组，比如这个Sodium就是原子序数为11的钠元素。下次看到这样的模组，您应该能猜到它的功能是前置模组
 装好Sodium以后，游戏已经能正常启动了
 ![image.png](https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240723153239.png)
@@ -218,3 +224,12 @@ Fabric api是很多mods的**前置模组**，前置模组本身不具备游戏�
 而背包整理、小地图这样的更多运行在你本机上，不与游戏世界有交互的模组，通常都可以正常使用。
 
 有时候这个问题还与你联机时候获取的**权限**有关。比如与传送有关的模组，大多都是调用了Minecraft的tp指令。如果服务器的房主给你了tp指令的权限，那你这个模组的使用也自然不会受到影响了
+
+<!--
+# 相关阅读：
+1. [安装报错问题合集](安装报错问题合集)
+2. [MC最简单的联机教程](MC联机教程)
+3. [Forge安装教程--游玩实现童年回忆模组](Forge教程)
+4. [三葉的服务器运维日志](服务器备忘日志)
+5. [MC食谱和玩法备忘](MC食谱和玩法备忘)
+-->

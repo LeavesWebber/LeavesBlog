@@ -60,4 +60,5 @@ docker pull [你复制的服务名称]：版本号
 接着等待它下载完成即可，完成后你会在docker的映像里看到你下的东西
 ![image.png](https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722113921.png)
 表明下载成功
-然而由于docker hub被墙的原因，大概率你会遇到`dial tcp ...:443: i/o timeout`或者`error pulling image configuration`这样的错误，提示你拉取失败。如果你遇到这样的问题，可参考我写的这一篇教程：[[【docker换源】Docker拉取镜像失败]]
+然而由于docker hub被墙的原因，大概率你会遇到`dial tcp ...:443: i/o timeout`或者`error pulling image configuration`这样的错误，提示你拉取失败。如果你遇到这样的问题，可参考我写的这一篇教程：
+[Docker换源以解决拉取镜像失败](../docker/【docker换源】Docker拉取镜像失败)

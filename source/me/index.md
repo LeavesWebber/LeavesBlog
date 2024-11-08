@@ -33,7 +33,11 @@ comment: true
   
 
 - 现居地 （Address）:  
-**厦门** (Amoy, China)
+**厦门** (Amoy, China)  
+  
+
+- 昵称 （Nickname）：  
+在各大技术分享和推文平台会使用 ***三葉Leaves*** 作为我的昵称。读音：三葉（Sān Yè），取自新海诚成名之作《你的名字》中的女主[宫水三叶（みやみず みつは）](https://baike.baidu.com/item/%E5%AE%AB%E6%B0%B4%E4%B8%89%E5%8F%B6/20095281)
 
 ## 关于我 （Statements）
 > 生命是旅程，生活是体验。不知道明天和意外哪个先来，那就即刻出发

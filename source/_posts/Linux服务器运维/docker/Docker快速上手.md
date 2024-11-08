@@ -20,7 +20,7 @@ docker search 你需要的镜像名称
 ``` bash
 docker pull 镜像名
 ```
-如果拉取失败，可以参考我的这篇教程：[[【docker换源】Docker拉取镜像失败]]
+如果拉取失败，可以参考我的这篇教程：[【docker换源】Docker拉取镜像失败](【docker换源】Docker拉取镜像失败)
 
 ## 从镜像创建并启动容器
 假设你已经拉取了名为**ubuntu:latest**的镜像，此时我们基于这个镜像创建一个实例并运行：
