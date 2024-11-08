@@ -1,11 +1,11 @@
 ---
 categories:
   - 我的世界
-title: Forge一站式教程，童年回忆热门模组立即畅玩，官方启动器装Forge+Optifine玩模组/材质/光影，mc 国际 java 版暮色森林和天堂模组教程
+title: Forge+Optifine玩模组/材质/光影
 tags:
   - Minecraft
   - 视频配文
-date:
+date: 
 updated:
 ---
 前几期视频之后啊，有很多小伙伴入坑了国际版的MC。最近有很多小伙伴和我反应说很多热门模组，比如说天堂和暮色森林，都是只支持低版本`Forge`，但是却又苦于不会安装Forge，那难道我们只能去用pcl2之类的第三方启动器了吗？那么up可以很负责任的告诉大家，用官方启动器完全没问题啊，甚至还更方便。
