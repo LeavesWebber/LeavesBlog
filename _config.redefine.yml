@@ -128,14 +128,14 @@ home_banner:
   title: 叶子のBlog
   # Home banner subtitle
   subtitle:
-    text: ["黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。"] # subtitle text, array
+    text: ["黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。","“ Friends Don't Lie ”","岑夫子，丹丘生，将进酒，杯莫停       ——李白","来了，爱了，给她一颗星星，走了。     ——云天明","月亮陪伴熬夜的人","人类不感谢罗辑     ——《程心·时间之外的往事》"] # subtitle text, array
     hitokoto:  # 一言配置
       enable: false # Whether to enable hitokoto
       show_author: false # Whether to show author
       api: https://v1.hitokoto.cn # API URL, can add types, see https://developer.hitokoto.cn/sentence/#%E5%8F%A5%E5%AD%90%E7%B1%BB%E5%9E%8B-%E5%8F%82%E6%95%B0
-    typing_speed: 80 # Typing speed (ms)
-    backing_speed: 30 # Backing speed (ms)
-    starting_delay: 500 # Start delay (ms)
+    typing_speed: 70 # Typing speed (ms)
+    backing_speed: 15 # Backing speed (ms)
+    starting_delay: 750 # Start delay (ms)
     backing_delay: 1500 # Backing delay (ms)
     loop: true # Whether to loop
     smart_backspace: true # Whether to smart backspace
@@ -170,7 +170,7 @@ home_banner:
       github: https://github.com/LeavesWebber
       fa-solid fa-envelope: mailto:leaveswebber@outlook.com
       bilibili: https://space.bilibili.com/515054976
-      fa-solid fa-music: https://c6.y.qq.com/base/fcgi-bin/u?__=ciH1aWJzgqGU
+      fa-solid fa-music: https://y.qq.com/n/ryqq/playlist/9362968509
       # ...... # you can add more
     # Social links with QRcode drawers
     qrs:
