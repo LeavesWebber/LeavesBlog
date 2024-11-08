@@ -9565,8 +9565,7 @@ import {initHBE} from "/js/plugins/hbe.js";
   <entry>
     <title>Obsidian里一键发布Hexo文章</title>
     <url>/2024/11/08/Blog%E5%BB%BA%E7%AB%99/Obsidian%E9%87%8C%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83Hexo%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p><a class="link" href="file:///D:/项目文件/LeavesBlog/DeployBlog.bat">DeployBlog.bat <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
+    <content><![CDATA[]]></content>
       <categories>
         <category>Blog建站</category>
       </categories>

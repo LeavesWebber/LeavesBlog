@@ -1,0 +1,1 @@
+![DeployBlog.bat](DeployBlog.bat)
