@@ -37,8 +37,8 @@
 <meta property="article:published_time" content="2024-11-07T06:40:47.640Z">
 <meta property="article:modified_time" content="2024-11-07T10:25:52.117Z">
 <meta property="article:author" content="Leaves Webber">
-<meta property="article:tag" content="本科课程">
 <meta property="article:tag" content="sql">
+<meta property="article:tag" content="本科课程">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240508165004.png">
     
@@ -833,11 +833,11 @@ mjx-container[display="true"] + br {
             <ul>
                 
                     <li>
-                        <a href="/tags/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">本科课程</a>&nbsp;
+                        <a href="/tags/sql/">sql</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/sql/">sql</a>&nbsp;
+                        | <a href="/tags/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">本科课程</a>&nbsp;
                     </li>
                 
             </ul>
@@ -847,7 +847,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.5k 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.4k 字</span>
         </span>
     
     
@@ -888,12 +888,7 @@ mjx-container[display="true"] + br {
 <ol>
 <li><p>查询张三所在什么院系</p>
 </li>
-<li><p>查询该院系的所有学生 自连接查询可在一段语句中完成示例 <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240508165004.png"
-                      alt="imagepng"
-                ></p>
+<li><p>查询该院系的所有学生 自连接查询可在一段语句中完成示例 <img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240508165004.png" alt="imagepng"></p>
 <blockquote>
 <p><code>SELECT</code> 语句中如果仅用一个*，那么得到表会出现重复</p>
 </blockquote>
@@ -901,7 +896,7 @@ mjx-container[display="true"] + br {
 </ol>
 <h2 id="2-2-内连接查询"><a href="#2-2-内连接查询" class="headerlink" title="2.2 内连接查询"></a>2.2 内连接查询</h2><ol>
 <li>等值连接<ul>
-<li>连接规则用&#x3D;表示</li>
+<li>连接规则用=表示</li>
 <li><code>SELLECT</code> 语句中使用 * 号</li>
 </ul>
 </li>
@@ -919,18 +914,8 @@ mjx-container[display="true"] + br {
 <li><code>CROSS JOIN</code> 隔开表名 一种可能的用法： 表一中存星期一到星期天，表二中存第一节课到第八节课 交叉连接后可以得到一张一天八节课的课表</li>
 </ol>
 <h2 id="2-5连接查询中使用聚合函数"><a href="#2-5连接查询中使用聚合函数" class="headerlink" title="2.5连接查询中使用聚合函数"></a>2.5连接查询中使用聚合函数</h2><p>聚合函数也能用于多表连接查询： 多表连接后会产生NULL值，书中的例子通过 <code>COUNT</code> 筛选过的所有NULL值来计算没参加考试的同学</p>
-<h1 id="3-UNION-组合查询"><a href="#3-UNION-组合查询" class="headerlink" title="3. UNION 组合查询"></a>3. <code>UNION</code> 组合查询</h1><p>组合查询与连接查询比较 <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240513094547.png"
-                      alt="imagepng"
-                ></p>
-<h2 id="3-1-语法格式"><a href="#3-1-语法格式" class="headerlink" title="3.1 语法格式"></a>3.1 语法格式</h2><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240513094012.png"
-                      alt="imagepng"
-                ></p>
+<h1 id="3-UNION-组合查询"><a href="#3-UNION-组合查询" class="headerlink" title="3. UNION 组合查询"></a>3. <code>UNION</code> 组合查询</h1><p>组合查询与连接查询比较 <img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240513094547.png" alt="imagepng"></p>
+<h2 id="3-1-语法格式"><a href="#3-1-语法格式" class="headerlink" title="3.1 语法格式"></a>3.1 语法格式</h2><p><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240513094012.png" alt="imagepng"></p>
 <h2 id="3-2-与-OR-语句区别"><a href="#3-2-与-OR-语句区别" class="headerlink" title="3.2 与 OR 语句区别"></a>3.2 与 <code>OR</code> 语句区别</h2><p><code>UNION</code> 会将结果集中相同的记录自动去掉，而 <code>OR</code> 会保留重复相同的记录</p>
 <blockquote>
 <p>若在使用 <code>UNION</code> 时，不想删除重复值，可以使用 <code>UNION ALL</code> 替代即可</p>
@@ -944,8 +929,8 @@ mjx-container[display="true"] + br {
 <h2 id="3-5-查询实例"><a href="#3-5-查询实例" class="headerlink" title="3.5 查询实例"></a>3.5 查询实例</h2><p>  Q: A: 较为复杂的例子：</p>
 </li>
 </ul>
-<h2 id="3-6-集合的并，差，交"><a href="#3-6-集合的并，差，交" class="headerlink" title="3.6 集合的并，差，交"></a>3.6 集合的并，差，交</h2><h3 id="3-6-1-并集UNION"><a href="#3-6-1-并集UNION" class="headerlink" title="3.6.1 并集UNION"></a>3.6.1 并集<code>UNION</code></h3><p>并集操作用于合并两个集合中的元素，结果集中包含两个集合中的所有&#x3D;&#x3D;<strong><em>不重复</em></strong>&#x3D;&#x3D;元素。[[并集示例]]</p>
-<h3 id="3-6-2-差集EXCEPT-或-MINUS"><a href="#3-6-2-差集EXCEPT-或-MINUS" class="headerlink" title="3.6.2 差集EXCEPT 或 MINUS"></a>3.6.2 差集<code>EXCEPT</code> 或 <code>MINUS</code></h3><p>差集操作用于从&#x3D;&#x3D;<strong><em>一个集合中减去另一个集合中存在的元素</em></strong>&#x3D;&#x3D;，返回不在第二个集合中的元素。[[差集示例]]</p>
+<h2 id="3-6-集合的并，差，交"><a href="#3-6-集合的并，差，交" class="headerlink" title="3.6 集合的并，差，交"></a>3.6 集合的并，差，交</h2><h3 id="3-6-1-并集UNION"><a href="#3-6-1-并集UNION" class="headerlink" title="3.6.1 并集UNION"></a>3.6.1 并集<code>UNION</code></h3><p>并集操作用于合并两个集合中的元素，结果集中包含两个集合中的所有==<strong><em>不重复</em></strong>==元素。[[并集示例]]</p>
+<h3 id="3-6-2-差集EXCEPT-或-MINUS"><a href="#3-6-2-差集EXCEPT-或-MINUS" class="headerlink" title="3.6.2 差集EXCEPT 或 MINUS"></a>3.6.2 差集<code>EXCEPT</code> 或 <code>MINUS</code></h3><p>差集操作用于从==<strong><em>一个集合中减去另一个集合中存在的元素</em></strong>==，返回不在第二个集合中的元素。[[差集示例]]</p>
 <h3 id="3-6-3-交集INTERSECT"><a href="#3-6-3-交集INTERSECT" class="headerlink" title="3.6.3 交集INTERSECT"></a>3.6.3 交集<code>INTERSECT</code></h3><p>交集操作用于获取两个集合中都存在的元素。[[交集示例]]</p>
 <h1 id="4-子查询"><a href="#4-子查询" class="headerlink" title="4. 子查询"></a>4. 子查询</h1><h2 id="4-1-使用返回单值的子查询"><a href="#4-1-使用返回单值的子查询" class="headerlink" title="4.1 使用返回单值的子查询"></a>4.1 使用返回单值的子查询</h2><p>在 <code>WHERE</code> 语句中，使用诸如等于 <code>=</code> 或者不等于 <code>&lt;&gt;</code> 这样的关系运算符把子查询与主查询连接起来</p>
 <h2 id="4-2-子查询与聚合函数配合使用"><a href="#4-2-子查询与聚合函数配合使用" class="headerlink" title="4.2 子查询与聚合函数配合使用"></a>4.2 子查询与聚合函数配合使用</h2><p>这是使用子查询场景最多的情况。早期的版本中子查询效率优于内连接查询，而外连接查询还没出现。 下面给出一个实例：</p>
@@ -1026,11 +1011,11 @@ mjx-container[display="true"] + br {
             <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/tags/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">#本科课程</a>&nbsp;
+                        <a href="/tags/sql/">#sql</a>&nbsp;
                     </li>
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/tags/sql/">#sql</a>&nbsp;
+                        <a href="/tags/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">#本科课程</a>&nbsp;
                     </li>
                 
             </ul>
@@ -1167,7 +1152,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>

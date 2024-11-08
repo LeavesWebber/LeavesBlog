@@ -840,7 +840,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>7.3k 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>7.2k 字</span>
         </span>
     
     
@@ -866,8 +866,8 @@ mjx-container[display="true"] + br {
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
             <h1 id="TIPS"><a href="#TIPS" class="headerlink" title="TIPS"></a>TIPS</h1><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">这是Blue Topaz的演示库简化版本，高级版本请从github获取 [Blue-topaz-examples](https://github.com/cumany/Blue-topaz-examples)。附带了Style Settings插件与Admonition插件。目前支持Live preview模式同时附带了其他一些插件，可供使用。</span><br><span class="line">需要特别说明的是Codemirror插件，这个插件因为样式比较复杂多变，使用此插件会可能会出现样式上的bug。这里会给出一些Blue Topaz的展示、以及一些特别的用法，希望对你有帮助。</span><br><span class="line"></span><br><span class="line">我不确定这个库会被传播到何处，所以给一个发布的QQ群号，也是Topaz社区所在的地方**908688452**。</span><br><span class="line">开始部分的最后，感谢Topaz社区的各位，没有社区的各位，不会有现在的主题。这个主题献给他们。</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><p>在笔记中，不可避到一些强调方式，比如加粗、高亮等等，这里做一个展示：<br><em>斜体</em><br><strong>加粗</strong><br><em><strong>加粗斜体</strong></em><br><code>行内代码（也会被人当作强调方式使用）</code><br>&#x3D;&#x3D;高亮&#x3D;&#x3D;<br>&#x3D;&#x3D;<em>斜体高亮</em>&#x3D;&#x3D;<br><em>&#x3D;&#x3D;符号反过来也行&#x3D;&#x3D;</em><br>&#x3D;&#x3D;<strong>加粗高亮</strong>&#x3D;&#x3D;<br>&#x3D;&#x3D;<em><strong>加粗斜体高亮</strong></em>&#x3D;&#x3D;<br>&#x3D;&#x3D;高亮<code>行内代码</code>&#x3D;&#x3D; (有点怪是吧&#x3D; &#x3D;||)</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">title: 想要更多的高亮方式？</span><br><span class="line">collapse: true</span><br><span class="line">下面的css代码保存成片段即可使用。 [如何使用片段](obsidian://open?vault=Obsidian%20Help&amp;fi le=%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%2F%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98)</span><br><span class="line">```css</span><br><span class="line">/*实现下面语法高亮颜色不同</span><br><span class="line">多色高亮1     _==foobar==_  </span><br><span class="line">多色高亮2     __==foobar==__</span><br><span class="line">*/</span><br><span class="line">.markdown-preview-view em &gt; mark, span.cm-em.cm-highlight &#123;</span><br><span class="line">  background-color: rgb(255, 248, 152);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">span.cm-strong.cm-highlight, .markdown-preview-view strong &gt; mark &#123;</span><br><span class="line">  background-color: rgb(147, 255, 228);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><p>在笔记中，不可避到一些强调方式，比如加粗、高亮等等，这里做一个展示：<br><em>斜体</em><br><strong>加粗</strong><br><em><strong>加粗斜体</strong></em><br><code>行内代码（也会被人当作强调方式使用）</code><br>==高亮==<br>==<em>斜体高亮</em>==<br><em>==符号反过来也行==</em><br>==<strong>加粗高亮</strong>==<br>==<em><strong>加粗斜体高亮</strong></em>==<br>==高亮<code>行内代码</code>== (有点怪是吧= =||)</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">title: 想要更多的高亮方式？</span><br><span class="line">collapse: true</span><br><span class="line">下面的css代码保存成片段即可使用。 [如何使用片段](obsidian://open?vault=Obsidian%20Help&amp;fi le=%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%2F%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98)</span><br><span class="line">```css</span><br><span class="line">/*实现下面语法高亮颜色不同</span><br><span class="line">多色高亮1     _==foobar==_  </span><br><span class="line">多色高亮2     __==foobar==__</span><br><span class="line">*/</span><br><span class="line">.markdown-preview-view em &gt; mark, span.cm-em.cm-highlight {</span><br><span class="line">  background-color: rgb(255, 248, 152);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">span.cm-strong.cm-highlight, .markdown-preview-view strong &gt; mark {</span><br><span class="line">  background-color: rgb(147, 255, 228);</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
 
 <div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="string">```ad-tip</span></span><br><span class="line"><span class="string">这些强调的使用方式当然是由你决定的，但我建议不要使用过多的强调方式，选择两三种强调方式，赋予它们某种特别含义，保持笔记中用法的一致性。</span></span><br></pre></td></tr></table></figure></div>
 
@@ -918,18 +918,8 @@ mjx-container[display="true"] + br {
 
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text</span><br></pre></td></tr></table></figure></div>
 
-<h3 id="多彩高亮"><a href="#多彩高亮" class="headerlink" title="多彩高亮"></a>多彩高亮</h3><p><code>*==xxx==*</code>, <code>**==xxx==**</code> , <code>***==xxx==***</code> 三种语法对应三种高亮颜色<br>测试文字文字测试 <em>&#x3D;&#x3D;hello word&#x3D;&#x3D;</em> ，你好世界。**&#x3D;&#x3D;测试文字&#x3D;&#x3D;** 文字测试hello word，你好世界。测试文字文字 <em><strong>&#x3D;&#x3D;测试hello&#x3D;&#x3D;</strong></em> word，你好世界。<br>多彩高亮颜色可以在style settings 2.1.4 中自定义<br>不需要多彩高亮可以在style settings 2.1.4 中关闭。<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://user-images.githubusercontent.com/72023275/164036501-59f3c87d-0974-4671-a998-498b03b3f042.png"
-                      alt="image"
-                ></p>
-<p>即使取消了多彩高亮，也可以在文档yaml种键入<br><code>cssclass: colorful-highlight</code> 对改文档启动<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://user-images.githubusercontent.com/72023275/164037230-4dde7655-9141-4a07-b51a-59cb77abe524.png"
-                      alt="image"
-                ></p>
+<h3 id="多彩高亮"><a href="#多彩高亮" class="headerlink" title="多彩高亮"></a>多彩高亮</h3><p><code>*==xxx==*</code>, <code>**==xxx==**</code> , <code>***==xxx==***</code> 三种语法对应三种高亮颜色<br>测试文字文字测试 <em>==hello word==</em> ，你好世界。**==测试文字==** 文字测试hello word，你好世界。测试文字文字 <em><strong>==测试hello==</strong></em> word，你好世界。<br>多彩高亮颜色可以在style settings 2.1.4 中自定义<br>不需要多彩高亮可以在style settings 2.1.4 中关闭。<br><img lazyload="" src="/images/loading.svg" data-src="https://user-images.githubusercontent.com/72023275/164036501-59f3c87d-0974-4671-a998-498b03b3f042.png" alt="image"></p>
+<p>即使取消了多彩高亮，也可以在文档yaml种键入<br><code>cssclass: colorful-highlight</code> 对改文档启动<br><img lazyload="" src="/images/loading.svg" data-src="https://user-images.githubusercontent.com/72023275/164037230-4dde7655-9141-4a07-b51a-59cb77abe524.png" alt="image"></p>
 <p>多彩高亮的背景颜色、字体颜色等都可以在style settings 2.1.4 中调整</p>
 <div class="highlight-container" data-rel="Autohotkey"><figure class="iseeu highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意，实时预览不能识别语法符号顺序。`*==xxx==*`和`==*xxx*==`将会是同样的效果，但是阅读模式识别符号顺序，所以只有`*==xxx==*`会是多彩高亮的颜色。</span><br></pre></td></tr></table></figure></div>
 
@@ -943,21 +933,11 @@ mjx-container[display="true"] + br {
 
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- [ ] 打群主，分bug</span><br></pre></td></tr></table></figure></div>
 
-<h3 id="第三种，涂黑挖空"><a href="#第三种，涂黑挖空" class="headerlink" title="第三种，涂黑挖空"></a>第三种，涂黑挖空</h3><p>Lorem ipsum dolor sit amet, consectetur &#x3D;&#x3D;<del>adipiscing</del>&#x3D;&#x3D; elit, sed do &#x3D;&#x3D;<del>eiusmod</del>&#x3D;&#x3D; tempor incididunt ut labore et dolore magna aliqua. （<code>删除+高亮组合：==~~涂黑~~==</code>鼠标悬浮触发）</p>
-<p>Lorem ipsum dolor sit amet, consectetur <em>&#x3D;&#x3D;<del>adipiscing</del>&#x3D;&#x3D;</em> elit, sed doe <em>&#x3D;&#x3D;<del>eiusmod</del>&#x3D;&#x3D;</em> tempor incididunt ut labore et dolore magna aliqua. （<code>删除+高亮+斜体组合：*==~~涂彩~~==*</code>点击触发）</p>
+<h3 id="第三种，涂黑挖空"><a href="#第三种，涂黑挖空" class="headerlink" title="第三种，涂黑挖空"></a>第三种，涂黑挖空</h3><p>Lorem ipsum dolor sit amet, consectetur ==<del>adipiscing</del>== elit, sed do ==<del>eiusmod</del>== tempor incididunt ut labore et dolore magna aliqua. （<code>删除+高亮组合：==~~涂黑~~==</code>鼠标悬浮触发）</p>
+<p>Lorem ipsum dolor sit amet, consectetur <em>==<del>adipiscing</del>==</em> elit, sed doe <em>==<del>eiusmod</del>==</em> tempor incididunt ut labore et dolore magna aliqua. （<code>删除+高亮+斜体组合：*==~~涂彩~~==*</code>点击触发）</p>
 <p>Lorem ipsum dolor sit amet, consectetur <em><del>adipiscing</del></em> elit, sed do <em><del>eiusmod</del></em> tempor incididunt ut labore et dolore magna aliqua. （<code>删除+斜体组合：*~~挖空~~*</code>点击触发 无背景颜色）</p>
-<p>以上效果无需另外开启，主题默认支持，如果想取消在2.3.10中关闭，即使关闭了也可以在YAML中声明<code>cssclass: cloze</code> 对该笔记启用。<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://user-images.githubusercontent.com/72023275/164038180-c6e2dff4-9aee-4f42-8051-854a748979ec.png"
-                      alt="image"
-                ></p>
-<p>对于样式的更改，可以在style settings 2.3.10 中找到<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://user-images.githubusercontent.com/72023275/164038350-9424af22-7eac-42f3-b10b-e233a51202a8.png"
-                      alt="image"
-                ></p>
+<p>以上效果无需另外开启，主题默认支持，如果想取消在2.3.10中关闭，即使关闭了也可以在YAML中声明<code>cssclass: cloze</code> 对该笔记启用。<br><img lazyload="" src="/images/loading.svg" data-src="https://user-images.githubusercontent.com/72023275/164038180-c6e2dff4-9aee-4f42-8051-854a748979ec.png" alt="image"></p>
+<p>对于样式的更改，可以在style settings 2.3.10 中找到<br><img lazyload="" src="/images/loading.svg" data-src="https://user-images.githubusercontent.com/72023275/164038350-9424af22-7eac-42f3-b10b-e233a51202a8.png" alt="image"></p>
 <h3 id="重要文本框"><a href="#重要文本框" class="headerlink" title="重要文本框"></a>重要文本框</h3><p>也没什么特别的</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text</span><br></pre></td></tr></table></figure></div>
 
@@ -968,61 +948,21 @@ mjx-container[display="true"] + br {
 <p>在图片后加上<code>|数字</code>可以控制图片大小</p>
 <p>![[obsidian_image.png|120]]</p>
 <p>在图片后加上<code>|R</code>或<code>|L</code>，可以控制图片居右还是居左，也可以跟上面的控制大小同时使用。<br>![[obsidian_image.png|R|150]]<br>另外，以下形式都可以使用，同一行的四种输入方式，效果都是一样的</p>
-<p><code>left</code>&#x2F;<code>Left</code>&#x2F;<code>LEFT</code>&#x2F;<code>L</code><br>![[obsidian_image.png|L|100]]<br>![[obsidian_image.png|Left|100]]</p>
-<p><code>right</code>&#x2F;<code>Right</code>&#x2F;<code>RIGHT</code>&#x2F;<code>R</code><br>![[obsidian_image.png|RIGHT|100]]<br>![[obsidian_image.png|right|100]]</p>
+<p><code>left</code>/<code>Left</code>/<code>LEFT</code>/<code>L</code><br>![[obsidian_image.png|L|100]]<br>![[obsidian_image.png|Left|100]]</p>
+<p><code>right</code>/<code>Right</code>/<code>RIGHT</code>/<code>R</code><br>![[obsidian_image.png|RIGHT|100]]<br>![[obsidian_image.png|right|100]]</p>
 <hr>
 <h3 id="格式的图片"><a href="#格式的图片" class="headerlink" title="![]()格式的图片"></a><code>![]()</code>格式的图片</h3><p>形如<code>![]()</code>格式的图片也可以使用这种方式进行控制。限于软件原因，如果不能即时显示，对页面进行左右拆分即可。</p>
-<h4 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h4><p>这是<code>![]()</code>格式图片的缩放效果演示<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/obsidian_image.png"
-                      alt="|300"
-                ></p>
-<h4 id="左右对齐"><a href="#左右对齐" class="headerlink" title="左右对齐"></a>左右对齐</h4><p>这是<code>![]()</code>格式图片的右对齐效果演示<br><code>right</code>&#x2F;<code>Right</code>&#x2F;<code>RIGHT</code>&#x2F;<code>R</code> 这类写法都是支持的<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/obsidian_image.png"
-                      alt="|R|150"
-                ><br><code>left</code>&#x2F;<code>Left</code>&#x2F;<code>LEFT</code>&#x2F;<code>L</code> 这类写法都是支持的<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png"
-                      alt="Left|150"
-                ><br>十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十</p>
-<h4 id="行内左右对齐"><a href="#行内左右对齐" class="headerlink" title="行内左右对齐"></a>行内左右对齐</h4><p><code>inlineR</code>&#x2F;<code>InlineR</code>&#x2F;<code>INLINER</code>&#x2F;<code>inlR</code> 这类写法都是支持的<br>十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png"
-                      alt="|inlineR|80"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png"
-                      alt="|inlL|100"
-                ><br>十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十</p>
-<h4 id="图片并排"><a href="#图片并排" class="headerlink" title="图片并排"></a>图片并排</h4><p>十十十十十十十十<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png"
-                      alt="|inl|50"
-                > <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png"
-                      alt="|inl|50"
-                >十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十<br>十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十<br><code>inlineL</code>&#x2F;<code>InlineL</code>&#x2F;<code>INLINEL</code>&#x2F;<code>inlL</code> 这类写法都是支持的</p>
-<p>这是<code>![]()</code>格式图片的行内图片效果演示十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十 <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png"
-                      alt="|inl|50"
-                >十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十</p>
+<h4 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h4><p>这是<code>![]()</code>格式图片的缩放效果演示<br><img lazyload="" src="/images/loading.svg" data-src="/obsidian_image.png" alt="|300"></p>
+<h4 id="左右对齐"><a href="#左右对齐" class="headerlink" title="左右对齐"></a>左右对齐</h4><p>这是<code>![]()</code>格式图片的右对齐效果演示<br><code>right</code>/<code>Right</code>/<code>RIGHT</code>/<code>R</code> 这类写法都是支持的<br><img lazyload="" src="/images/loading.svg" data-src="/obsidian_image.png" alt="|R|150"><br><code>left</code>/<code>Left</code>/<code>LEFT</code>/<code>L</code> 这类写法都是支持的<br><img lazyload="" src="/images/loading.svg" data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png" alt="Left|150"><br>十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十</p>
+<h4 id="行内左右对齐"><a href="#行内左右对齐" class="headerlink" title="行内左右对齐"></a>行内左右对齐</h4><p><code>inlineR</code>/<code>InlineR</code>/<code>INLINER</code>/<code>inlR</code> 这类写法都是支持的<br>十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十<br><img lazyload="" src="/images/loading.svg" data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png" alt="|inlineR|80"><br><img lazyload="" src="/images/loading.svg" data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png" alt="|inlL|100"><br>十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十</p>
+<h4 id="图片并排"><a href="#图片并排" class="headerlink" title="图片并排"></a>图片并排</h4><p>十十十十十十十十<img lazyload="" src="/images/loading.svg" data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png" alt="|inl|50"> <img lazyload="" src="/images/loading.svg" data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png" alt="|inl|50">十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十<br>十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十<br><code>inlineL</code>/<code>InlineL</code>/<code>INLINEL</code>/<code>inlL</code> 这类写法都是支持的</p>
+<p>这是<code>![]()</code>格式图片的行内图片效果演示十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十 <img lazyload="" src="/images/loading.svg" data-src="https://s1.ax1x.com/2022/05/18/OI7Io9.png" alt="|inl|50">十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十</p>
 <hr>
 <h3 id="行内图片"><a href="#行内图片" class="headerlink" title="行内图片"></a>行内图片</h3><p>在图片后加上<code>|inlR</code>、<code>|inlL</code>或<code>|inl</code>，可以使图片变为行内显示，也可以跟控制大小同时使用。![obsidian_image.png|inl|100]]</p>
-<p>可用变体 <code>inlineL</code>&#x2F;<code>InlineL</code>&#x2F;<code>INLINEL</code>&#x2F;<code>inlL</code><br>字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字 ![[obsidian_image.png|inlL|100]]字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字</p>
-<p>可用变体 <code>inlineR</code>&#x2F;<code>InlineR</code>&#x2F;<code>INLINER</code>&#x2F;<code>inlR</code></p>
+<p>可用变体 <code>inlineL</code>/<code>InlineL</code>/<code>INLINEL</code>/<code>inlL</code><br>字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字 ![[obsidian_image.png|inlL|100]]字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字</p>
+<p>可用变体 <code>inlineR</code>/<code>InlineR</code>/<code>INLINER</code>/<code>inlR</code></p>
 <p>字字字 ![[obsidian_image.png|inlR|100]]字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字</p>
-<p>可用变体 <code>inline</code>&#x2F;<code>Inline</code>&#x2F;<code>INLINE</code>&#x2F;<code>inl</code><br>字字字字字![[obsidian_image.png|inl|100]] ![[obsidian_image.png|inline|100]] ![[obsidian_image.png|INLINE|100]]字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字</p>
+<p>可用变体 <code>inline</code>/<code>Inline</code>/<code>INLINE</code>/<code>inl</code><br>字字字字字![[obsidian_image.png|inl|100]] ![[obsidian_image.png|inline|100]] ![[obsidian_image.png|INLINE|100]]字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意使用inlR/inlL和inl的位置，对于inlR和inlL，它们所在行的文字，处在图片的上边界处。而对于inl，所在行的文字在图片的下边界处。</span><br></pre></td></tr></table></figure></div>
 
 <p>十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十<br>字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字 ![[obsidian_image.png|inlL|100]]<br>十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十</p>
@@ -1031,7 +971,7 @@ mjx-container[display="true"] + br {
 <hr>
 <p>十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十<br>字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字 ![[obsidian_image.png|inline|100]]<br>十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十</p>
 <h3 id="图片标题"><a href="#图片标题" class="headerlink" title="图片标题"></a>图片标题</h3><p><em>改编自 Discordian 和 Orange主题 by @radekkozak and @echoxu</em></p>
-<p>用法：在图片后加<code>#centre</code> &#x2F; <code>center</code>、<code>#right</code> 或 <code>#left</code><br>形如：<code>![[xxx.png#position|captions|size]]</code></p>
+<p>用法：在图片后加<code>#centre</code> / <code>center</code>、<code>#right</code> 或 <code>#left</code><br>形如：<code>![[xxx.png#position|captions|size]]</code></p>
 <p>![[obsidian_image.png#center|Figure 1. 这是鸡蛋|100]]</p>
 <p>![[obsidian_image.png#right|Figure 2. 这不是鸡蛋|150]]字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字</p>
 <p>![[obsidian_image.png#left|Figure 3. 这难道不是鸡蛋|150]]字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字</p>
@@ -1053,7 +993,7 @@ mjx-container[display="true"] + br {
 <p>点击这里查看样式 [[Image-grid【图片自适应】]]</p>
 <h4 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h4><p>[[图片横排布局以及添加标题#元素单行显示带滚动条]]<br>[[图片横排布局以及添加标题#元素网格等比显示不带滚动条]]</p>
 <h2 id="HTML标签"><a href="#HTML标签" class="headerlink" title="HTML标签"></a>HTML标签</h2><h3 id="stickies"><a href="#stickies" class="headerlink" title="stickies"></a>stickies</h3><p><em>thanks to death_au, Gabroel and Lithou from Obsidian Members Group on Discord</em></p>
-<p>用法<br><code>&lt;p class=&quot;stickies&quot;&gt; xxx &lt;/p&gt;</code><br><code>&lt;p class=&quot;stickies2&quot;&gt; xxx &lt;/p&gt;</code><br><code>&lt;p class=&quot;to-recall&quot;&gt; xxx &lt;/p&gt;</code></p>
+<p>用法<br><code>&lt;p class="stickies"&gt; xxx &lt;/p&gt;</code><br><code>&lt;p class="stickies2"&gt; xxx &lt;/p&gt;</code><br><code>&lt;p class="to-recall"&gt; xxx &lt;/p&gt;</code></p>
 <p class="stickies"> 你想说的话 </p>
 blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
 
@@ -1061,12 +1001,12 @@ blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
 <p class="stickies2"> Your <b>words</b> </p>
 blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
 
-<p>回顾&#x2F;隐藏框</p>
+<p>回顾/隐藏框</p>
 <p class="to-recall"> 群内可以用bug换定制 </p>
 blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
 ### aside
 _thanks to dcoales from obsidian member group on discord\
-<https://discord.com/channels/686053708261228577/702656734631821413/794236352857374764>_
+<https:>_
 
 <p>用法<br><code>&lt;aside&gt;&lt;h1&gt; Your words &lt;/h1&gt;&lt;/aside&gt;</code><br><code>&lt;aside&gt;&lt;h2&gt; Your words &lt;/h2&gt;&lt;/aside&gt;</code></p>
 <p>可能没那么有用</p>
@@ -1176,7 +1116,7 @@ aaa</p>
 <h3 id="Callout-样式"><a href="#Callout-样式" class="headerlink" title="Callout 样式"></a>Callout 样式</h3><p>[[ob提示框(callout)样式展示]]</p>
 </li>
 </ul>
-
+</https:>
         </div>
 
         
@@ -1345,7 +1285,7 @@ aaa</p>
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>

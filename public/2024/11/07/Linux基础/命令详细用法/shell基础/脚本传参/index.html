@@ -868,7 +868,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>508 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>500 字</span>
         </span>
     
     
@@ -906,12 +906,12 @@ mjx-container[display="true"] + br {
 <li><code>$2</code> 是传递给脚本的第二个参数。</li>
 <li>以此类推，<code>$3</code>、<code>$4</code> 等变量代表后续的参数。</li>
 </ul>
-<h3 id="示例解释"><a href="#示例解释" class="headerlink" title="示例解释"></a>示例解释</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$#</span>&quot;</span> -ne 2 ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;Usage: <span class="variable">$0</span> &lt;directory_name&gt; &lt;number_of_files&gt;&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取文件夹名称和文件数量参数</span></span><br><span class="line">dir_name=<span class="variable">$1</span></span><br><span class="line">num_files=<span class="variable">$2</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="示例解释"><a href="#示例解释" class="headerlink" title="示例解释"></a>示例解释</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$#</span>"</span> -ne 2 ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$0</span> &lt;directory_name&gt; &lt;number_of_files&gt;"</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取文件夹名称和文件数量参数</span></span><br><span class="line">dir_name=<span class="variable">$1</span></span><br><span class="line">num_files=<span class="variable">$2</span></span><br></pre></td></tr></table></figure></div>
 
 <ul>
-<li><p><code>if [ &quot;$#&quot; -ne 2 ]; then ... fi</code>：这个 <code>if</code> 语句检查传递给脚本的参数个数是否不等于 2。如果不是两个参数，它会打印使用方法（包括脚本名称和参数说明），然后退出脚本。</p>
+<li><p><code>if [ "$#" -ne 2 ]; then ... fi</code>：这个 <code>if</code> 语句检查传递给脚本的参数个数是否不等于 2。如果不是两个参数，它会打印使用方法（包括脚本名称和参数说明），然后退出脚本。</p>
 </li>
-<li><p><code>echo &quot;Usage: $0 &lt;directory_name&gt; &lt;number_of_files&gt;&quot;</code>：这里使用 <code>$0</code> 打印脚本的名称，告诉用户如何正确使用脚本。</p>
+<li><p><code>echo "Usage: $0 &lt;directory_name&gt; &lt;number_of_files&gt;"</code>：这里使用 <code>$0</code> 打印脚本的名称，告诉用户如何正确使用脚本。</p>
 </li>
 <li><p><code>dir_name=$1</code>：将第一个参数（文件夹名称）赋值给变量 <code>dir_name</code>。</p>
 </li>
@@ -1108,7 +1108,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>

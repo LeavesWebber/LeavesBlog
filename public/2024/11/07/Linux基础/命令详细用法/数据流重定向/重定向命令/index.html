@@ -863,7 +863,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>719 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>715 字</span>
         </span>
     
     
@@ -931,12 +931,12 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3><p>管道 <code>|</code> 允许你将一个命令的输出作为另一个命令的输入。</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> | grep <span class="string">&quot;pattern&quot;</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> | grep <span class="string">"pattern"</span></span><br></pre></td></tr></table></figure></div>
 
 <p>这条命令会列出当前目录下的文件和目录，然后使用 <code>grep</code> 命令搜索包含 “pattern” 的行。</p>
 <h3 id="临时文件重定向"><a href="#临时文件重定向" class="headerlink" title="临时文件重定向"></a>临时文件重定向</h3><ul>
 <li><p>**<code>$()</code>**：命令替换，允许你执行一个命令并将其输出插入到另一个命令中。</p>
-  <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> $(grep -r <span class="string">&quot;pattern&quot;</span> .) &gt; results.txt</span><br></pre></td></tr></table></figure></div>
+  <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> $(grep -r <span class="string">"pattern"</span> .) &gt; results.txt</span><br></pre></td></tr></table></figure></div>
 <p>  这条命令会搜索当前目录及其子目录中包含 “pattern” 的所有文件，并将这些文件的内容写入 <code>results.txt</code>。</p>
 </li>
 </ul>
@@ -1132,7 +1132,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>

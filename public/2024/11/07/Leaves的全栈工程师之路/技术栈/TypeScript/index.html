@@ -892,42 +892,42 @@ mjx-container[display="true"] + br {
 <pre><code>1.	类型系统
 </code></pre>
 <p>TypeScript 通过在变量、函数、对象等地方显式定义类型，确保类型一致性。</p>
-<p>let isDone: boolean &#x3D; false;<br>let count: number &#x3D; 42;<br>let name: string &#x3D; ‘Alice’;</p>
-<p>function greet(person: string): string {<br>  return <code>Hello, $&#123;person&#125;</code>;<br>}</p>
-<p>greet(‘Alice’); &#x2F;&#x2F; 正确<br>&#x2F;&#x2F; greet(42);   &#x2F;&#x2F; 错误，参数类型不匹配</p>
+<p>let isDone: boolean = false;<br>let count: number = 42;<br>let name: string = ‘Alice’;</p>
+<p>function greet(person: string): string {<br>  return <code>Hello, ${person}</code>;<br>}</p>
+<p>greet(‘Alice’); // 正确<br>// greet(42);   // 错误，参数类型不匹配</p>
 <pre><code>2.	接口 (Interfaces)
 </code></pre>
 <p>接口用来定义对象的形状，指定对象的类型结构。它可以用来定义函数、对象的结构，也可以作为类的约束。</p>
 <p>interface Person {<br>  name: string;<br>  age: number;<br>}</p>
-<p>function printPerson(person: Person) {<br>  console.log(<code>Name: $&#123;person.name&#125;, Age: $&#123;person.age&#125;</code>);<br>}</p>
-<p>let alice: Person &#x3D; { name: ‘Alice’, age: 25 };<br>printPerson(alice);</p>
+<p>function printPerson(person: Person) {<br>  console.log(<code>Name: ${person.name}, Age: ${person.age}</code>);<br>}</p>
+<p>let alice: Person = { name: ‘Alice’, age: 25 };<br>printPerson(alice);</p>
 <pre><code>3.	类 (Classes)
 </code></pre>
 <p>TypeScript 支持面向对象编程中的类定义，可以使用 class 关键字创建类，并支持继承和访问控制符（如 public、private、protected）。</p>
 <p>class Animal {<br>  name: string;</p>
-<p>  constructor(name: string) {<br>    this.name &#x3D; name;<br>  }</p>
-<p>  move(distance: number &#x3D; 0) {<br>    console.log(<code>$&#123;this.name&#125; moved $&#123;distance&#125; meters.</code>);<br>  }<br>}</p>
+<p>  constructor(name: string) {<br>    this.name = name;<br>  }</p>
+<p>  move(distance: number = 0) {<br>    console.log(<code>${this.name} moved ${distance} meters.</code>);<br>  }<br>}</p>
 <p>class Dog extends Animal {<br>  bark() {<br>    console.log(‘Woof! Woof!’);<br>  }<br>}</p>
-<p>let dog &#x3D; new Dog(‘Buddy’);<br>dog.bark();<br>dog.move(10);</p>
+<p>let dog = new Dog(‘Buddy’);<br>dog.bark();<br>dog.move(10);</p>
 <pre><code>4.	类型推断
 </code></pre>
 <p>TypeScript 可以根据上下文自动推断类型。虽然可以显式声明类型，但在某些情况下，TypeScript 能自动推断变量的类型。</p>
-<p>let message &#x3D; ‘Hello World’;  &#x2F;&#x2F; 自动推断为 string 类型</p>
+<p>let message = ‘Hello World’;  // 自动推断为 string 类型</p>
 <pre><code>5.	联合类型和类型守卫
 </code></pre>
 <p>通过联合类型，变量可以有多个可能的类型；类型守卫用于在运行时判断变量的类型。</p>
-<p>function printId(id: number | string) {<br>  if (typeof id &#x3D;&#x3D;&#x3D; ‘string’) {<br>    console.log(<code>ID as string: $&#123;id&#125;</code>);<br>  } else {<br>    console.log(<code>ID as number: $&#123;id&#125;</code>);<br>  }<br>}</p>
-<p>printId(123);      &#x2F;&#x2F; 输出：ID as number: 123<br>printId(‘ABC’);    &#x2F;&#x2F; 输出：ID as string: ABC</p>
+<p>function printId(id: number | string) {<br>  if (typeof id === ‘string’) {<br>    console.log(<code>ID as string: ${id}</code>);<br>  } else {<br>    console.log(<code>ID as number: ${id}</code>);<br>  }<br>}</p>
+<p>printId(123);      // 输出：ID as number: 123<br>printId(‘ABC’);    // 输出：ID as string: ABC</p>
 <pre><code>6.	枚举 (Enums)
 </code></pre>
 <p>枚举是用于定义一组命名常量的类型，常用于状态值的处理。</p>
-<p>enum Direction {<br>  Up &#x3D; 1,<br>  Down,<br>  Left,<br>  Right<br>}</p>
-<p>let dir: Direction &#x3D; Direction.Up;<br>console.log(dir); &#x2F;&#x2F; 输出 1</p>
+<p>enum Direction {<br>  Up = 1,<br>  Down,<br>  Left,<br>  Right<br>}</p>
+<p>let dir: Direction = Direction.Up;<br>console.log(dir); // 输出 1</p>
 <pre><code>7.	泛型 (Generics)
 </code></pre>
 <p>泛型使函数或类能够适用于多种类型，增强了代码的复用性和灵活性。</p>
-<p>function identity<T>(arg: T): T {<br>  return arg;<br>}</p>
-<p>let output1 &#x3D; identity<string>(‘Hello’);<br>let output2 &#x3D; identity<number>(42);</p>
+<p>function identity<t>(arg: T): T {<br>  return arg;<br>}</t></p>
+<p>let output1 = identity<string>(‘Hello’);<br>let output2 = identity<number>(42);</number></string></p>
 <p>TypeScript 和 JavaScript 的区别</p>
 <pre><code>•	类型检查：JavaScript 是动态类型语言，而 TypeScript 提供了静态类型检查，帮助开发者在编译阶段发现类型错误。
 •	开发工具支持：由于 TypeScript 提供了类型信息，编辑器可以给出更准确的自动补全、错误提示和重构功能。
@@ -941,7 +941,7 @@ mjx-container[display="true"] + br {
 <pre><code>2.	编写第一个 TypeScript 程序
 </code></pre>
 <p>创建一个 hello.ts 文件，写入以下内容：</p>
-<p>let message: string &#x3D; ‘Hello, TypeScript!’;<br>console.log(message);</p>
+<p>let message: string = ‘Hello, TypeScript!’;<br>console.log(message);</p>
 <p>运行以下命令将 TypeScript 编译为 JavaScript：</p>
 <p>tsc hello.ts</p>
 <p>这会生成一个 hello.js 文件，然后可以通过 Node.js 运行它：</p>
@@ -1136,7 +1136,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>

@@ -873,7 +873,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>805 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>803 字</span>
         </span>
     
     
@@ -898,70 +898,20 @@ mjx-container[display="true"] + br {
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
             <p>这个问题是由于docker hub在大陆因为某些政治原因被墙了，导致官方镜像源失效。然而虽然这个可视化界面用不了，你仍然可以通过PuTTY 远程ssh连接服务器，然后用命令行拉取镜像，这是一种平替办法。操作步骤如下</p>
-<h1 id="1-在控制中心打开群晖SSH服务"><a href="#1-在控制中心打开群晖SSH服务" class="headerlink" title="1.在控制中心打开群晖SSH服务"></a>1.在控制中心打开群晖SSH服务</h1><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722104848.png"
-                      alt="image.png"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722104915.png"
-                      alt="image.png"
-                ></p>
+<h1 id="1-在控制中心打开群晖SSH服务"><a href="#1-在控制中心打开群晖SSH服务" class="headerlink" title="1.在控制中心打开群晖SSH服务"></a>1.在控制中心打开群晖SSH服务</h1><p><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722104848.png" alt="image.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722104915.png" alt="image.png"></p>
 <blockquote>
 <p>完事之后不要忘记点<em>应用</em>按钮</p>
 </blockquote>
-<h1 id="2-下载PuTTY"><a href="#2-下载PuTTY" class="headerlink" title="2.下载PuTTY"></a>2.下载PuTTY</h1><p>官网下载地址:<a class="link"   target="_blank" rel="noopener" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" >Download PuTTY: latest release (0.81) (greenend.org.uk) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722105431.png"
-                      alt="image.png"
-                ><br>这个下载到你的windows上就行，而不是群晖服务器。因为你要用这个工具去远程控制你的群晖。<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722105649.png"
-                      alt="image.png"
-                ><br>下好以后在开始菜单直接搜就可以打开</p>
-<h1 id="3-连接群晖服务器，并获得root权限"><a href="#3-连接群晖服务器，并获得root权限" class="headerlink" title="3.连接群晖服务器，并获得root权限"></a>3.连接群晖服务器，并获得root权限</h1><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722110158.png"
-                      alt="image.png"
-                ><br>这一步如果连不上，你应当检查你的群晖服务器所在的网络中，路由器是不是没有开放22端口的权限，因为这个ssh服务占用了所在地址的22端口<br>连上以后它会要求你输入你的群晖的登录账号和密码。输密码时，由于某些特性你输的东西不会展现出来，有时会让人困惑。这个不必理会，输完密码直接回车就行<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722110942.png"
-                      alt="image.png"
-                ><br>如果你输对了，就会进入上图的样子。否则会提示access denied之类的，重新输入即可<br>完成后我们还需要获取root权限为下面使用docker作准备，命令如下：</p>
+<h1 id="2-下载PuTTY"><a href="#2-下载PuTTY" class="headerlink" title="2.下载PuTTY"></a>2.下载PuTTY</h1><p>官网下载地址:<a class="link" target="_blank" rel="noopener" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Download PuTTY: latest release (0.81) (greenend.org.uk) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722105431.png" alt="image.png"><br>这个下载到你的windows上就行，而不是群晖服务器。因为你要用这个工具去远程控制你的群晖。<br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722105649.png" alt="image.png"><br>下好以后在开始菜单直接搜就可以打开</p>
+<h1 id="3-连接群晖服务器，并获得root权限"><a href="#3-连接群晖服务器，并获得root权限" class="headerlink" title="3.连接群晖服务器，并获得root权限"></a>3.连接群晖服务器，并获得root权限</h1><p><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722110158.png" alt="image.png"><br>这一步如果连不上，你应当检查你的群晖服务器所在的网络中，路由器是不是没有开放22端口的权限，因为这个ssh服务占用了所在地址的22端口<br>连上以后它会要求你输入你的群晖的登录账号和密码。输密码时，由于某些特性你输的东西不会展现出来，有时会让人困惑。这个不必理会，输完密码直接回车就行<br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722110942.png" alt="image.png"><br>如果你输对了，就会进入上图的样子。否则会提示access denied之类的，重新输入即可<br>完成后我们还需要获取root权限为下面使用docker作准备，命令如下：</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> -i</span><br></pre></td></tr></table></figure></div>
-<p>会提示你再输入一遍密码<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722111503.png"
-                      alt="image.png"
-                ><br>输对了绿字就会以root开头，获取权限成功</p>
-<h1 id="4-搜索并拉取你需要的镜像"><a href="#4-搜索并拉取你需要的镜像" class="headerlink" title="4.搜索并拉取你需要的镜像"></a>4.搜索并拉取你需要的镜像</h1><p>PuTTY界面里无法使用Ctrl+C&#x2F;V进行复制粘贴，所以在此之前先介绍你等会要用到的两个技巧</p>
+<p>会提示你再输入一遍密码<br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722111503.png" alt="image.png"><br>输对了绿字就会以root开头，获取权限成功</p>
+<h1 id="4-搜索并拉取你需要的镜像"><a href="#4-搜索并拉取你需要的镜像" class="headerlink" title="4.搜索并拉取你需要的镜像"></a>4.搜索并拉取你需要的镜像</h1><p>PuTTY界面里无法使用Ctrl+C/V进行复制粘贴，所以在此之前先介绍你等会要用到的两个技巧</p>
 <ol>
 <li>如何复制命令行里的文字<br>这个PuTTY界面里出现的文字你想复制，光标<strong>直接选中</strong>想复制的东西就行了，它会自动帮你复制</li>
 <li>如何粘贴你从别的地方复制的代码进命令行<br>鼠标<strong>右键单击</strong>一下即可，它会粘贴剪贴板里你复制的东西<br>在root权限下输入如下代码，可以搜索镜像。这样做其实就相当于你在docker的注册表界面里使用搜索<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search [你需要的服务名称]</span><br></pre></td></tr></table></figure></div>
-如我想搜索Minecraft镜像，如图所示<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722113204.png"
-                      alt="image.png"
-                ><br>下面列出的就是搜索出来的结果，通常你会用到第一个（我这里是itzg&#x2F;minecraft-server），复制这个名称，然后使用如下拉取命令<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [你复制的服务名称]：版本号</span><br></pre></td></tr></table></figure></div>
-如果不加版本号，默认会下载最新版本（latest tag）<br>如我这里就是<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722113535.png"
-                      alt="image.png"
-                ><br>接着等待它下载完成即可，完成后你会在docker的映像里看到你下的东西<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722113921.png"
-                      alt="image.png"
-                ><br>表明下载成功<br>然而由于docker hub被墙的原因，大概率你会遇到<code>dial tcp ...:443: i/o timeout</code>或者<code>error pulling image configuration</code>这样的错误，提示你拉取失败。如果你遇到这样的问题，可参考我写的这一篇教程：<br><a href="../docker/%E3%80%90docker%E6%8D%A2%E6%BA%90%E3%80%91Docker%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E5%A4%B1%E8%B4%A5">Docker换源以解决拉取镜像失败</a></li>
+如我想搜索Minecraft镜像，如图所示<img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722113204.png" alt="image.png"><br>下面列出的就是搜索出来的结果，通常你会用到第一个（我这里是itzg/minecraft-server），复制这个名称，然后使用如下拉取命令<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [你复制的服务名称]：版本号</span><br></pre></td></tr></table></figure></div>
+如果不加版本号，默认会下载最新版本（latest tag）<br>如我这里就是<img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722113535.png" alt="image.png"><br>接着等待它下载完成即可，完成后你会在docker的映像里看到你下的东西<br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722113921.png" alt="image.png"><br>表明下载成功<br>然而由于docker hub被墙的原因，大概率你会遇到<code>dial tcp ...:443: i/o timeout</code>或者<code>error pulling image configuration</code>这样的错误，提示你拉取失败。如果你遇到这样的问题，可参考我写的这一篇教程：<br><a href="../docker/%E3%80%90docker%E6%8D%A2%E6%BA%90%E3%80%91Docker%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E5%A4%B1%E8%B4%A5">Docker换源以解决拉取镜像失败</a></li>
 </ol>
 
         </div>
@@ -1148,7 +1098,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>

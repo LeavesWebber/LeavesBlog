@@ -119,6 +119,6 @@ theme: redefine
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/LeavesWebber/LeavesBlog.git # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: https://github.com/LeavesWebber/LeavesBlog.git
   branch: main
   message: [message]

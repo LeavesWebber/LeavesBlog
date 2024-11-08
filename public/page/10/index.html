@@ -877,7 +877,7 @@ mjx-container[display="true"] + br {
                     <div class="home-article-content markdown-body">
                         
                             
-                            假设有两个表 employees 和 contractors，它们包含相同的列 name 和 department。我们想获取所有员工和合同工的名单，但&#x3D;&#x3D;不包括重复的记录&#x3D;&#x3D;
+                            假设有两个表 employees 和 contractors，它们包含相同的列 name 和 department。我们想获取所有员工和合同工的名单，但==不包括重复的记录==
 12345SELECT name, departmentFROM employeesUNIONSELECT name, departmentFROM contractors;
                         
                     </div>
@@ -1117,7 +1117,7 @@ mjx-container[display="true"] + br {
                         
                             
                             将产品表中海尔公司的产品的产品信息单独存入P_HaiEr表中
-1234567SELECT *INTO P_HaiErFROM ProductWHERE Pname LIKE &#x27;%海尔%&#x27;
+1234567SELECT *INTO P_HaiErFROM ProductWHERE Pname LIKE '%海尔%'
                         
                     </div>
 
@@ -1198,10 +1198,10 @@ mjx-container[display="true"] + br {
                             已经创建了由Pno, Cno共同为主键的表
 
 试着对Ord表插入3条数据,观察哪些数据可以进入数据库，理解组合主键。
-123insert into Ord(Pno,Cno,Sdate,Sqty)values(&#x27;P2001&#x27;,&#x27;C2002&#x27;,&#x27;2022-3-18 &#x27;,8);
+123insert into Ord(Pno,Cno,Sdate,Sqty)values('P2001','C2002','2022-3-18 ',8);
 
 成功
-123insert into Ord(Pno,Cno...
+123insert into Ord(Pno,Cno,Sdate,Sqty)values('P2001','C1...
                         
                     </div>
 
@@ -1705,7 +1705,7 @@ deci...
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>

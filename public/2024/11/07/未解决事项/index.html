@@ -824,7 +824,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>286 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>281 字</span>
         </span>
     
     
@@ -849,16 +849,11 @@ mjx-container[display="true"] + br {
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
             <h1 id="Systemd和Docker的冲突"><a href="#Systemd和Docker的冲突" class="headerlink" title="Systemd和Docker的冲突"></a>Systemd和Docker的冲突</h1><p>试图使用命令重启系统时，报错信息</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntuMC1:/# reboot</span><br><span class="line">System has not been booted with systemd as init system (PID 1). Can<span class="string">&#x27;t operate.</span></span><br><span class="line"><span class="string">Failed to connect to bus: Host is down</span></span><br><span class="line"><span class="string">System has not been booted with systemd as init system (PID 1). Can&#x27;</span>t operate.</span><br><span class="line">Failed to connect to bus: Host is down</span><br><span class="line">Failed to talk to init daemon: Host is down</span><br><span class="line"></span><br><span class="line">root@ubuntuMC1:/# shutdown -r now</span><br><span class="line">System has not been booted with systemd as init system (PID 1). Can<span class="string">&#x27;t operate.</span></span><br><span class="line"><span class="string">Failed to connect to bus: Host is down</span></span><br><span class="line"><span class="string">System has not been booted with systemd as init system (PID 1). Can&#x27;</span>t operate.</span><br><span class="line">Failed to connect to bus: Host is down</span><br><span class="line">Failed to talk to init daemon: Host is down</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntuMC1:/# reboot</span><br><span class="line">System has not been booted with systemd as init system (PID 1). Can<span class="string">'t operate.</span></span><br><span class="line"><span class="string">Failed to connect to bus: Host is down</span></span><br><span class="line"><span class="string">System has not been booted with systemd as init system (PID 1). Can'</span>t operate.</span><br><span class="line">Failed to connect to bus: Host is down</span><br><span class="line">Failed to talk to init daemon: Host is down</span><br><span class="line"></span><br><span class="line">root@ubuntuMC1:/# shutdown -r now</span><br><span class="line">System has not been booted with systemd as init system (PID 1). Can<span class="string">'t operate.</span></span><br><span class="line"><span class="string">Failed to connect to bus: Host is down</span></span><br><span class="line"><span class="string">System has not been booted with systemd as init system (PID 1). Can'</span>t operate.</span><br><span class="line">Failed to connect to bus: Host is down</span><br><span class="line">Failed to talk to init daemon: Host is down</span><br></pre></td></tr></table></figure></div>
 <p>试图使用systemd服务设置开机自启动应用时，已经写好.service文件，试图更新配置文件时报错</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntuMC1:/etc/systemd/system# systemctl daemon-reload</span><br><span class="line">System has not been booted with systemd as init system (PID 1). Can<span class="string">&#x27;t operate.</span></span><br><span class="line"><span class="string">Failed to connect to bus: Host is down</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntuMC1:/etc/systemd/system# systemctl daemon-reload</span><br><span class="line">System has not been booted with systemd as init system (PID 1). Can<span class="string">'t operate.</span></span><br><span class="line"><span class="string">Failed to connect to bus: Host is down</span></span><br></pre></td></tr></table></figure></div>
 
-<h1 id="关于rc-d文件的困惑"><a href="#关于rc-d文件的困惑" class="headerlink" title="关于rc*.d文件的困惑"></a>关于rc*.d文件的困惑</h1><p>这个问题在我试图设置开机自启动应用时遇到了<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240925010135.png"
-                      alt="image.png"
-                ><br>如上图所示，我的etc文件夹内的rc*.d十分奇怪。</p>
+<h1 id="关于rc-d文件的困惑"><a href="#关于rc-d文件的困惑" class="headerlink" title="关于rc*.d文件的困惑"></a>关于rc*.d文件的困惑</h1><p>这个问题在我试图设置开机自启动应用时遇到了<br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240925010135.png" alt="image.png"><br>如上图所示，我的etc文件夹内的rc*.d十分奇怪。</p>
 <h1 id="Cron的启动运行悖论"><a href="#Cron的启动运行悖论" class="headerlink" title="Cron的启动运行悖论"></a>Cron的启动运行悖论</h1><p>crontab里的@reboot规则需要依赖于cron service才能运行</p>
 <p>但是开机状态下cron service并不能运行</p>
 
@@ -1038,7 +1033,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>

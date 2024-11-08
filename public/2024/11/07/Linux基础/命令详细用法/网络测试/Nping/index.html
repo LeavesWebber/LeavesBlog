@@ -24,12 +24,12 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="Usage: nping [Probe mode] [Options] {target specification} TARGET SPECIFICATION: Targets may be specified as hostnames, IP addresses, networks, etc. Ex: scanme.nmap.org, microsoft.com&#x2F;24, 192.168">
+        <meta name="description" content="Usage: nping [Probe mode] [Options] {target specification} TARGET SPECIFICATION: Targets may be specified as hostnames, IP addresses, networks, etc. Ex: scanme.nmap.org, microsoft.com&#x2F;24, 192.168.0.1;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nping">
 <meta property="og:url" content="https://leavesblog.netlify.app/2024/11/07/Linux%E5%9F%BA%E7%A1%80/%E5%91%BD%E4%BB%A4%E8%AF%A6%E7%BB%86%E7%94%A8%E6%B3%95/%E7%BD%91%E7%BB%9C%E6%B5%8B%E8%AF%95/Nping/index.html">
 <meta property="og:site_name" content="欢迎来到叶子的博客">
-<meta property="og:description" content="Usage: nping [Probe mode] [Options] {target specification} TARGET SPECIFICATION: Targets may be specified as hostnames, IP addresses, networks, etc. Ex: scanme.nmap.org, microsoft.com&#x2F;24, 192.168">
+<meta property="og:description" content="Usage: nping [Probe mode] [Options] {target specification} TARGET SPECIFICATION: Targets may be specified as hostnames, IP addresses, networks, etc. Ex: scanme.nmap.org, microsoft.com&#x2F;24, 192.168.0.1;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-07T06:40:47.605Z">
 <meta property="article:modified_time" content="2024-11-07T07:31:26.205Z">
@@ -868,7 +868,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>438 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>430 字</span>
         </span>
     
     
@@ -893,7 +893,7 @@ mjx-container[display="true"] + br {
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
             <p>Usage: nping [Probe mode] [Options] {target specification}</p>
-<p>TARGET SPECIFICATION: Targets may be specified as hostnames, IP addresses, networks, etc. Ex: scanme.nmap.org, microsoft.com&#x2F;24, 192.168.0.1; 10.0.*.1-24 PROBE MODES: –tcp-connect : Unprivileged TCP connect probe mode. –tcp : TCP probe mode. –udp : UDP probe mode. –icmp : ICMP probe mode. –arp : ARP&#x2F;RARP probe mode. –tr, –traceroute : Traceroute mode (can only be used with TCP&#x2F;UDP&#x2F;ICMP modes). TCP CONNECT MODE: -p, –dest-port : Set destination port(s). -g, –source-port : Try to use a custom source port. TCP PROBE MODE: -g, –source-port : Set source port. -p, –dest-port : Set destination port(s). –seq : Set sequence number. –flags : Set TCP flags (ACK,PSH,RST,SYN,FIN…) –ack : Set ACK number. –win : Set window size. –badsum : Use a random invalid checksum. UDP PROBE MODE: -g, –source-port : Set source port. -p, –dest-port : Set destination port(s). –badsum : Use a random invalid checksum. ICMP PROBE MODE: –icmp-type : ICMP type. –icmp-code <code>: ICMP code. --icmp-id : Set identifier. --icmp-seq : Set sequence number. --icmp-redirect-addr : Set redirect address. --icmp-param-pointer : Set parameter problem pointer. --icmp-advert-lifetime : Set router advertisement lifetime. --icmp-advert-entry : Add router advertisement entry. --icmp-orig-time : Set originate timestamp. --icmp-recv-time : Set receive timestamp. --icmp-trans-time : Set transmit timestamp. ARP/RARP PROBE MODE: --arp-type : Type: ARP, ARP-reply, RARP, RARP-reply. --arp-sender-mac : Set sender MAC address. --arp-sender-ip : Set sender IP address. --arp-target-mac : Set target MAC address. --arp-target-ip : Set target IP address. IPv4 OPTIONS: -S, --source-ip : Set source IP address. --dest-ip : Set destination IP address (used as an alternative to &#123;target specification&#125; ). --tos : Set type of service field (8bits). --id : Set identification field (16 bits). --df : Set Donot Fragment flag. --mf : Set More Fragments flag. --evil : Set Reserved / Evil flag. --ttl : Set time to live [0-255]. --badsum-ip : Use a random invalid checksum. --ip-options : Set IP options --ip-options : Set IP options --mtu : Set MTU. Packets get fragmented if MTU is small enough. IPv6 OPTIONS: -6, --IPv6 : Use IP version 6. --dest-ip : Set destination IP address (used as an alternative to &#123;target specification&#125;). --hop-limit : Set hop limit (same as IPv4 TTL). --traffic-class : : Set traffic class. --flow : Set flow label. ETHERNET OPTIONS: --dest-mac : Set destination mac address. (Disables ARP resolution) --source-mac : Set source MAC address. --ether-type : Set EtherType value. PAYLOAD OPTIONS: --data : Include a custom payload. --data-string</code></p>
+<p>TARGET SPECIFICATION: Targets may be specified as hostnames, IP addresses, networks, etc. Ex: scanme.nmap.org, microsoft.com/24, 192.168.0.1; 10.0.*.1-24 PROBE MODES: –tcp-connect : Unprivileged TCP connect probe mode. –tcp : TCP probe mode. –udp : UDP probe mode. –icmp : ICMP probe mode. –arp : ARP/RARP probe mode. –tr, –traceroute : Traceroute mode (can only be used with TCP/UDP/ICMP modes). TCP CONNECT MODE: -p, –dest-port : Set destination port(s). -g, –source-port : Try to use a custom source port. TCP PROBE MODE: -g, –source-port : Set source port. -p, –dest-port : Set destination port(s). –seq : Set sequence number. –flags : Set TCP flags (ACK,PSH,RST,SYN,FIN…) –ack : Set ACK number. –win : Set window size. –badsum : Use a random invalid checksum. UDP PROBE MODE: -g, –source-port : Set source port. -p, –dest-port : Set destination port(s). –badsum : Use a random invalid checksum. ICMP PROBE MODE: –icmp-type : ICMP type. –icmp-code <code>: ICMP code. --icmp-id : Set identifier. --icmp-seq : Set sequence number. --icmp-redirect-addr : Set redirect address. --icmp-param-pointer : Set parameter problem pointer. --icmp-advert-lifetime : Set router advertisement lifetime. --icmp-advert-entry : Add router advertisement entry. --icmp-orig-time : Set originate timestamp. --icmp-recv-time : Set receive timestamp. --icmp-trans-time : Set transmit timestamp. ARP/RARP PROBE MODE: --arp-type : Type: ARP, ARP-reply, RARP, RARP-reply. --arp-sender-mac : Set sender MAC address. --arp-sender-ip : Set sender IP address. --arp-target-mac : Set target MAC address. --arp-target-ip : Set target IP address. IPv4 OPTIONS: -S, --source-ip : Set source IP address. --dest-ip : Set destination IP address (used as an alternative to {target specification} ). --tos : Set type of service field (8bits). --id : Set identification field (16 bits). --df : Set Donot Fragment flag. --mf : Set More Fragments flag. --evil : Set Reserved / Evil flag. --ttl : Set time to live [0-255]. --badsum-ip : Use a random invalid checksum. --ip-options : Set IP options --ip-options : Set IP options --mtu : Set MTU. Packets get fragmented if MTU is small enough. IPv6 OPTIONS: -6, --IPv6 : Use IP version 6. --dest-ip : Set destination IP address (used as an alternative to {target specification}). --hop-limit : Set hop limit (same as IPv4 TTL). --traffic-class : : Set traffic class. --flow : Set flow label. ETHERNET OPTIONS: --dest-mac : Set destination mac address. (Disables ARP resolution) --source-mac : Set source MAC address. --ether-type : Set EtherType value. PAYLOAD OPTIONS: --data : Include a custom payload. --data-string</code></p>
 <p><code>  SEE THE MAN PAGE FOR MANY MORE OPTIONS, DESCRIPTIONS, AND EXAMPLES  </code></p>
 
         </div>
@@ -1080,7 +1080,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>

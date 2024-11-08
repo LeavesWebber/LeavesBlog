@@ -848,7 +848,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>182 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>178 字</span>
         </span>
     
     
@@ -873,13 +873,13 @@ mjx-container[display="true"] + br {
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
             <p>例：创建价格小于2000的产品视图VIEW_CP_PRICE2000，要求<strong>加密</strong>并保证对该视图的更新都要符合价格小于2000这个条件</p>
-<div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> VIEW_CP_PRICE2000</span><br><span class="line"><span class="keyword">WITH</span> ENCRYPTION</span><br><span class="line"></span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> product</span><br><span class="line"><span class="keyword">WHERE</span> price<span class="operator">&lt;</span><span class="number">2000</span></span><br><span class="line"><span class="keyword">with</span> <span class="keyword">check</span> option</span><br><span class="line">GO</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> VIEW_CP_PRICE2000</span><br><span class="line"><span class="keyword">SET</span> price<span class="operator">=</span><span class="number">4200</span></span><br><span class="line"><span class="keyword">WHERE</span> Pname<span class="operator">=</span><span class="string">&#x27;海尔洗衣机&#x27;</span></span><br><span class="line">GO</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> VIEW_CP_PRICE2000</span><br><span class="line"><span class="keyword">WITH</span> ENCRYPTION</span><br><span class="line"></span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> product</span><br><span class="line"><span class="keyword">WHERE</span> price<span class="operator">&lt;</span><span class="number">2000</span></span><br><span class="line"><span class="keyword">with</span> <span class="keyword">check</span> option</span><br><span class="line">GO</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> VIEW_CP_PRICE2000</span><br><span class="line"><span class="keyword">SET</span> price<span class="operator">=</span><span class="number">4200</span></span><br><span class="line"><span class="keyword">WHERE</span> Pname<span class="operator">=</span><span class="string">'海尔洗衣机'</span></span><br><span class="line">GO</span><br></pre></td></tr></table></figure></div>
 
 <p>运行结果：</p>
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">消息 <span class="number">550</span>，级别 <span class="number">16</span>，状态 <span class="number">1</span>，第 <span class="number">1</span> 行</span><br><span class="line">试图进行的插入或更新已失败，原因是目标视图或者目标视图所跨越的某一视图指定了 <span class="keyword">WITH</span> <span class="keyword">CHECK</span> OPTION，而该操作的一个或多个结果行又不符合 <span class="keyword">CHECK</span> OPTION 约束。</span><br><span class="line">语句已终止。</span><br></pre></td></tr></table></figure></div>
 
 <p>更改上例中的 <code>UPDATE</code> 语句如下</p>
-<div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> VIEW_CP_PRICE2000</span><br><span class="line"><span class="keyword">SET</span> price<span class="operator">=</span><span class="number">1999</span>     <span class="comment">--使得在WHERE范围内--</span></span><br><span class="line"><span class="keyword">WHERE</span> Pname<span class="operator">=</span><span class="string">&#x27;海尔洗衣机&#x27;</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> VIEW_CP_PRICE2000</span><br><span class="line"><span class="keyword">SET</span> price<span class="operator">=</span><span class="number">1999</span>     <span class="comment">--使得在WHERE范围内--</span></span><br><span class="line"><span class="keyword">WHERE</span> Pname<span class="operator">=</span><span class="string">'海尔洗衣机'</span></span><br></pre></td></tr></table></figure></div>
 
 <p>则运行成功</p>
 
@@ -1059,7 +1059,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>

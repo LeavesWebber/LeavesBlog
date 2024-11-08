@@ -838,7 +838,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>220 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>212 字</span>
         </span>
     
     
@@ -865,7 +865,7 @@ mjx-container[display="true"] + br {
             <h1 id="基于Mysql快速查看数据库系统结构"><a href="#基于Mysql快速查看数据库系统结构" class="headerlink" title="基于Mysql快速查看数据库系统结构"></a>基于Mysql快速查看数据库系统结构</h1><blockquote>
 <p>好久没用电脑里的Mysql，突然要用一下，根本不记得之前创建过哪些数据库，库里都有哪些表了。所以编写如下sql语句，旨在快速查看整个数据库系统的结构</p>
 </blockquote>
-<h2 id="一步查看"><a href="#一步查看" class="headerlink" title="一步查看"></a>一步查看</h2><div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  </span><br><span class="line">    TABLE_SCHEMA <span class="keyword">AS</span> `数据库名`,  </span><br><span class="line">    TABLE_NAME <span class="keyword">AS</span> `表名`,  </span><br><span class="line">    COLUMN_NAME <span class="keyword">AS</span> `列名`,  </span><br><span class="line">    DATA_TYPE <span class="keyword">AS</span> `数据类型`  </span><br><span class="line"><span class="keyword">FROM</span>  </span><br><span class="line">    information_schema.COLUMNS  </span><br><span class="line"><span class="keyword">WHERE</span>  </span><br><span class="line">    TABLE_SCHEMA <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="string">&#x27;information_schema&#x27;</span>, <span class="string">&#x27;performance_schema&#x27;</span>, <span class="string">&#x27;mysql&#x27;</span>, <span class="string">&#x27;sys&#x27;</span>) <span class="comment">-- 排除系统数据库  </span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span>  </span><br><span class="line">    TABLE_SCHEMA,  </span><br><span class="line">    TABLE_NAME,  </span><br><span class="line">    ORDINAL_POSITION;</span><br></pre></td></tr></table></figure></div>
+<h2 id="一步查看"><a href="#一步查看" class="headerlink" title="一步查看"></a>一步查看</h2><div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  </span><br><span class="line">    TABLE_SCHEMA <span class="keyword">AS</span> `数据库名`,  </span><br><span class="line">    TABLE_NAME <span class="keyword">AS</span> `表名`,  </span><br><span class="line">    COLUMN_NAME <span class="keyword">AS</span> `列名`,  </span><br><span class="line">    DATA_TYPE <span class="keyword">AS</span> `数据类型`  </span><br><span class="line"><span class="keyword">FROM</span>  </span><br><span class="line">    information_schema.COLUMNS  </span><br><span class="line"><span class="keyword">WHERE</span>  </span><br><span class="line">    TABLE_SCHEMA <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="string">'information_schema'</span>, <span class="string">'performance_schema'</span>, <span class="string">'mysql'</span>, <span class="string">'sys'</span>) <span class="comment">-- 排除系统数据库  </span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span>  </span><br><span class="line">    TABLE_SCHEMA,  </span><br><span class="line">    TABLE_NAME,  </span><br><span class="line">    ORDINAL_POSITION;</span><br></pre></td></tr></table></figure></div>
 
 <p>能看出，对于Mysql来说，如下都是系统自带的表 <code>information_schema</code>, <code>performance_schema</code>, <code>mysql</code>, <code>sys</code></p>
 <h2 id="精细查看"><a href="#精细查看" class="headerlink" title="精细查看"></a>精细查看</h2><p>如果还需要更精细的查看，有如下命令：</p>
@@ -1050,7 +1050,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>

@@ -878,26 +878,21 @@ mjx-container[display="true"] + br {
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913170311.png"
-                      alt="image.png"
-                ></p>
+            <p><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913170311.png" alt="image.png"></p>
 <hr>
-<h1 id="用Ubuntu配置sftp-ssh服务"><a href="#用Ubuntu配置sftp-ssh服务" class="headerlink" title="用Ubuntu配置sftp&#x2F;ssh服务"></a>用Ubuntu配置sftp&#x2F;ssh服务</h1><p>参考了这两篇教程：<br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35623011/article/details/85003109" >SFTP服务器的搭建与使用_sftp服务器搭建-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44846324/article/details/122029609" >Ubuntu 配置 SFTP 服务器_ubuntu sftp-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>其中</p>
+<h1 id="用Ubuntu配置sftp-ssh服务"><a href="#用Ubuntu配置sftp-ssh服务" class="headerlink" title="用Ubuntu配置sftp/ssh服务"></a>用Ubuntu配置sftp/ssh服务</h1><p>参考了这两篇教程：<br><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35623011/article/details/85003109">SFTP服务器的搭建与使用_sftp服务器搭建-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44846324/article/details/122029609">Ubuntu 配置 SFTP 服务器_ubuntu sftp-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>其中</p>
 <ul>
 <li>涉及一些权限修改内容</li>
 <li>教程1有java的代码实现</li>
 </ul>
-<p>&#x3D;&#x3D;root用户（不在意权限分发）可以直接用下面的步骤快速使用&#x3D;&#x3D;</p>
+<p>==root用户（不在意权限分发）可以直接用下面的步骤快速使用==</p>
 <hr>
 <h2 id="1-安装sftp服务"><a href="#1-安装sftp服务" class="headerlink" title="1.安装sftp服务"></a>1.安装sftp服务</h2><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install openssh-server openssh-client -y</span><br></pre></td></tr></table></figure></div>
 
 <p>  sftp是openssh里面的一个子协议</p>
 <hr>
-<h2 id="2-编辑配置文件-etc-ssh-sshd-config"><a href="#2-编辑配置文件-etc-ssh-sshd-config" class="headerlink" title="2.编辑配置文件&#x2F;etc&#x2F;ssh&#x2F;sshd_config"></a>2.编辑配置文件&#x2F;etc&#x2F;ssh&#x2F;sshd_config</h2><p>如果没有UI界面，可以使用vim编辑器<br>这里要注意是<strong>sshd</strong>而不是<strong>ssh</strong>，前者对应的是服务端后者是客户端</p>
-<h3 id="2-1-将如下这行用-符号注释掉"><a href="#2-1-将如下这行用-符号注释掉" class="headerlink" title="2.1 将如下这行用#符号注释掉"></a>2.1 将如下这行用<code>#</code>符号注释掉</h3><p>（为什么要注释掉可以看这篇文章<a class="link"   target="_blank" rel="noopener" href="https://www.jianshu.com/p/f24d8ca565d7" >【OpenSSH】internal-sftp和sftp-server之间的区别和联系什么？ - 简书 (jianshu.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>）</p>
+<h2 id="2-编辑配置文件-etc-ssh-sshd-config"><a href="#2-编辑配置文件-etc-ssh-sshd-config" class="headerlink" title="2.编辑配置文件/etc/ssh/sshd_config"></a>2.编辑配置文件/etc/ssh/sshd_config</h2><p>如果没有UI界面，可以使用vim编辑器<br>这里要注意是<strong>sshd</strong>而不是<strong>ssh</strong>，前者对应的是服务端后者是客户端</p>
+<h3 id="2-1-将如下这行用-符号注释掉"><a href="#2-1-将如下这行用-符号注释掉" class="headerlink" title="2.1 将如下这行用#符号注释掉"></a>2.1 将如下这行用<code>#</code>符号注释掉</h3><p>（为什么要注释掉可以看这篇文章<a class="link" target="_blank" rel="noopener" href="https://www.jianshu.com/p/f24d8ca565d7">【OpenSSH】internal-sftp和sftp-server之间的区别和联系什么？ - 简书 (jianshu.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>）</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># Subsystem      sftp    /usr/libexec/openssh/sftp-server</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="2-2-在文件最后面添加如下几行内容然后保存（最好放在文件末尾）"><a href="#2-2-在文件最后面添加如下几行内容然后保存（最好放在文件末尾）" class="headerlink" title="2.2 在文件最后面添加如下几行内容然后保存（最好放在文件末尾）"></a>2.2 在文件最后面添加如下几行内容然后保存（最好放在文件末尾）</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Subsystem       sftp    internal-sftp   </span><br><span class="line">Match Group sftp  </span><br><span class="line">ChrootDirectory /sftp/%u    </span><br><span class="line">ForceCommand    internal-sftp    </span><br><span class="line">AllowTcpForwarding no   </span><br><span class="line">X11Forwarding no  </span><br><span class="line">PermitRootLogin yes</span><br><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure></div>
@@ -912,7 +907,7 @@ mjx-container[display="true"] + br {
 <li>这行表示接下来的配置只适用于属于 <code>sftp</code> 组的用户。</li>
 </ul>
 </li>
-<li><strong>ChrootDirectory &#x2F;sftp&#x2F;%u</strong><ul>
+<li><strong>ChrootDirectory /sftp/%u</strong><ul>
 <li>这行将用户的根目录（chroot）设置为 <code>/sftp/%u</code>，其中 <code>%u</code> 会被替换为用户的用户名。这意味着用户只能访问他们自己的目录，增强了安全性。</li>
 </ul>
 </li>
@@ -929,7 +924,7 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 <li><strong>PermitRootLogin yes</strong><ul>
-<li>允许用户通过root登录。在终端里使用命令<code>echo &quot;PermitRootLogin yes&quot; &gt;&gt; /etc/ssh/sshd_config</code>能达到同样效果(需要service ssh restart)</li>
+<li>允许用户通过root登录。在终端里使用命令<code>echo "PermitRootLogin yes" &gt;&gt; /etc/ssh/sshd_config</code>能达到同样效果(需要service ssh restart)</li>
 </ul>
 </li>
 </ol>
@@ -947,24 +942,14 @@ mjx-container[display="true"] + br {
 <hr>
 <h2 id="4-重启sshd服务"><a href="#4-重启sshd服务" class="headerlink" title="4. 重启sshd服务"></a>4. 重启sshd服务</h2><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ssh restart</span><br></pre></td></tr></table></figure></div>
 
-<p>这边可能遇到如下图一样的报错<br><code>Failed to restart sshd.service: Unit sshd.service not found.</code><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913162124.png"
-                      alt="image.png"
-                ><br>此时就需要进一步排查了，</p>
+<p>这边可能遇到如下图一样的报错<br><code>Failed to restart sshd.service: Unit sshd.service not found.</code><br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913162124.png" alt="image.png"><br>此时就需要进一步排查了，</p>
 <ol>
 <li><p>先测试能不能ping通主机</p>
 </li>
 <li><p>检查sshd的安装情况</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -e | grep ssh</span><br></pre></td></tr></table></figure></div>
 
-<p>成功安装会如下图所示<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913162329.png"
-                      alt="image.png"
-                ></p>
+<p>成功安装会如下图所示<br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913162329.png" alt="image.png"></p>
 </li>
 <li><p>测试端口是否开启（ssh服务默认用22端口）</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss -ntl</span><br></pre></td></tr></table></figure></div></li>
@@ -975,42 +960,27 @@ mjx-container[display="true"] + br {
 <p>也许你的终端会提示<code>bash: ss: command not found</code>，ss命令依赖于iproute2，那么我们就先安装即可，命令如下</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y iproute2</span><br></pre></td></tr></table></figure></div>
 
-<p>完成后再使用刚才的命令。我这里就是只显示了表头，下面并没有任何信息（尤其是与sshd有关端口的）<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913162757.png"
-                      alt="image.png"
-                ><br>看来是sshd服务并未启动，那就使其重启，命令如下</p>
+<p>完成后再使用刚才的命令。我这里就是只显示了表头，下面并没有任何信息（尤其是与sshd有关端口的）<br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913162757.png" alt="image.png"><br>看来是sshd服务并未启动，那就使其重启，命令如下</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> ssh.service</span><br></pre></td></tr></table></figure></div>
 
 <blockquote>
 <p>查了一下资料，systemd是Linux的一种服务管理器，这让我想起了Windows里也有类似的GUI工具</p>
 </blockquote>
-<p>命令进行后，竟然提示我<code>permission denied</code>，吓得我赶紧用<code>sudo -i</code>提权了一下，再次用一遍命令即可，此时<code>service sshd restart</code>已经可用。<br>再用一遍进程显示的命令，可以看到22端口已经乖乖运行<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913163715.png"
-                      alt="image.png"
-                ></p>
+<p>命令进行后，竟然提示我<code>permission denied</code>，吓得我赶紧用<code>sudo -i</code>提权了一下，再次用一遍命令即可，此时<code>service sshd restart</code>已经可用。<br>再用一遍进程显示的命令，可以看到22端口已经乖乖运行<br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913163715.png" alt="image.png"></p>
 <hr>
 <h2 id="5-验证服务"><a href="#5-验证服务" class="headerlink" title="5.验证服务"></a>5.验证服务</h2><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sftp -P 11165 root@127.0.0.1 </span><br></pre></td></tr></table></figure></div>
 
 <p>中间的<em>11165</em>是前面设置的可用的端口号<br>服务正常的话，日志应该如下</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@hbcm-7k62-nat1-202409041216467fca88:~# sftp -P 11165 mysftp@127.0.0.1</span><br><span class="line">The authenticity of host <span class="string">&#x27;[127.0.0.1]:11165 ([127.0.0.1]:11165)&#x27;</span> can<span class="string">&#x27;t be established.</span></span><br><span class="line"><span class="string">ECDSA key fingerprint is SHA256:F5M7HVRlp/0SmsEC0J6ivw/RmRHDBEw.</span></span><br><span class="line"><span class="string">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span></span><br><span class="line"><span class="string">Warning: Permanently added &#x27;</span>[127.0.0.1]:11165<span class="string">&#x27; (ECDSA) to the list of known hosts.</span></span><br><span class="line"><span class="string">mysftp@127.0.0.1&#x27;</span>s password: </span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@hbcm-7k62-nat1-202409041216467fca88:~# sftp -P 11165 mysftp@127.0.0.1</span><br><span class="line">The authenticity of host <span class="string">'[127.0.0.1]:11165 ([127.0.0.1]:11165)'</span> can<span class="string">'t be established.</span></span><br><span class="line"><span class="string">ECDSA key fingerprint is SHA256:F5M7HVRlp/0SmsEC0J6ivw/RmRHDBEw.</span></span><br><span class="line"><span class="string">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span></span><br><span class="line"><span class="string">Warning: Permanently added '</span>[127.0.0.1]:11165<span class="string">' (ECDSA) to the list of known hosts.</span></span><br><span class="line"><span class="string">mysftp@127.0.0.1'</span>s password: </span><br></pre></td></tr></table></figure></div>
 
-<p>会要求你输密码，输入后就能进入sftp命令层了<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913165020.png"
-                      alt="image.png"
-                ></p>
+<p>会要求你输密码，输入后就能进入sftp命令层了<br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240913165020.png" alt="image.png"></p>
 <p>如果登录失败，可能是遭遇了一个权限问题，在上文提到的sshd.config的设置项里，有一个参数<code>PermitRootLogin</code>限定root用户通过ssh的登录方式，如禁止登陆、禁止密码登录、仅允许密钥登陆和开放登陆。需要设置成yes获取所有权限：</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure></div>
 
-<p>更多细节可以参考这篇文章：<br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/huigher/article/details/52972013" >sshd_config 中 PermitRootLogin 的探讨-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>不过我这里默认的是Fobidden开头的，文章里并未提到，但是有了这个思路以后自己搜一下也很方便了。</p>
-<h2 id="6-windows为例使用sftp"><a href="#6-windows为例使用sftp" class="headerlink" title="6.windows为例使用sftp"></a>6.windows为例使用sftp</h2><p>为了让事情变得更简单，还要批量传文件，我选择用一个sftp客户端，例如&#x3D;&#x3D;WinSCP&#x3D;&#x3D;，会要求输入主机（即为公网ip）和端口号（默认为22，你需要修改为前面你设置的），用户名和密码就是Linux的登入账户信息</p>
-<p>我听说过还可以把sftp挂载到资源管理器(Exploer)里使用，这就变成了一个文件夹一样交互。但是看来看去，因为Windows本身没有sftp的内部支持，还要做协议接口转换，太复杂。实在想搞的话我贴个教程在这<br><a class="link"   target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000023726408" >[小技巧]在Windows下使用sshfs-win挂载sftp磁盘到本地，便捷管理Linux中的文件 - 个人文章 - SegmentFault 思否 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h2 id="其他实现文件传输的方式"><a href="#其他实现文件传输的方式" class="headerlink" title="其他实现文件传输的方式"></a>其他实现文件传输的方式</h2><p>&#x3D;&#x3D;WinSCP&#x3D;&#x3D;其实支持多种文件传输协议，各种协议的区别可见这里<br>[[SFTP,SMB,FTP,SCP选哪种？]]</p>
+<p>更多细节可以参考这篇文章：<br><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/huigher/article/details/52972013">sshd_config 中 PermitRootLogin 的探讨-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>不过我这里默认的是Fobidden开头的，文章里并未提到，但是有了这个思路以后自己搜一下也很方便了。</p>
+<h2 id="6-windows为例使用sftp"><a href="#6-windows为例使用sftp" class="headerlink" title="6.windows为例使用sftp"></a>6.windows为例使用sftp</h2><p>为了让事情变得更简单，还要批量传文件，我选择用一个sftp客户端，例如==WinSCP==，会要求输入主机（即为公网ip）和端口号（默认为22，你需要修改为前面你设置的），用户名和密码就是Linux的登入账户信息</p>
+<p>我听说过还可以把sftp挂载到资源管理器(Exploer)里使用，这就变成了一个文件夹一样交互。但是看来看去，因为Windows本身没有sftp的内部支持，还要做协议接口转换，太复杂。实在想搞的话我贴个教程在这<br><a class="link" target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000023726408">[小技巧]在Windows下使用sshfs-win挂载sftp磁盘到本地，便捷管理Linux中的文件 - 个人文章 - SegmentFault 思否 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="其他实现文件传输的方式"><a href="#其他实现文件传输的方式" class="headerlink" title="其他实现文件传输的方式"></a>其他实现文件传输的方式</h2><p>==WinSCP==其实支持多种文件传输协议，各种协议的区别可见这里<br>[[SFTP,SMB,FTP,SCP选哪种？]]</p>
 
         </div>
 
@@ -1192,7 +1162,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>

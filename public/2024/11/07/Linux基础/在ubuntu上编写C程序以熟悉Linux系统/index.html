@@ -838,7 +838,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>491 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>478 字</span>
         </span>
     
     
@@ -869,10 +869,10 @@ mjx-container[display="true"] + br {
 <h1 id="2-配置C环境"><a href="#2-配置C环境" class="headerlink" title="2.配置C环境"></a>2.配置C环境</h1><p>后续需要使用GCC作为编译工具，这里用apt命令安装</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install gcc</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt install g++</span><br></pre></td></tr></table></figure></div>
 
-<h1 id="3-使用Vim创建-c文件"><a href="#3-使用Vim创建-c文件" class="headerlink" title="3.使用Vim创建.c文件"></a>3.使用Vim创建.c文件</h1><p>如果你还没安装过vim编辑器，可以参考前面的文章。我选择直接在GUI界面索引到&#x2F;home&#x2F;Documents，然后在此目录环境运行终端，进行C语言测试。<br>我将编写一个名为<code>factorial.c</code>的文件，用于计算N!（其能接收用户传入的整数N，并给出这个整数阶乘后的结果）</p>
+<h1 id="3-使用Vim创建-c文件"><a href="#3-使用Vim创建-c文件" class="headerlink" title="3.使用Vim创建.c文件"></a>3.使用Vim创建.c文件</h1><p>如果你还没安装过vim编辑器，可以参考前面的文章。我选择直接在GUI界面索引到/home/Documents，然后在此目录环境运行终端，进行C语言测试。<br>我将编写一个名为<code>factorial.c</code>的文件，用于计算N!（其能接收用户传入的整数N，并给出这个整数阶乘后的结果）</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim factorial.c</span><br></pre></td></tr></table></figure></div>
-<p>创建后即可进入编辑器，默认在命令模式，按<code>i</code>键进入输入模式，按<code>Esc</code>可以退出输入模式，更详细的教程链接如下<br><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-vim.html" >Linux vi&#x2F;vim | 菜鸟教程 (runoob.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>在输入模式下，编写如下代码</p>
-<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> i,j,k;</span><br><span class="line">	<span class="type">int</span> N;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;The value of N is: &quot;</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;N);</span><br><span class="line">	<span class="keyword">for</span>(i=N,j=<span class="number">1</span>;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">		j=j*i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;The reslut of factorial %d is %d&quot;</span>,N,j);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>创建后即可进入编辑器，默认在命令模式，按<code>i</code>键进入输入模式，按<code>Esc</code>可以退出输入模式，更详细的教程链接如下<br><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-vim.html">Linux vi/vim | 菜鸟教程 (runoob.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>在输入模式下，编写如下代码</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>{</span><br><span class="line">	<span class="type">int</span> i,j,k;</span><br><span class="line">	<span class="type">int</span> N;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"The value of N is: "</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line">	<span class="keyword">for</span>(i=N,j=<span class="number">1</span>;i&gt;<span class="number">0</span>;i--){</span><br><span class="line">		j=j*i;</span><br><span class="line">	}</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"The reslut of factorial %d is %d"</span>,N,j);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
 <p>进入命令模式后，使用命令<code>:wq</code>保存并退出来到终端，使用如下命令编译刚才创建的.c文件</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc factorial.c</span><br></pre></td></tr></table></figure></div>
 <p>之后文件夹中会多出一个<code>a.out</code>文件，这就是Linux的可执行文件，终端中使用如下命令执行</p>
@@ -1057,7 +1057,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 125.1k 字
+                            共 123.6k 字
                         </span>
                     
                 </p>
