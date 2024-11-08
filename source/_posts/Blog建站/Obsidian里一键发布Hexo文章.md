@@ -8,5 +8,5 @@ categories:
 date: 2024-11-08 21:35:46
 ---
 
-![一键发布博客](DeployBlog.bat)
+[DeployBlog.bat](file:///D:/项目文件/LeavesBlog/DeployBlog.bat)
 
