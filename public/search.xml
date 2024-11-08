@@ -8732,7 +8732,7 @@ import {initHBE} from "/js/plugins/hbe.js";
                      src="/images/loading.svg"
                      data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240911134114.png"
                      
-         alt="网络异常，图片加载失败"
+         alt="网络异常，图片加载失败" style="center"
                 > 
         打开Linux的晶须菜单(Whisker menu)
 </div><br>
