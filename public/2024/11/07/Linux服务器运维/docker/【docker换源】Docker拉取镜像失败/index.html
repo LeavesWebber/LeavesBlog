@@ -26,7 +26,7 @@
     
         <meta name="description" content="Docker配置国内镜像源以解决拉取镜像失败我在我的群晖NAS上使用docker时遇到了这个问题由于docker hub被墙，使用 1docker pull 你需要的服务名称 拉取镜像失败，报错dial tcp ...:443: i&#x2F;o timeout或者error pulling image configuration有两种解决办法：  让你的群晖NAS科学上网 ，一劳永逸 使用代理镜像源。步骤">
 <meta property="og:type" content="article">
-<meta property="og:title" content="欢迎来到叶子的博客">
+<meta property="og:title" content="【docker换源】Docker拉取镜像失败">
 <meta property="og:url" content="https://leavesblog.netlify.app/2024/11/07/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/docker/%E3%80%90docker%E6%8D%A2%E6%BA%90%E3%80%91Docker%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E5%A4%B1%E8%B4%A5/index.html">
 <meta property="og:site_name" content="欢迎来到叶子的博客">
 <meta property="og:description" content="Docker配置国内镜像源以解决拉取镜像失败我在我的群晖NAS上使用docker时遇到了这个问题由于docker hub被墙，使用 1docker pull 你需要的服务名称 拉取镜像失败，报错dial tcp ...:443: i&#x2F;o timeout或者error pulling image configuration有两种解决办法：  让你的群晖NAS科学上网 ，一劳永逸 使用代理镜像源。步骤">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722115415.png">
 <meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722115526.png">
 <meta property="article:published_time" content="2024-11-07T06:40:47.514Z">
-<meta property="article:modified_time" content="2024-11-07T07:01:10.306Z">
+<meta property="article:modified_time" content="2024-11-08T13:40:45.706Z">
 <meta property="article:author" content="Leaves Webber">
 <meta property="article:tag" content="运维">
 <meta property="article:tag" content="docker">
@@ -51,7 +51,7 @@
     
     <title>
         
-            叶子的Blog - 无限进步
+            【docker换源】Docker拉取镜像失败 | 叶子的Blog
         
     </title>
 
@@ -741,15 +741,15 @@ mjx-container[display="true"] + br {
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">53</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">54</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">38</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">39</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">140</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">141</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -775,7 +775,7 @@ mjx-container[display="true"] + br {
         <div class="article-title relative w-full">
             
                 <div class="w-full flex items-center pt-6 justify-start">
-                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3"></h1>
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">【docker换源】Docker拉取镜像失败</h1>
                 </div>
             
             </div>
@@ -803,8 +803,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-11-07 15:01:10</span>
-            <span class="mobile">2024-11-07 15:01:10</span>
+            <span class="desktop">2024-11-08 21:40:45</span>
+            <span class="mobile">2024-11-08 21:40:45</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -856,7 +856,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>486 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>476 字</span>
         </span>
     
     
@@ -884,14 +884,14 @@ mjx-container[display="true"] + br {
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 你需要的服务名称</span><br></pre></td></tr></table></figure></div>
 <p>拉取镜像失败，报错<code>dial tcp ...:443: i/o timeout</code>或者<code>error pulling image configuration</code><br>有两种解决办法：</p>
 <ol>
-<li>让你的群晖NAS<a class="link"   target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%AA%81%E7%A0%B4%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5" >科学上网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，一劳永逸</li>
+<li>让你的群晖NAS<a class="link" target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%AA%81%E7%A0%B4%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5">科学上网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，一劳永逸</li>
 <li>使用代理镜像源。步骤如下</li>
 </ol>
 <h2 id="无UI的终端环境："><a href="#无UI的终端环境：" class="headerlink" title="无UI的终端环境："></a>无UI的终端环境：</h2><h3 id="编辑docker镜像源的配置文件"><a href="#编辑docker镜像源的配置文件" class="headerlink" title="编辑docker镜像源的配置文件"></a>编辑docker镜像源的配置文件</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vi /etc/docker/daemon.json</span><br></pre></td></tr></table></figure></div>
 <p>有时你会发现文件并不存在，这可能是因为你是基于snap安装的docker，那么此时，它的配置文件位置应该如下</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vi /var/snap/docker/current/config/daemon.json</span><br></pre></td></tr></table></figure></div>
 <p>无论怎样，打开配置文件后，就可以往里面添加新源了：</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;https://docker.1panel.live&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://dockerpull.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://dockerproxy.cn&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="string">"registry-mirrors"</span>: [</span><br><span class="line">    <span class="string">"https://docker.1panel.live"</span>,</span><br><span class="line">    <span class="string">"https://dockerpull.com"</span>,</span><br><span class="line">    <span class="string">"https://dockerproxy.cn"</span></span><br><span class="line">  ]</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
 <blockquote>
 <p>由于众所周知的长城防火墙（GFW)的原因，源随时有可能被墙。如果源失效，请自行搜索新源。</p>
 </blockquote>
@@ -901,24 +901,14 @@ mjx-container[display="true"] + br {
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull dockerproxy.cn/original-repo</span><br></pre></td></tr></table></figure></div>
 <p>以上命令就使用注册表镜像<code>dockerproxy.cn</code>拉取服务<code>original-repo</code></p>
 <hr>
-<h2 id="有UI环境：在docker注册表设置页面替换镜像源"><a href="#有UI环境：在docker注册表设置页面替换镜像源" class="headerlink" title="有UI环境：在docker注册表设置页面替换镜像源"></a>有UI环境：在docker注册表设置页面替换镜像源</h2><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722115415.png"
-                      alt="image.png"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722115526.png"
-                      alt="image.png"
-                ><br>添加一个国内可用的注册表镜像URL然后点确认。我这里用的是</p>
+<h2 id="有UI环境：在docker注册表设置页面替换镜像源"><a href="#有UI环境：在docker注册表设置页面替换镜像源" class="headerlink" title="有UI环境：在docker注册表设置页面替换镜像源"></a>有UI环境：在docker注册表设置页面替换镜像源</h2><p><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722115415.png" alt="image.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240722115526.png" alt="image.png"><br>添加一个国内可用的注册表镜像URL然后点确认。我这里用的是</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://docker.1panel.live</span><br></pre></td></tr></table></figure></div>
 <p>其他的一些可能可用的镜像URL：</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">https://dockerpull.com </span><br><span class="line">https://dockerproxy.cn </span><br><span class="line">https://docker.hpcloud.cloud</span><br><span class="line">https://registry.docker-cn.com</span><br><span class="line">https://docker.mirrors.ustc.edu.cn</span><br><span class="line">https://hub-mirror.c.163.com</span><br><span class="line">https://mirror.baidubce.com</span><br></pre></td></tr></table></figure></div>
 <p>可以使用以下命令验证是否替换成功：</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure></div>
 
-<p>值得一提的是，有时<code>docker serach</code>仍然不可用，但<code>docker pull</code>其实是可用的。所以我们挂好<a class="link"   target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%AA%81%E7%A0%B4%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5" >科学上网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>工具，去docker hub官网搜索想用的镜像名称，然后仅仅用docker pull拉取即可</p>
+<p>值得一提的是，有时<code>docker serach</code>仍然不可用，但<code>docker pull</code>其实是可用的。所以我们挂好<a class="link" target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%AA%81%E7%A0%B4%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5">科学上网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>工具，去docker hub官网搜索想用的镜像名称，然后仅仅用docker pull拉取即可</p>
 
         </div>
 
@@ -926,14 +916,14 @@ mjx-container[display="true"] + br {
             <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> </li>
+        <li><strong>标题:</strong> 【docker换源】Docker拉取镜像失败</li>
         <li><strong>作者:</strong> 三葉Leaves</li>
         <li><strong>创建于
                 :</strong> 2024-11-07 14:40:47</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-11-07 15:01:10
+                    :</strong> 2024-11-08 21:40:45
             </li>
         
         <li>
@@ -1060,7 +1050,7 @@ mjx-container[display="true"] + br {
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">目录</div>
-        <div class="page-title"></div>
+        <div class="page-title">【docker换源】Docker拉取镜像失败</div>
         <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90%E4%BB%A5%E8%A7%A3%E5%86%B3%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E5%A4%B1%E8%B4%A5"><span class="nav-text">Docker配置国内镜像源以解决拉取镜像失败</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0UI%E7%9A%84%E7%BB%88%E7%AB%AF%E7%8E%AF%E5%A2%83%EF%BC%9A"><span class="nav-text">无UI的终端环境：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%BE%91docker%E9%95%9C%E5%83%8F%E6%BA%90%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">编辑docker镜像源的配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89UI%E7%8E%AF%E5%A2%83%EF%BC%9A%E5%9C%A8docker%E6%B3%A8%E5%86%8C%E8%A1%A8%E8%AE%BE%E7%BD%AE%E9%A1%B5%E9%9D%A2%E6%9B%BF%E6%8D%A2%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-text">有UI环境：在docker注册表设置页面替换镜像源</span></a></li></ol></li></ol>
 
     </div>
@@ -1096,7 +1086,7 @@ mjx-container[display="true"] + br {
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 140 篇文章
+                        共撰写了 141 篇文章
                     </span>
                     
                         <span>
