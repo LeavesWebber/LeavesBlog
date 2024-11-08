@@ -201,20 +201,19 @@ navbar:
     导航:
       icon: fa-solid fa-folder-tree
       submenus:
-        分类: /categories/
-        时间戳: /archives/
+        📜  分 类 : /categories/
+        🕓 时 间 戳: /archives/
     动态:
       icon: fa-solid fa-quote-left
       path: /essays/
-    记忆: #取名随意
-      icon: fa-solid fa-camera #图标
-      path: /masonry/
     相遇: #取名随意
       icon: fa-solid fa-link #图标
       path: /links/
-    关于我: #取名随意
-      icon: fa-solid fa-address-card #图标
-      path: /me/
+    关于我:
+      icon: fa-solid fa-address-book
+      submenus:
+        ✨ 简 介 : /me/
+        💎 记 忆 : /masonry/
     # Status:
     #   path: https://status.ohevan.com/
     #   icon: fa-regular fa-chart-bar
