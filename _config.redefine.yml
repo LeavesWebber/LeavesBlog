@@ -191,8 +191,8 @@ navbar:
     transparency: 5 #percent (10-99)
   # Navbar width (usually no need to modify)
   width:
-    home: 2001px #home page
-    pages: 1201px #other pages
+    home: 1300px #home page
+    pages: 1200px #other pages
   # Navbar links
   links:
     标签: #取名随意
