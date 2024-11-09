@@ -191,18 +191,19 @@ navbar:
     transparency: 5 #percent (10-99)
   # Navbar width (usually no need to modify)
   width:
-    home: 1200px #home page
-    pages: 1000px #other pages
+    home: 2000px #home page
+    pages: 1200px #other pages
   # Navbar links
   links:
     标签: #取名随意
       icon: fa-solid fa-tags #图标
       path: /tags/ #链接
-    导航:
+    时间线:
+      icon: fa-solid fa-timeline
+      path: /archives/
+    系列:
       icon: fa-solid fa-folder-tree
-      submenus:
-        📃  分 类 : /categories/
-        🕓 时 间 戳: /archives/
+      path: /categories/
     动态:
       icon: fa-solid fa-quote-left
       path: /essays/
