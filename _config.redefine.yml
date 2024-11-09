@@ -54,18 +54,18 @@ global:
     # Chinese fonts
     chinese:
       enable: false # Whether to enable custom chinese fonts
-      family:  # Font family
-      url:  # Font URL to CSS file
+      family:
+      url:
     # English fonts
     english:
       enable: false # Whether to enable custom english fonts
-      family:  # Font family
-      url:  # Font URL to CSS file
+      family:  LXGW WenKai Screen
+      url:  https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.css
     # Custom title fonts (navbar, sidebar)
     title:
-      enable: false # Whether to enable custom title fonts
-      family:  # Font family
-      url:  # Font URL to CSS file
+      enable: true
+      family:  LXGW WenKai Screen
+      url:  https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.css
   # Content max width
   content_max_width: 1000px
   # Sidebar width
@@ -142,7 +142,7 @@ home_banner:
   # Color of home banner text
   text_color:
     light: "#003366" # light mode
-    dark: "#A8DADC" # dark mode
+    dark: "#61D4D9" # dark mode #A8DADC
   # Specific style of the text
   text_style:
     # Title font size
@@ -188,7 +188,7 @@ navbar:
   color:
     left: "#B0E0E6" #left side
     right: "#F4A460"  #right side
-    transparency: 7 #percent (10-99)
+    transparency: 5 #percent (10-99)
   # Navbar width (usually no need to modify)
   width:
     home: 1200px #home page
@@ -201,7 +201,7 @@ navbar:
     导航:
       icon: fa-solid fa-folder-tree
       submenus:
-        📜  分 类 : /categories/
+        📃  分 类 : /categories/
         🕓 时 间 戳: /archives/
     动态:
       icon: fa-solid fa-quote-left
@@ -209,6 +209,9 @@ navbar:
     相遇: #取名随意
       icon: fa-solid fa-link #图标
       path: /links/
+    赞助:
+      icon: fa-solid fa-sack-dollar
+      path: /support/
     关于我:
       icon: fa-solid fa-address-book
       submenus:
@@ -281,16 +284,16 @@ home:
 articles:
   # Set the styles of the article
   style:
-    font_size: 20px # Font size
-    line_height: 1.8 # Line height
+    font_size: 19px # Font size
+    line_height: 2.1 # Line height
     image_border_radius: 14px # image border radius
     image_alignment: center # image alignment. left, center
-    image_caption: false # Whether to display image caption
+    image_caption: true # Whether to display image caption
     link_icon: true # Whether to display link icon
     title_alignment: left # Title alignment. left, center
     headings_top_spacing: # Top spacing for headings from h1-h6
-      h1: 3.2rem
-      h2: 2.4rem
+      h1: 2.8rem
+      h2: 2.0rem
       h3: 1.9rem
       h4: 1.6rem
       h5: 1.4rem

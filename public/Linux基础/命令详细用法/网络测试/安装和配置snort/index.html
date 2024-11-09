@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Leaves&#39; Blog">
+    
+    <meta name="author" content="三葉Leaves">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://kiss1314.top/linux基础/命令详细用法/网络测试/安装和配置snort/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="snort安装配置与基础环境搭建1.从官网下载snort并且解压下载我们先进入&#x2F;usr&#x2F;src，东西就要下在这 1root@C20241002102521:~# cd &#x2F;usr&#x2F;src 下载软件包 1sudo wget https:&#x2F;&#x2F;api.github.com&#x2F;repos&#x2F;snort3&#x2F;snort3&#x2F;tarball&#x2F;3.3.7.0 这个下载地址竟然时不时发生变化，如果你下载的时候出现404或者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装和配置snort">
+<meta property="og:url" content="https://kiss1314.top/Linux%E5%9F%BA%E7%A1%80/%E5%91%BD%E4%BB%A4%E8%AF%A6%E7%BB%86%E7%94%A8%E6%B3%95/%E7%BD%91%E7%BB%9C%E6%B5%8B%E8%AF%95/%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEsnort/index.html">
+<meta property="og:site_name" content="欢迎来到叶子的博客">
+<meta property="og:description" content="snort安装配置与基础环境搭建1.从官网下载snort并且解压下载我们先进入&#x2F;usr&#x2F;src，东西就要下在这 1root@C20241002102521:~# cd &#x2F;usr&#x2F;src 下载软件包 1sudo wget https:&#x2F;&#x2F;api.github.com&#x2F;repos&#x2F;snort3&#x2F;snort3&#x2F;tarball&#x2F;3.3.7.0 这个下载地址竟然时不时发生变化，如果你下载的时候出现404或者">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-07T06:40:47.505Z">
+<meta property="article:modified_time" content="2024-11-07T07:27:19.109Z">
+<meta property="article:author" content="Leaves Webber">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="网络安全">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&amp;h=202&amp;c=7&amp;r=0&amp;o=5&amp;pid=1.7">
+    <meta name="theme-color" content="#1DE9B6">
+    <link rel="shortcut icon" href="https://tse1-mm.cn.bing.net/th/id/OIP-C.KJAMJ3c6UlBEEn_zIrahDwHaHa?w=202&h=202&c=7&r=0&o=5&pid=1.7">
+    <!--- Page Info-->
+    
+    <title>
+        
+            安装和配置snort | 叶子的Blog
+        
+    </title>
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                
+    
+
+    
+<link rel="stylesheet" href="../../../../css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/assets/build/styles.css">
+    
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+        <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    
+    
+    
+    
+    
+        <link href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.css" rel="stylesheet">
+    
+    
+        <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/anime.min.js" ></script>
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"kiss1314.top","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"19px","line_height":2.1,"image_border_radius":"14px","image_alignment":"center","image_caption":true,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"2.8rem","h2":"2.0rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["Author"]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":4,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#1DE9B6","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":"LXGW WenKai Screen","url":"https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.css"},"title":{"enable":true,"family":"LXGW WenKai Screen","url":"https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.css"}},"content_max_width":"1000px","sidebar_width":"300px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"“Leaves' Blog”"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/192110-1568028070e1cc.jpg","dark":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106201246.jpg"},"title":"叶子のBlog","subtitle":{"text":["黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。","“想在看博客时听歌嘛？向下滑动，你会收获左下角的专辑封面”——三葉Leaves","“ Friends Don't Lie ”","“岑夫子，丹丘生，将进酒，杯莫停”——李白","“来了，爱了，给她一颗星星，走了。”——云天明","“月亮陪伴熬夜的人”——三葉Leaves","“人类不感谢罗辑”——《程心·时间之外的往事》"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":70,"backing_speed":15,"starting_delay":750,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#003366","dark":"#A8DADC"},"text_style":{"title_size":"3rem","subtitle_size":"1.7rem","line_height":1.4},"custom_font":{"enable":true,"family":"ZCOOL XiaoWei","url":"https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap"},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/LeavesWebber","instagram":null,"zhihu":null,"twitter":null,"email":null,"fa-solid fa-envelope":"mailto:leaveswebber@outlook.com","bilibili":"https://space.bilibili.com/515054976","fa-solid fa-music":"https://y.qq.com/n/ryqq/playlist/9362968509"},"qrs":{"weixin":"https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241106122958.jpg"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"III","artist":"Athletics","url":"https://ybkjzj.com:5555/d/ShareMusic/III%E8%8A%82%E9%80%89.MP3?sign=VC78YE0BqQIgb-9pGyNTwG2_Pa9Xsp10iLXtkmYiFVQ=:0","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003YD5WL23J6yo_1.jpg?max_age=2592000","lrc":null},{"name":"For A Better Day","artist":"Avicii","url":"https://ybkjzj.com:5555/d/ShareMusic/For%20A%20Better%20Day%20-%20Avicii.ogg?sign=YZ-0vHo8V2uHgEoXkIb6ycWMxccJ9qvQxM5Ef9dU5pI=:0","cover":"https://y.qq.com/music/photo_new/T002R300x300M0000025DJtv4FhwKg_1.jpg?max_age=2592000"},{"name":"反方向的钟","artist":"九三","url":"https://ybkjzj.com:5555/d/ShareMusic/%E5%8F%8D%E6%96%B9%E5%90%91%E7%9A%84%E9%92%9F%20(Live)%20-%20%E4%B9%9D%E4%B8%89.mp3?sign=fvk1SetkntNd_eGHWgF9sYD06Ai1EPH6ALkXrTUVLeA=:0","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000ChYiX44RISy_2.jpg?max_age=2592000"}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.7.3","navbar":{"auto_hide":false,"color":{"left":"#B0E0E6","right":"#F4A460","transparency":5},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"标签":{"icon":"fa-solid fa-tags","path":"/tags/"},"导航":{"icon":"fa-solid fa-folder-tree","submenus":{"📃  分 类":"/categories/","🕓 时 间 戳":"/archives/"}},"动态":{"icon":"fa-solid fa-quote-left","path":"/essays/"},"相遇":{"icon":"fa-solid fa-link","path":"/links/"},"赞助":{"icon":"fa-solid fa-sack-dollar","path":"/support/"},"关于我":{"icon":"fa-solid fa-address-book","submenus":{"✨ 简 介":"/me/","💎 记 忆":"/masonry/"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"用更多的了解跨越隔阂与偏见","show_on_mobile":true,"links":{"进一步了解我？":{"icon":"fa-solid fa-address-card","path":"/me/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/11/7 02:00:00"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":true};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/fontawesome/regular.min.css">
+    
+    
+    
+        <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/fontawesome/duotone.min.css">
+    
+    
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+
+    <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        “Leaves&#39; Blog”
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container flex flex-col justify-between min-h-dvh">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="https://www.emojiall.com/en/header-svg/%F0%9F%8D%83.svg" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                叶子的Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="../../../../index.html"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="../../../../tags/"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-solid fa-folder-tree fa-fw"></i>
+                                    导航
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="../../../../categories/">
+                                                    📃  分 类
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="../../../../archives/">
+                                                    🕓 时 间 戳
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="../../../../essays/"
+                                        >
+                                    <i class="fa-solid fa-quote-left fa-fw"></i>
+                                    动态
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="../../../../links/"
+                                        >
+                                    <i class="fa-solid fa-link fa-fw"></i>
+                                    相遇
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="../../../../support/"
+                                        >
+                                    <i class="fa-solid fa-sack-dollar fa-fw"></i>
+                                    赞助
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-solid fa-address-book fa-fw"></i>
+                                    关于我
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="../../../../me/">
+                                                    ✨ 简 介
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="../../../../masonry/">
+                                                    💎 记 忆
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="../../../../index.html"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="../../../../tags/"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-导航"
+                        >
+                            <span>
+                                导航
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-导航">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="../../../../categories/">📃  分 类</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="../../../../archives/">🕓 时 间 戳</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="../../../../essays/"
+                        >
+                            <span>
+                                动态
+                            </span>
+                            
+                                <i class="fa-solid fa-quote-left fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="../../../../links/"
+                        >
+                            <span>
+                                相遇
+                            </span>
+                            
+                                <i class="fa-solid fa-link fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="../../../../support/"
+                        >
+                            <span>
+                                赞助
+                            </span>
+                            
+                                <i class="fa-solid fa-sack-dollar fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-关于我"
+                        >
+                            <span>
+                                关于我
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-关于我">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="../../../../me/">✨ 简 介</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="../../../../masonry/">💎 记 忆</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="../../../../me/"
+                        >
+                            <span>进一步了解我？</span>
+                            <i class="fa-solid fa-address-card fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="../../../../tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">54</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="../../../../categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">39</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="../../../../archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">141</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">安装和配置snort</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/%E6%B5%8B%E8%AF%95%E5%9B%BE2.png">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">三葉Leaves</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Author</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-11-07 14:40:47</span>
+        <span class="mobile">2024-11-07 14:40:47</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-11-07 15:27:19</span>
+            <span class="mobile">2024-11-07 15:27:19</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="../../../../categories/Linux%E5%9F%BA%E7%A1%80/">Linux基础</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="../../../../categories/Linux%E5%9F%BA%E7%A1%80/%E5%91%BD%E4%BB%A4%E8%AF%A6%E7%BB%86%E7%94%A8%E6%B3%95/">命令详细用法</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="../../../../categories/Linux%E5%9F%BA%E7%A1%80/%E5%91%BD%E4%BB%A4%E8%AF%A6%E7%BB%86%E7%94%A8%E6%B3%95/%E7%BD%91%E7%BB%9C%E6%B5%8B%E8%AF%95/">网络测试</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="../../../../tags/%E8%BF%90%E7%BB%B4/">运维</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="../../../../tags/linux/">linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="../../../../tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>7 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h1 id="snort安装配置与基础环境搭建"><a href="#snort安装配置与基础环境搭建" class="headerlink" title="snort安装配置与基础环境搭建"></a>snort安装配置与基础环境搭建</h1><h2 id="1-从官网下载snort并且解压"><a href="#1-从官网下载snort并且解压" class="headerlink" title="1.从官网下载snort并且解压"></a>1.从官网下载snort并且解压</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>我们先进入<code>/usr/src</code>，东西就要下在这</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@C20241002102521:~# <span class="built_in">cd</span> /usr/src</span><br></pre></td></tr></table></figure></div>
+<p>下载软件包</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> wget https://api.github.com/repos/snort3/snort3/tarball/3.3.7.0</span><br></pre></td></tr></table></figure></div>
+<p>这个下载地址竟然时不时发生变化，如果你下载的时候出现404或者找不到包，那就手动去官网找一下正确的下载地址。官网链接：<br><a class="link" target="_blank" rel="noopener" href="https://www.snort.org/downloads">Snort Rules and IDS Software Download <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><p>下载好以后可能会有一个以版本号为名的压缩文件（我这里是<code>3.3.7.0</code>）我们解压即可</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> tar -xvzf 3.3.7.0</span><br></pre></td></tr></table></figure></div>
+<p>完成后进入文件夹，看看里面有啥</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@C20241002102521:/usr/src# <span class="built_in">ls</span></span><br><span class="line">3.3.7.0                           linux-headers-5.15.0-30</span><br><span class="line">linux-headers-5.15.0-122          linux-headers-5.15.0-30-generic</span><br><span class="line">linux-headers-5.15.0-122-generic  snort3-snort3-4ea371b</span><br><span class="line">root@C20241002102521:/usr/src# <span class="built_in">cd</span> snort3-snort3-4ea371b/</span><br><span class="line">root@C20241002102521:/usr/src/snort3-snort3-4ea371b# <span class="built_in">ls</span></span><br><span class="line">CMakeLists.txt  LICENSE    cmake_uninstall.cmake.in  crusty.cfg  lua          tools</span><br><span class="line">COPYING         README.md  config.cmake.h.in         daqs        snort.pc.in</span><br><span class="line">ChangeLog.md    cmake      configure_cmake.sh        doc         src</span><br></pre></td></tr></table></figure></div>
+<p>中间这个<code>configure_cmake.sh</code>是我们要用的，但是在此之前先安装各种依赖</p>
+<h2 id="2-安装依赖环境"><a href="#2-安装依赖环境" class="headerlink" title="2.安装依赖环境"></a>2.安装依赖环境</h2><p>我不知道为什么这个软件的依赖关系如此复杂，我找了很久，中间报错好几次，才把东西找全。正因如此我才觉得写这篇教程还挺必要的。下面列出所有需要装的玩意，<strong>按顺序执行</strong></p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> add-apt-repository ppa:george-edison55/cmake-3.x</span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install cmake</span><br><span class="line"><span class="built_in">sudo</span> apt install libdaq-dev</span><br><span class="line"><span class="built_in">sudo</span> apt install libhwloc-dev</span><br><span class="line"><span class="built_in">sudo</span> apt install luajit</span><br><span class="line"><span class="built_in">sudo</span> apt install libluajit-5.1-dev</span><br><span class="line"><span class="built_in">sudo</span> apt install openssl</span><br><span class="line"><span class="built_in">sudo</span> apt install libssl-dev</span><br><span class="line"><span class="built_in">sudo</span> apt install liblzma-dev libdaq-dev libhs-dev libsafec-dev libunwind-dev uuid-dev</span><br><span class="line"><span class="built_in">sudo</span> apt install liblzma-dev libunwind-dev</span><br><span class="line"><span class="built_in">sudo</span> apt install libdaq-dev</span><br></pre></td></tr></table></figure></div>
+<p>发现libdaq这玩意不知道为啥总出错，导致make不了，还得手动配置一下</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/src</span><br><span class="line"><span class="built_in">sudo</span> git <span class="built_in">clone</span> https://github.com/snort3/libdaq.git</span><br><span class="line"><span class="built_in">cd</span> libdaq/</span><br><span class="line"><span class="built_in">sudo</span> ./bootstrap </span><br><span class="line"><span class="built_in">sudo</span> ./configure </span><br></pre></td></tr></table></figure></div>
+<p>跟着做就行了，到这里libdaq已经弄好，下面开始make</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> make</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure></div>
+<p>这个过程要花超久的时间</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/src/snort3-snort3-4ea371b</span><br><span class="line"><span class="built_in">sudo</span> ./configure_cmake.sh</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line"><span class="built_in">sudo</span> make</span><br></pre></td></tr></table></figure></div>
+<p>又是漫长的等待</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> groupadd snort</span><br><span class="line"><span class="built_in">sudo</span> useradd -r -s /bin/false -g snort snort</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /etc/snort</span><br></pre></td></tr></table></figure></div>
+<p>新建一个它的配置规则，</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/snort/snort.conf</span><br></pre></td></tr></table></figure></div>
+<p>我们需要用这个规则来启动snort<br>在其中输入几个基本配置内容用于测试</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Snort 3 configuration file</span></span><br><span class="line">var HOME_NET any</span><br><span class="line">var EXTERNAL_NET any</span><br><span class="line">include <span class="variable">$HOME_NET</span></span><br></pre></td></tr></table></figure></div>
+<p>完成后记得保存</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install snort</span><br></pre></td></tr></table></figure></div>
+<p>搞了半天snort命令都用不了，不知道为啥，所以我直接apt install</p>
+<h2 id="3-测试使用"><a href="#3-测试使用" class="headerlink" title="3.测试使用"></a>3.测试使用</h2><p>完成后直接用刚才的配置文件启动snort</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> snort -c /etc/snort/snort.conf -T</span><br></pre></td></tr></table></figure></div>
+<p>此时发现snort已经跑起来了，不停在输出日志。过段时间我<code>Ctrl</code>+<code>C</code>手动停止，可以看到它输出的日志如下</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br></pre></td><td class="code"><pre><span class="line">===============================================================================</span><br><span class="line">Run time <span class="keyword">for</span> packet processing was 95.14345 seconds</span><br><span class="line">Snort processed 4572 packets.</span><br><span class="line">Snort ran <span class="keyword">for</span> 0 days 0 hours 1 minutes 35 seconds</span><br><span class="line">   Pkts/min:         4572</span><br><span class="line">   Pkts/sec:           48</span><br><span class="line">===============================================================================</span><br><span class="line">Memory usage summary:</span><br><span class="line">  Total non-mmapped bytes (arena):       51826688</span><br><span class="line">  Bytes <span class="keyword">in</span> mapped regions (hblkhd):      22392832</span><br><span class="line">  Total allocated space (uordblks):      45431104</span><br><span class="line">  Total free space (fordblks):           6395584</span><br><span class="line">  Topmost releasable block (keepcost):   134784</span><br><span class="line">===============================================================================</span><br><span class="line">Packet I/O Totals:</span><br><span class="line">   Received:         4613</span><br><span class="line">   Analyzed:         4572 ( 99.111%)</span><br><span class="line">    Dropped:            0 (  0.000%)</span><br><span class="line">   Filtered:            0 (  0.000%)</span><br><span class="line">Outstanding:           41 (  0.889%)</span><br><span class="line">   Injected:            0</span><br><span class="line">===============================================================================</span><br><span class="line">Breakdown by protocol (includes rebuilt packets):</span><br><span class="line">        Eth:         4587 (100.000%)</span><br><span class="line">       VLAN:            0 (  0.000%)</span><br><span class="line">        IP4:         1420 ( 30.957%)</span><br><span class="line">       Frag:            0 (  0.000%)</span><br><span class="line">       ICMP:            3 (  0.065%)</span><br><span class="line">        UDP:            7 (  0.153%)</span><br><span class="line">        TCP:         1385 ( 30.194%)</span><br><span class="line">        IP6:         3163 ( 68.956%)</span><br><span class="line">    IP6 Ext:         3275 ( 71.397%)</span><br><span class="line">   IP6 Opts:          112 (  2.442%)</span><br><span class="line">      Frag6:            0 (  0.000%)</span><br><span class="line">      ICMP6:          199 (  4.338%)</span><br><span class="line">       UDP6:         2964 ( 64.617%)</span><br><span class="line">       TCP6:            0 (  0.000%)</span><br><span class="line">     Teredo:            0 (  0.000%)</span><br><span class="line">    ICMP-IP:            0 (  0.000%)</span><br><span class="line">    IP4/IP4:            0 (  0.000%)</span><br><span class="line">    IP4/IP6:            0 (  0.000%)</span><br><span class="line">    IP6/IP4:            0 (  0.000%)</span><br><span class="line">    IP6/IP6:            0 (  0.000%)</span><br><span class="line">        GRE:            0 (  0.000%)</span><br><span class="line">    GRE Eth:            0 (  0.000%)</span><br><span class="line">   GRE VLAN:            0 (  0.000%)</span><br><span class="line">    GRE IP4:            0 (  0.000%)</span><br><span class="line">    GRE IP6:            0 (  0.000%)</span><br><span class="line">GRE IP6 Ext:            0 (  0.000%)</span><br><span class="line">   GRE PPTP:            0 (  0.000%)</span><br><span class="line">    GRE ARP:            0 (  0.000%)</span><br><span class="line">    GRE IPX:            0 (  0.000%)</span><br><span class="line">   GRE Loop:            0 (  0.000%)</span><br><span class="line">       MPLS:            0 (  0.000%)</span><br><span class="line">        ARP:            4 (  0.087%)</span><br><span class="line">        IPX:            0 (  0.000%)</span><br><span class="line">   Eth Loop:            0 (  0.000%)</span><br><span class="line">   Eth Disc:            0 (  0.000%)</span><br><span class="line">   IP4 Disc:           25 (  0.545%)</span><br><span class="line">   IP6 Disc:            0 (  0.000%)</span><br><span class="line">   TCP Disc:            0 (  0.000%)</span><br><span class="line">   UDP Disc:            0 (  0.000%)</span><br><span class="line">  ICMP Disc:            0 (  0.000%)</span><br><span class="line">All Discard:           25 (  0.545%)</span><br><span class="line">      Other:            0 (  0.000%)</span><br><span class="line">Bad Chk Sum:          321 (  6.998%)</span><br><span class="line">    Bad TTL:            0 (  0.000%)</span><br><span class="line">     S5 G 1:            0 (  0.000%)</span><br><span class="line">     S5 G 2:           15 (  0.327%)</span><br><span class="line">      Total:         4587</span><br><span class="line">===============================================================================</span><br><span class="line">Action Stats:</span><br><span class="line">     Alerts:           50 (  1.090%)</span><br><span class="line">     Logged:           50 (  1.090%)</span><br><span class="line">     Passed:            0 (  0.000%)</span><br><span class="line">Limits:</span><br><span class="line">      Match:            0</span><br><span class="line">      Queue:            0</span><br><span class="line">        Log:            0</span><br><span class="line">      Event:            0</span><br><span class="line">      Alert:            0</span><br><span class="line">Verdicts:</span><br><span class="line">      Allow:         4572 ( 99.111%)</span><br><span class="line">      Block:            0 (  0.000%)</span><br><span class="line">    Replace:            0 (  0.000%)</span><br><span class="line">  Whitelist:            0 (  0.000%)</span><br><span class="line">  Blacklist:            0 (  0.000%)</span><br><span class="line">     Ignore:            0 (  0.000%)</span><br><span class="line">      Retry:            0 (  0.000%)</span><br><span class="line">===============================================================================</span><br><span class="line">Frag3 statistics:</span><br><span class="line">        Total Fragments: 0</span><br><span class="line">      Frags Reassembled: 0</span><br><span class="line">               Discards: 0</span><br><span class="line">          Memory Faults: 0</span><br><span class="line">               Timeouts: 0</span><br><span class="line">               Overlaps: 0</span><br><span class="line">              Anomalies: 0</span><br><span class="line">                 Alerts: 0</span><br><span class="line">                  Drops: 0</span><br><span class="line">     FragTrackers Added: 0</span><br><span class="line">    FragTrackers Dumped: 0</span><br><span class="line">FragTrackers Auto Freed: 0</span><br><span class="line">    Frag Nodes Inserted: 0</span><br><span class="line">     Frag Nodes Deleted: 0</span><br><span class="line">===============================================================================</span><br><span class="line">===============================================================================</span><br><span class="line">Stream statistics:</span><br><span class="line">            Total sessions: 806</span><br><span class="line">              TCP sessions: 376</span><br><span class="line">              UDP sessions: 430</span><br><span class="line">             ICMP sessions: 0</span><br><span class="line">               IP sessions: 0</span><br><span class="line">                TCP Prunes: 0</span><br><span class="line">                UDP Prunes: 0</span><br><span class="line">               ICMP Prunes: 0</span><br><span class="line">                 IP Prunes: 0</span><br><span class="line">TCP StreamTrackers Created: 384</span><br><span class="line">TCP StreamTrackers Deleted: 384</span><br><span class="line">              TCP Timeouts: 0</span><br><span class="line">              TCP Overlaps: 0</span><br><span class="line">       TCP Segments Queued: 120</span><br><span class="line">     TCP Segments Released: 120</span><br><span class="line">       TCP Rebuilt Packets: 41</span><br><span class="line">         TCP Segments Used: 100</span><br><span class="line">              TCP Discards: 3</span><br><span class="line">                  TCP Gaps: 9</span><br><span class="line">      UDP Sessions Created: 430</span><br><span class="line">      UDP Sessions Deleted: 430</span><br><span class="line">              UDP Timeouts: 0</span><br><span class="line">              UDP Discards: 0</span><br><span class="line">                    Events: 19</span><br><span class="line">           Internal Events: 0</span><br><span class="line">           TCP Port Filter</span><br><span class="line">                  Filtered: 0</span><br><span class="line">                 Inspected: 0</span><br><span class="line">                   Tracked: 1052</span><br><span class="line">           UDP Port Filter</span><br><span class="line">                  Filtered: 0</span><br><span class="line">                 Inspected: 0</span><br><span class="line">                   Tracked: 430</span><br><span class="line">===============================================================================</span><br><span class="line">===============================================================================</span><br><span class="line">SMTP Preprocessor Statistics</span><br><span class="line">  Total sessions                                    : 0</span><br><span class="line">  Max concurrent sessions                           : 0</span><br><span class="line">===============================================================================</span><br><span class="line">dcerpc2 Preprocessor Statistics</span><br><span class="line">  Total sessions: 0</span><br><span class="line">===============================================================================</span><br><span class="line">===============================================================================</span><br><span class="line">SIP Preprocessor Statistics</span><br><span class="line">  Total sessions: 0</span><br><span class="line">===============================================================================</span><br><span class="line">IMAP Preprocessor Statistics</span><br><span class="line">  Total sessions                                    : 0</span><br><span class="line">  Max concurrent sessions                           : 0</span><br><span class="line">===============================================================================</span><br><span class="line">POP Preprocessor Statistics</span><br><span class="line">  Total sessions                                    : 0</span><br><span class="line">  Max concurrent sessions                           : 0</span><br><span class="line">===============================================================================</span><br><span class="line">Snort exiting</span><br></pre></td></tr></table></figure></div>
+<p>把报告发给AI，让他巴拉巴拉的帮我分析了一下，结果如下：</p>
+<ol>
+<li><p><strong>数据包处理</strong>：</p>
+<ul>
+<li>处理时间：95.14345秒</li>
+<li>处理的数据包总数：4572个</li>
+<li>数据包速率：每分钟4572个，每秒约48个</li>
+<li>数据包分析率：99.111%</li>
+</ul>
+</li>
+<li><p><strong>内存使用</strong>：</p>
+<ul>
+<li>总非映射字节：51826688字节</li>
+<li>映射区域字节：22392832字节</li>
+<li>总分配空间：45431104字节</li>
+<li>总空闲空间：6395584字节</li>
+</ul>
+</li>
+<li><p><strong>数据包I/O总数</strong>：</p>
+<ul>
+<li>接收：4613个</li>
+<li>分析：4572个（99.111%）</li>
+<li>丢弃：0个（0.000%）</li>
+<li>过滤：0个（0.000%）</li>
+<li>未处理：41个（0.889%）</li>
+</ul>
+</li>
+<li><p><strong>协议分布</strong>：</p>
+<ul>
+<li>以太网（Eth）：4587个（100.000%）</li>
+<li>IPv4：1420个（30.957%）</li>
+<li>IPv6：3163个（68.956%）</li>
+<li>ICMPv6：199个（4.338%）</li>
+<li>UDPv6：2964个（64.617%）</li>
+</ul>
+</li>
+<li><p><strong>动作统计</strong>：</p>
+<ul>
+<li>警报：50个（1.090%）</li>
+<li>记录：50个（1.090%）</li>
+<li>允许：4572个（99.111%）</li>
+<li>阻止：0个（0.000%）</li>
+</ul>
+</li>
+<li><p><strong>流统计</strong>：</p>
+<ul>
+<li>总会话数：806</li>
+<li>TCP会话：376</li>
+<li>UDP会话：430</li>
+</ul>
+</li>
+<li><p><strong>预处理器统计</strong>：</p>
+<ul>
+<li>SMTP、DCERPC2、SIP、IMAP和POP预处理器的会话数都是0，表明这些服务在日志记录期间没有检测到任何会话</li>
+</ul>
+</li>
+</ol>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 安装和配置snort</li>
+        <li><strong>作者:</strong> 三葉Leaves</li>
+        <li><strong>创建于
+                :</strong> 2024-11-07 14:40:47</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-11-07 15:27:19
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://leavesblog.netlify.app/Linux基础/命令详细用法/网络测试/安装和配置snort/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="../../../../tags/%E8%BF%90%E7%BB%B4/">#运维</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="../../../../tags/linux/">#linux</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="../../../../tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">#网络安全</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="../../../../Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9SSL%E8%AF%81%E4%B9%A6/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">轻松申请免费SSL证书！</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="../../../../Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/%E5%85%B3%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">应该放行哪些端口？运营商会封禁哪些端口？</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '../../../../js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://comment.kiss1314.top/',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: true,
+          requiredMeta: ['nick', 'mail'],
+          emoji: ['//unpkg.com/@waline/emojis@1.2.0/soul-emoji'],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">目录</div>
+        <div class="page-title">安装和配置snort</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#snort%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-text">snort安装配置与基础环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%8E%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BDsnort%E5%B9%B6%E4%B8%94%E8%A7%A3%E5%8E%8B"><span class="nav-text">1.从官网下载snort并且解压</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B"><span class="nav-text">解压</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E7%8E%AF%E5%A2%83"><span class="nav-text">2.安装依赖环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%B5%8B%E8%AF%95%E4%BD%BF%E7%94%A8"><span class="nav-text">3.测试使用</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+            <div class="customize-info my-1">哇！这里都被你发现啦！</div>
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">三葉Leaves</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 141 篇文章
+                    </span>
+                    
+                        <span>
+                            共 123.6k 字
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.7.3</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+                
+
+                    
+                        <link rel="stylesheet" href="D:\项目文件\HexoWeb\public\css\custom.css">
+                    
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="站内搜索您需要的内容..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/Swup.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/SwupSlideTheme.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/SwupProgressPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/SwupScrollPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/tools/imageViewer.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/utils.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/main.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/layouts/navbarShrink.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/tools/scrollTopBottom.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/tools/lightDarkSwitch.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/layouts/categoryList.js" ></script>
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/tools/localSearch.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/tools/runtime.js" ></script>
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/Typed.min.js" ></script>
+  <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/plugins/typed.js" ></script>
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/mermaid.min.js" ></script>
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/plugins/mermaid.js" ></script>
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/minimasonry.min.js" ></script>
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/plugins/masonry.js" ></script>
+
+
+
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+    <div id="aplayer"></div>
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/libs/APlayer.min.js" ></script>
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.7.3/source/js/plugins/aplayer.js" ></script>
+
+</body>
+</html>

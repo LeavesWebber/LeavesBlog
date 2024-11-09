@@ -1,5 +1,6 @@
 # 一键发布
-![DeployBlog.bat](DeployBlog.bat)
+![一键发布](DeployBlog.bat)
 
 # 一键预览
+![一键预览](LocalServer.bat)
 
