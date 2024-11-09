@@ -63,7 +63,7 @@ global:
       url:  https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.css
     # Custom title fonts (navbar, sidebar)
     title:
-      enable: true
+      enable: false
       family:  LXGW WenKai Screen
       url:  https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.css
   # Content max width
@@ -192,7 +192,7 @@ navbar:
   # Navbar width (usually no need to modify)
   width:
     home: 1300px #home page
-    pages: 1300px #other pages
+    pages: 1200px #other pages
   # Navbar links
   links:
     标签: #取名随意
