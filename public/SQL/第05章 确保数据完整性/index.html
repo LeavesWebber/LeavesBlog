@@ -931,7 +931,7 @@ mjx-container[display="true"] + br {
 <h3 id="1-2-5-非空约束Not-Null"><a href="#1-2-5-非空约束Not-Null" class="headerlink" title="1.2.5 非空约束Not Null"></a>1.2.5 非空约束Not Null</h3><p> 顾名思义</p>
 </li>
 </ol>
-<h1 id="2-使用约束"><a href="#2-使用约束" class="headerlink" title="2. 使用约束"></a>2. 使用约束</h1><h2 id="2-1-约束语法"><a href="#2-1-约束语法" class="headerlink" title="2.1 约束语法"></a>2.1 约束语法</h2><p><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240526133721.png" alt="imagepng"> <img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240526133835.png" alt="imagepng"> 这难崩的约束语法属实给我干沉默了，可读性太差 和GPT聊了聊，终于是把 <code>CONSTRAINT</code> 子句搞明白了: [[CONSTRAINT 子句示例]]</p>
+<h1 id="2-使用约束"><a href="#2-使用约束" class="headerlink" title="2. 使用约束"></a>2. 使用约束</h1><h2 id="2-1-约束语法"><a href="#2-1-约束语法" class="headerlink" title="2.1 约束语法"></a>2.1 约束语法</h2><p><figure class="image-caption"><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240526133721.png" alt="imagepng"><figcaption>imagepng</figcaption></figure> <figure class="image-caption"><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240526133835.png" alt="imagepng"><figcaption>imagepng</figcaption></figure> 这难崩的约束语法属实给我干沉默了，可读性太差 和GPT聊了聊，终于是把 <code>CONSTRAINT</code> 子句搞明白了: [[CONSTRAINT 子句示例]]</p>
 <blockquote>
 <p>定义约束的时候，要是表中存在与约束相悖的数据，那么定义语句将报错</p>
 </blockquote>
@@ -964,7 +964,7 @@ mjx-container[display="true"] + br {
 <p>在后来的学习中发现，其实在SQL sever中有通过存储过程轻松查询各种约束详细信息的方法</p>
 <h3 id="查询表中所有约束的详细信息"><a href="#查询表中所有约束的详细信息" class="headerlink" title="查询表中所有约束的详细信息"></a>查询表中所有约束的详细信息</h3><div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sp_helpconstraint 表名</span><br></pre></td></tr></table></figure></div>
 
-<p>执行后能得到如下图的信息 <img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240526212106.png" alt="imagepng"> 可以说是一目了然</p>
+<p>执行后能得到如下图的信息 <figure class="image-caption"><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240526212106.png" alt="imagepng"><figcaption>imagepng</figcaption></figure> 可以说是一目了然</p>
 <h2 id="2-3-实操探究外键关系"><a href="#2-3-实操探究外键关系" class="headerlink" title="2.3 实操探究外键关系"></a>2.3 实操探究外键关系</h2><p>创建表的同时添加外键</p>
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> customer (</span><br><span class="line">    cno <span class="type">CHAR</span>(<span class="number">15</span>) <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    cname <span class="type">VARCHAR</span>(<span class="number">30</span>),</span><br><span class="line">    city <span class="type">VARCHAR</span>(<span class="number">30</span>),</span><br><span class="line">    manager <span class="type">VARCHAR</span>(<span class="number">10</span>),</span><br><span class="line">    tel <span class="type">CHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> orders (</span><br><span class="line">    order_id <span class="type">INT</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    customer_id <span class="type">CHAR</span>(<span class="number">15</span>),</span><br><span class="line">    order_date <span class="type">DATE</span>,</span><br><span class="line">    <span class="keyword">CONSTRAINT</span> fk_customer_id <span class="keyword">FOREIGN</span> KEY (customer_id)</span><br><span class="line">        <span class="keyword">REFERENCES</span> customer (cno)</span><br><span class="line">        <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE</span><br><span class="line">        <span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
 
@@ -1161,7 +1161,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 123.6k 字
+                            共 124.7k 字
                         </span>
                     
                 </p>

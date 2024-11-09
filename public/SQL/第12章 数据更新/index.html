@@ -24,12 +24,12 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="1. Insert 向表中插入数据下面列出可行的三种格式 1. 整行插入12Insert into 表名Values (&#39;字段1的值&#39;,&#39;字段2的值&#39;,...,&#39;最后字段的值&#39;)  2. 部分对应插入 使用如下代码仅插入李四民的部分信息 12Insert into CUSTOMER(cno,cname,address,salary,password)Values (&#39;C0007&#39;,&#39;李四明&#39;,&#39;福">
+        <meta name="description" content="1. Insert 向表中插入数据下面列出可行的三种格式 1. 整行插入12Insert into 表名Values (&#39;字段1的值&#39;,&#39;字段2的值&#39;,...,&#39;最后字段的值&#39;)  2. 部分对应插入imagepng 使用如下代码仅插入李四民的部分信息 12Insert into CUSTOMER(cno,cname,address,salary,password)Values (&#39;C0007&#39;,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql-第12章 数据更新">
 <meta property="og:url" content="https://kiss1314.top/SQL/%E7%AC%AC12%E7%AB%A0%20%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0/index.html">
 <meta property="og:site_name" content="欢迎来到叶子的博客">
-<meta property="og:description" content="1. Insert 向表中插入数据下面列出可行的三种格式 1. 整行插入12Insert into 表名Values (&#39;字段1的值&#39;,&#39;字段2的值&#39;,...,&#39;最后字段的值&#39;)  2. 部分对应插入 使用如下代码仅插入李四民的部分信息 12Insert into CUSTOMER(cno,cname,address,salary,password)Values (&#39;C0007&#39;,&#39;李四明&#39;,&#39;福">
+<meta property="og:description" content="1. Insert 向表中插入数据下面列出可行的三种格式 1. 整行插入12Insert into 表名Values (&#39;字段1的值&#39;,&#39;字段2的值&#39;,...,&#39;最后字段的值&#39;)  2. 部分对应插入imagepng 使用如下代码仅插入李四民的部分信息 12Insert into CUSTOMER(cno,cname,address,salary,password)Values (&#39;C0007&#39;,">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240516152020.png">
 <meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240516155218.png">
@@ -887,7 +887,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>406 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>408 字</span>
         </span>
     
     
@@ -914,7 +914,7 @@ mjx-container[display="true"] + br {
             <h1 id="1-Insert-向表中插入数据"><a href="#1-Insert-向表中插入数据" class="headerlink" title="1. Insert 向表中插入数据"></a>1. <code>Insert</code> 向表中插入数据</h1><p>下面列出可行的三种格式</p>
 <h2 id="1-整行插入"><a href="#1-整行插入" class="headerlink" title="1. 整行插入"></a>1. 整行插入</h2><div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Insert</span> <span class="keyword">into</span> 表名</span><br><span class="line"><span class="keyword">Values</span> (<span class="string">'字段1的值'</span>,<span class="string">'字段2的值'</span>,...,<span class="string">'最后字段的值'</span>)</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="2-部分对应插入"><a href="#2-部分对应插入" class="headerlink" title="2. 部分对应插入"></a>2. 部分对应插入</h2><p><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240516152020.png" alt="imagepng"> 使用如下代码仅插入李四民的部分信息</p>
+<h2 id="2-部分对应插入"><a href="#2-部分对应插入" class="headerlink" title="2. 部分对应插入"></a>2. 部分对应插入</h2><p><figure class="image-caption"><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240516152020.png" alt="imagepng"><figcaption>imagepng</figcaption></figure> 使用如下代码仅插入李四民的部分信息</p>
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Insert</span> <span class="keyword">into</span> CUSTOMER(cno,cname,address,salary,password)</span><br><span class="line"><span class="keyword">Values</span> (<span class="string">'C0007'</span>,<span class="string">'李四明'</span>,<span class="string">'福建厦门'</span>,<span class="number">12088</span>,<span class="string">'lisim'</span>)</span><br></pre></td></tr></table></figure></div>
 
 <h2 id="3-NULL占位插入"><a href="#3-NULL占位插入" class="headerlink" title="3. NULL占位插入"></a>3. NULL占位插入</h2><p>在 <code>Insert into</code> 语句中可以不必列出字段名，而 <code>Values</code> 语句中用NULL对空字段占位。==需保证字段可以为空==</p>
@@ -931,7 +931,7 @@ mjx-container[display="true"] + br {
 <h1 id="3-DELETE-删除数据"><a href="#3-DELETE-删除数据" class="headerlink" title="3. DELETE 删除数据"></a>3. <code>DELETE</code> 删除数据</h1><h2 id="3-1-语句格式"><a href="#3-1-语句格式" class="headerlink" title="3.1 语句格式"></a>3.1 语句格式</h2><p>例:删除编号为“P1005”的产品信息</p>
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> product</span><br><span class="line"></span><br><span class="line"><span class="keyword">WHERE</span> Pno<span class="operator">=</span><span class="string">'P1005'</span></span><br></pre></td></tr></table></figure></div>
 
-<h2 id="3-2-使用表连接删除"><a href="#3-2-使用表连接删除" class="headerlink" title="3.2 使用表连接删除"></a>3.2 使用表连接删除</h2><p>例:删除张三的成绩记录 <img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240516155218.png" alt="imagepng"></p>
+<h2 id="3-2-使用表连接删除"><a href="#3-2-使用表连接删除" class="headerlink" title="3.2 使用表连接删除"></a>3.2 使用表连接删除</h2><p>例:删除张三的成绩记录 <figure class="image-caption"><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240516155218.png" alt="imagepng"><figcaption>imagepng</figcaption></figure></p>
 <blockquote>
 <p>虽然 <code>FROM</code> 语句中列出了两张表，但是只会删除 <code>DELETE</code> 语句中表的内容</p>
 </blockquote>
@@ -1122,7 +1122,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 123.6k 字
+                            共 124.7k 字
                         </span>
                     
                 </p>

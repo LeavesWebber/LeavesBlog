@@ -940,7 +940,7 @@ mjx-container[display="true"] + br {
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <p><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240925224107.png" alt="image.png"></p>
+            <p><figure class="image-caption"><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240925224107.png" alt="image.png"><figcaption>image.png</figcaption></figure></p>
 <blockquote>
 <p>本篇教程由浅入深，基于Linux实现Java版MC服务器的各种自动化任务。Linux是绝大多数服务器的操作系统，无论你是用电商平台很火的有图形化界面的<strong>面板服</strong>，还是租的只带一个Linux os的<strong>VPS</strong>，亦或者是基于Linux内核的<strong>个人NAS</strong>以及<strong>旧电脑</strong>都适用</p>
 </blockquote>
@@ -961,7 +961,7 @@ mjx-container[display="true"] + br {
 <li>Linux(<strong>Ubuntu</strong>) os（部署在<strong>docker</strong>容器内）。docker集成在群晖（synology)<strong>NAS</strong>的DSM os里</li>
 <li>已经部署好MC服务端并成功开服</li>
 </ol>
-<h3 id="关于终端命令远控"><a href="#关于终端命令远控" class="headerlink" title="关于终端命令远控"></a>关于终端命令远控</h3><p>也许你用的是图形化界面的<strong>面板服</strong>，此时我下文说的这些命令会让你无从下手。这里我必须先说明，Linux是一个以终端命令为主的系统，大多数操作依赖于在终端(Terminal)中打命令实现<br>连接到终端的方式有很多，最常见的就是用<strong>ssh</strong>工具。你可以这样问你租的面板服客服：<br><strong>“你们的服务器ssh怎么用？请给我ssh地址和sftp地址”</strong><br>然后让他教你怎么用。最终的结果就是获得一个能打命令的界面，就像这样：<br><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240929110626.png" alt="image.png"></p>
+<h3 id="关于终端命令远控"><a href="#关于终端命令远控" class="headerlink" title="关于终端命令远控"></a>关于终端命令远控</h3><p>也许你用的是图形化界面的<strong>面板服</strong>，此时我下文说的这些命令会让你无从下手。这里我必须先说明，Linux是一个以终端命令为主的系统，大多数操作依赖于在终端(Terminal)中打命令实现<br>连接到终端的方式有很多，最常见的就是用<strong>ssh</strong>工具。你可以这样问你租的面板服客服：<br><strong>“你们的服务器ssh怎么用？请给我ssh地址和sftp地址”</strong><br>然后让他教你怎么用。最终的结果就是获得一个能打命令的界面，就像这样：<br><figure class="image-caption"><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240929110626.png" alt="image.png"><figcaption>image.png</figcaption></figure></p>
 <hr>
 <h1 id="功能1：崩服自动重开"><a href="#功能1：崩服自动重开" class="headerlink" title="功能1：崩服自动重开"></a>功能1：崩服自动重开</h1><h2 id="1-设定系统时区"><a href="#1-设定系统时区" class="headerlink" title="1.设定系统时区"></a>1.设定系统时区</h2><p>计划任务和备份文件名都需要用到时间，所以有必要先同步一下<br>先查看自己的时间日期对不对</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">date</span></span><br></pre></td></tr></table></figure></div>
@@ -1257,7 +1257,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 123.6k 字
+                            共 124.7k 字
                         </span>
                     
                 </p>

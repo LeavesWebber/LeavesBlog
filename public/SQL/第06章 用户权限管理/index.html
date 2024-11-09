@@ -24,12 +24,12 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="本实验涉及权限管理与分配，需分别以数据库管理员DBA（Windows身份）和普通用户(SQL Sever)身份登录数据库 下面列出过程中遇到的各种错误 错误号:-2146893019（证书由不受信任的机构颁发）  错误号:4064  错误号:18456 上述的错误都可以通过下面的操作步骤解决 1.服务器属性设置     这个位置默认是Windows身份验证模式    2.登录名属性设置 选中你需要">
+        <meta name="description" content="本实验涉及权限管理与分配，需分别以数据库管理员DBA（Windows身份）和普通用户(SQL Sever)身份登录数据库 下面列出过程中遇到的各种错误 错误号:-2146893019（证书由不受信任的机构颁发）  错误号:4064  错误号:18456 上述的错误都可以通过下面的操作步骤解决 1.服务器属性设置  imagepng imagepng  这个位置默认是Windows身份验证模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql-第06章 用户权限管理">
 <meta property="og:url" content="https://kiss1314.top/SQL/%E7%AC%AC06%E7%AB%A0%20%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="欢迎来到叶子的博客">
-<meta property="og:description" content="本实验涉及权限管理与分配，需分别以数据库管理员DBA（Windows身份）和普通用户(SQL Sever)身份登录数据库 下面列出过程中遇到的各种错误 错误号:-2146893019（证书由不受信任的机构颁发）  错误号:4064  错误号:18456 上述的错误都可以通过下面的操作步骤解决 1.服务器属性设置     这个位置默认是Windows身份验证模式    2.登录名属性设置 选中你需要">
+<meta property="og:description" content="本实验涉及权限管理与分配，需分别以数据库管理员DBA（Windows身份）和普通用户(SQL Sever)身份登录数据库 下面列出过程中遇到的各种错误 错误号:-2146893019（证书由不受信任的机构颁发）  错误号:4064  错误号:18456 上述的错误都可以通过下面的操作步骤解决 1.服务器属性设置  imagepng imagepng  这个位置默认是Windows身份验证模式">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240530151828.png">
 <meta property="og:image" content="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240530151853.png">
@@ -890,7 +890,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>288 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>293 字</span>
         </span>
     
     
@@ -921,13 +921,13 @@ mjx-container[display="true"] + br {
 <li><p>错误号:4064</p>
 </li>
 <li><p>错误号:18456 上述的错误都可以通过下面的操作步骤解决</p>
-<h1 id="1-服务器属性设置"><a href="#1-服务器属性设置" class="headerlink" title="1.服务器属性设置"></a>1.服务器属性设置</h1><p>  <img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240530151828.png" alt="imagepng"> <img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240530151853.png" alt="imagepng"></p>
+<h1 id="1-服务器属性设置"><a href="#1-服务器属性设置" class="headerlink" title="1.服务器属性设置"></a>1.服务器属性设置</h1><p>  <figure class="image-caption"><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240530151828.png" alt="imagepng"><figcaption>imagepng</figcaption></figure> <figure class="image-caption"><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240530151853.png" alt="imagepng"><figcaption>imagepng</figcaption></figure></p>
 <blockquote>
 <p>这个位置默认是Windows身份验证模式</p>
 </blockquote>
 </li>
 </ul>
-<h1 id="2-登录名属性设置"><a href="#2-登录名属性设置" class="headerlink" title="2.登录名属性设置"></a>2.登录名属性设置</h1><p><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240530152103.png" alt="imagepng"> 选中你需要修改的普通用户身份（这里一般都是sa) <img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240530152305.png" alt="imagepng"> 这里是个大坑，尤其是这个master <img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240530152341.png" alt="imagepng"> 这里的勾选操作会影响你后续对数据库操作的权限，但是和登不上的问题却没太多关系</p>
+<h1 id="2-登录名属性设置"><a href="#2-登录名属性设置" class="headerlink" title="2.登录名属性设置"></a>2.登录名属性设置</h1><p><figure class="image-caption"><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240530152103.png" alt="imagepng"><figcaption>imagepng</figcaption></figure> 选中你需要修改的普通用户身份（这里一般都是sa) <figure class="image-caption"><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240530152305.png" alt="imagepng"><figcaption>imagepng</figcaption></figure> 这里是个大坑，尤其是这个master <figure class="image-caption"><img lazyload="" src="/images/loading.svg" data-src="https://leaves520-1326362500.cos.ap-nanjing.myqcloud.com/20240530152341.png" alt="imagepng"><figcaption>imagepng</figcaption></figure> 这里的勾选操作会影响你后续对数据库操作的权限，但是和登不上的问题却没太多关系</p>
 <h1 id="3-配置管理器设置"><a href="#3-配置管理器设置" class="headerlink" title="3.配置管理器设置"></a>3.配置管理器设置</h1><p>竟然还要换一个app操作，我也不太懂为什么，问老师是这样解决 直接用开始菜单的搜索搜到这个配置管理器</p>
 <h1 id="4登录界面加密方式"><a href="#4登录界面加密方式" class="headerlink" title="4登录界面加密方式"></a>4登录界面加密方式</h1><p>这个位置得搞成可选</p>
 <blockquote>
@@ -1110,7 +1110,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            共 123.6k 字
+                            共 124.7k 字
                         </span>
                     
                 </p>
